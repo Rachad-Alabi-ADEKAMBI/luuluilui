@@ -1,0 +1,1179 @@
+html, body{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+
+}
+
+$black: black;
+$red: #bc111d;
+$white: white;
+$grey: #F8F8F8;
+$green: green;
+$purple: purple;
+
+
+@mixin flex($flex-drection: row){
+    display: flex;
+    flex-direction: $flex-drection;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+
+h2{
+    font-size: 1.9em;
+    text-align: center;
+}
+
+a{
+    color: $black;
+}
+
+a:hover{
+    color: $red;
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+    text-align: center;
+}
+
+button,
+.btn-primary{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: $white;
+    height: 35px;
+    width: 110px;
+}
+
+button:hover,
+.btn-primary:hover{
+    background-color: $black;
+    color: $white;
+}
+
+
+
+.green{
+    background-color: $green;
+}
+
+.purple{
+    background-color: $purple;
+    width: 100px;
+    color: $white;
+}
+
+.red{
+    background-color: $red;
+        width: 100px;
+        color: $white;
+}
+
+.close{
+    margin: 10px auto;
+    text-align: left;
+    color: $black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover{
+    color: $red;
+}
+
+
+
+.search{
+    @include flex();
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin: 60px auto;
+    background-color: $red;
+
+
+    &__content{
+
+        width: 100%;
+        margin: 20px auto;
+        @include flex();
+        &__item{
+            text-align: center;
+            @include flex();
+            margin: auto;
+
+            p{
+                color: $white;
+                font-size: 1.1em;
+                font-weight: 500;
+
+                strong{
+                    font-weight: 700;
+                    color: $white;
+                    font-size: 1.3em;
+                }
+                span{
+                    font-weight: 700;
+                    color: black;
+                    font-size: 1.3em;
+                }
+            }
+
+            label{
+                margin: 5px;
+                color: $white;
+                select{
+                    height: 34px;
+                    width: 120px;
+                    background-color: $white;
+                    color: $black;
+                }
+
+                button{
+                    background-color: $black;
+                    color: $white;
+                    font-weight: bold;
+                    height:32pxs;
+                    border-radius: 2px;
+                    border: 2px solid $white;
+                    width: 120px;
+
+                    a{
+                        color: $white;
+                    }
+                }
+
+                button:hover{
+                    background-color: $red;
+                    color: $white;
+
+                    a{
+                        color: $white;
+                    }
+
+                }
+            }
+        }
+    }
+
+}
+
+.buttons{
+    margin: auto;
+    width: 400px;
+    @include flex();
+
+
+    button{
+        background-color: $red;
+        margin: 10px;
+    }
+
+    button:hover{
+        background-color: black;
+    }
+
+}
+
+.center{
+    width: 80%;
+    margin: 15px auto;
+    text-align: center;
+
+    p{
+        text-align: center;
+    }
+}
+
+
+section{
+ //   @include flex(column);
+    margin: 15px auto;
+
+    .close:hover{
+        color: $red;
+    }
+
+    h2{
+        margin: 10px auto;
+
+        span{
+            font-size: 0.7em;
+            font-weight: normal;
+        }
+    }
+
+    .container{
+        .row{
+            .item{
+                height: auto;
+                margin: 10px;
+                width: 300px;
+                background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                box-shadow: 0px 10px 12px #00000029;
+
+                &__top{
+                    height: 230px;
+                    width: 100%;
+                    position: relative;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                    }
+
+                    .info{
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        height: 25px;
+                        width: auto;
+                        background-color: $red;
+                        color: $white;
+                        padding-top: 5px;
+                        font-weight: bold;
+                        width: 100px;
+                        text-align: center;
+                    }
+
+                    .bar{
+                        margin: auto 0 0 0;
+                        height: 90px;
+                        width: 100%;
+                        text-align: left;
+
+                        p{
+                            color: $white;
+                        }
+                    }
+                }
+
+                &__bottom{
+                    display: block;
+                    height: 250px;
+                    text-align: center;
+                    width: 100%;
+
+                    h3{
+                        color: $black;
+                        font-size: 1.3em;
+                        margin: 10px auto;
+                    }
+
+                    .description{
+                        margin: 15px auto;
+                        color: black;
+                        width: 90%;
+                    }
+
+                   .list{
+                    @include flex();
+                    flex-wrap: nowrap;
+                    margin: auto;
+                    width: 95%;
+
+                    &__item{
+                        margin: 5px;
+
+                        span{
+                            font-weight: bold;
+                        }
+                    }
+                   }
+
+                    .price{
+                        font-size: 1.2em;
+                        font-weight: 700;
+                        color: $red;
+                    }
+
+
+                        button{
+                            display: table-cell;
+                            vertical-align: middle;
+                            background-color: $red;
+                            border: 1px solid $red;
+
+                            a{
+                                color: $white
+                            }
+                        }
+
+                        button:hover{
+                            background-color: $black;
+                            border: 1px solid $black;
+
+                            a{
+                                color: $white;
+                            }
+                        }
+                }
+            }
+
+            .card{
+                border: none;
+            }
+        }
+    }
+
+
+
+    .cards{
+        width: 80%;
+        @include flex();
+        margin: auto;
+
+        .card{
+            display: block;
+            text-align: center;
+            flex: 1;
+
+           i{
+            font-size: 2em;
+            color: $red;
+           }
+
+            p{
+                font-weight: 500;
+                font-size: 1.1em;
+            }
+
+            .text{
+                color: rgb(32, 29, 29);
+                font-weight: normal;
+                font-size: 1em;
+            }
+
+
+        }
+    }
+
+}
+
+
+
+.black{
+    height: 200px;
+    background-color: $black;
+    width: 100%;
+    display: table;
+    margin: 20px auto 60px auto;
+
+
+    &__content{
+        width: 60%;
+        background-color: $black;
+        display: table-cell;
+        margin: 80px auto;
+        vertical-align: middle;
+        @include flex();
+
+        p{
+            color: $white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        button{
+           background-color: $black;
+           border: 2px solid $white;
+           color: $white;
+           width: 200px;
+           font-weight: bold;
+           font-size: 1.2em;
+
+           a{
+            color: $white;
+           }
+
+        }
+
+        button:hover{
+            background-color: $white;
+
+            a{
+                color: $black;
+            }
+
+        }
+
+
+
+    }
+
+}
+
+.testimonies{
+    background-color: $grey;
+    height: 350px;
+    display: block;
+
+    &__content{
+        width: 80%;
+        text-align: center;
+    }
+}
+
+.car{
+    width: 100%;
+    margin: auto;
+   @include flex(column);
+
+    hr{
+        width: 100%;
+    }
+
+    &__top{
+        @include flex();
+        width: 90%;
+        margin: auto;
+        text-align: center;
+
+        h1{
+            color: $red;
+        }
+
+        .right{
+            display: block;
+
+            h2{
+                color: $red;
+                margin: auto auto 0 auto;
+            }
+
+            p{
+                margin: 0 auto;
+                span{
+                    color: $black;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    .image{
+        text-align: center;
+        margin: 20px auto;
+        img{
+            width: 700px;
+            height: 350px;
+            margin: auto;
+        }
+    }
+
+    &__infos{
+        width: 90%;
+        margin: auto;
+        @include flex();
+
+        .left{
+            width: 60%;
+
+            .details{
+               p{
+                span{
+                    color: $red;
+                    font-weight: bold;
+                }
+               }
+            }
+
+            .images{
+                @include flex();
+                flex-wrap: nowrap;
+                width: 100%;
+
+                a{
+                    cursor: pointer;
+                    margin: 5px;
+
+                    img{
+                        width: 230px;
+                        margin: 10x;
+                        height: 170px;
+
+                    }
+                }
+                    img{
+                        width: 230px;
+                        height: 170px;
+                        margin: 10px;
+
+                    }
+
+                    h4{
+                        text-align: center;
+                        color: $red;
+                        margin: 10px auto;
+                    }
+
+                    button{
+                        background-color: $red;
+                    }
+
+                    button:hover{
+                        background-color: $black;
+                    }
+            }
+        }
+
+        .right{
+            width: 30%;
+
+            .card{
+                display: block;
+
+
+                &__top{
+                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                    background: #FFFFFF 0% 0% no-repeat padding-box;
+                    box-shadow: 0px 10px 12px #00000029;
+                    padding: 10px;
+                    margin: auto;
+
+                    img{
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    &__infos{
+                        font-weight: bold;
+                        i{
+                            color: red;
+                        }
+                    }
+                }
+
+                &__bottom{
+                    @include flex(column);
+                    padding: 10px;
+                    margin: auto;
+                    text-align: left;
+                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                    background: #FFFFFF 0% 0% no-repeat padding-box;
+                    box-shadow: 0px 10px 12px #00000029;
+
+
+
+                    label{
+                        margin: 10px auto auto 0;
+                        width: 100%;
+
+                        input{
+                            height: 30px;
+                            width: 250px;
+                        }
+
+                        .message{
+                            height: 120px;
+                            width: 250px;
+                        }
+
+                        textarea{
+                            width: 250px;
+                            text-align: left;
+                        }
+
+                        button{
+                            width: 120px;
+                            height: 35px;
+                            font-weight: bold;
+                            background-color: $red;
+                            color: $white;
+                        }
+
+                        button:hover{
+                            background-color: $black;
+                            color: $white;
+                        }
+
+                        button:hover{
+                            background-color: $white;
+                            color: $red;
+                        }
+
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+}
+
+.contact{
+    width: 80%;
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+    height: auto;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 12px #00000029;
+
+    label{
+        margin: 10px auto;
+        width: 550px;
+        input{
+            width: 90%;
+            height: 30px;
+        }
+
+        .message{
+            height: 200px;
+        }
+    }
+
+    button{
+        background-color: $red;
+        color: $white;
+        border-color: $red;
+        cursor: pointer;
+        margin: 20px auto;
+    }
+
+
+
+
+}
+
+.table{
+	width: 850px;
+	border-collapse: collapse;
+	margin: auto;
+	font-family: sans-serif;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  border:1px solid #ddd;
+  text-align: center;
+  font-size:16px;
+}
+
+.table th{
+	background-color: $red;
+	color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+}
+
+.options{
+    text-align: center;
+    margin: 30px auto;
+
+
+
+    &__list{
+       li{
+         button{
+            height: 30px;
+            width: 120px;
+            background-color: $green;
+            border: 1px solid $green;
+            color: $white;
+        }
+
+        button:hover{
+            background-color: $black;
+            }
+       }
+    }
+}
+
+form{
+    width: 550px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 12px #00000029;
+    padding: 10px;
+    margin: 30px auto;
+
+    h2{
+        color: $black
+    }
+
+    .close{
+        text-align: center;
+        margin: auto;
+    }
+
+    .details{
+        @include flex();
+        margin: 10px auto;
+
+
+        label{
+            flex: 1;
+            margin: 5px;
+            input{
+                width: 120px;
+            }
+
+            select{
+                width: 120px;
+            }
+
+            .textarea{
+                width: 485px;
+                height: 110px;
+            }
+        }
+
+
+    }
+
+    p{
+        text-align: center;
+    }
+
+    .choices{
+        width: 50%;
+        margin: auto;
+        @include flex();
+
+        button{
+            margin: 5px;
+        }
+    }
+
+    button{
+        background-color: $red;
+
+    }
+
+}
+
+.carousel{
+    margin: 40px auto;
+    height: 250px;
+    text-align: center;
+    background-color: white;
+    padding-top: 20px;
+
+    .carousel-inner{
+        .item{
+            img{
+                width: 90px;
+                height: 90px;
+                border-radius: 30px;
+                margin: 10px auto;
+            }
+
+            p{
+                margin: 20px auto;
+
+                span{
+                    color: $red
+                }
+            }
+        }
+    }
+}
+
+
+.footer{
+    height: auto;
+    background-color: $black;
+    display: block;
+    margin: 80px auto 0 auto;
+    padding-top: 10px;
+
+    &__top{
+        @include flex();
+        width: 95%;
+        margin: auto;
+
+
+        .box{
+            flex: 1;
+            display: block;
+            text-align: left;
+            color: $white;
+
+            h4{
+                color: $red;
+
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+
+
+
+            p{
+                margin: 2px auto auto 0;
+                text-align: left;
+            }
+
+            form{
+                width: 200px;
+                @include flex();
+                margin: auto 5px 10px 0;
+
+                label{
+                    margin: 2px;
+                    input{
+                        height: 30px;
+                        width: 140px;
+                    }
+
+                    button{
+                        background-color: $black;
+                        height: 35px;
+                        color: $white;
+                    }
+                }
+            }
+
+            .cars{
+                .car{
+                    cursor: pointer;
+                    transition: 500ms ease-in-out;
+
+
+                    img{
+                        width: 70px;
+                        height: 40px;
+                    }
+
+                    h5{
+                        color: $red;
+                        font-weight: bold;
+
+                        span{
+                            color: $white;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .car:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    hr{
+        margin: 40px auto;
+    }
+
+    &__bottom{
+        color: $white;
+        @include flex();
+        width: 95%;
+        margin: auto;
+    }
+
+}
+
+/*responsive for 1024px*/
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    section{
+        .items{
+            width: 98%;
+
+            .item{
+                width: 320px;
+
+                &__top{
+                    margin: auto;
+                }
+
+                &__bottom{
+                    height: 270px;
+                }
+            }
+        }
+
+        .cards{
+            width: 98%;
+        }
+    }
+
+    .car{
+        &__infos{
+            @include flex(column);
+        }
+    }
+}
+
+/*responsive for 767x*/
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+   .search{
+    &__content{
+        &__item{
+
+        }
+    }
+   }
+
+    section{
+        .items{
+            width: 98%;
+
+            .item{
+                width: 230px;
+
+                &__top{
+                    img{
+                        height: 80%;
+                    }
+                }
+
+                &__bottom{
+                    height: 260px;
+
+                    h3{
+                        margin: -20px auto;
+                    }
+
+                    .list{
+                        flex-wrap: wrap;
+
+                    }
+                }
+            }
+        }
+
+        .cards{
+            width: 98%;
+        }
+    }
+
+    .car{
+        &__top{
+            width: 95%;
+        }
+
+        &__infos{
+            @include flex(column);
+            width: 95%;
+
+            .left{
+                width: 90%;
+                margin: auto 0;
+                .images{
+                    a{
+                        img{
+                            width: 220px;
+
+                        }
+                    }
+
+                    .image{
+                        img{
+                            width: 220px;
+                            height: 160px;
+                        }
+                    }
+                }
+            }
+
+            .right{
+                width: 50%;
+            }
+        }
+
+
+    }
+
+
+
+    .footer{
+        &__top{
+            @include flex(column);
+        }
+    }
+}
+
+
+/*responsive for 350px*/
+@media screen and (min-width: 350px) and (max-width: 766px){
+
+   h2{
+    font-size: 1.5em;
+   }
+
+   .grey{
+    height: auto;
+
+    .cards{
+        height: auto;
+    }
+   }
+    .search{
+        height: auto;
+        @include flex(column);
+
+        &__content{
+            @include flex(column);
+
+            &__item{
+                @include flex(column);
+            }
+        }
+    }
+/*
+    section{
+        .items{
+            @include flex(column);
+            width: 90%;
+            margin: auto;
+
+            .item{
+                width: 330px;
+                margin: auto;
+
+
+                &__top{
+                    margin: auto;
+
+                    img{
+                        margin: auto;
+                        width: 310px
+                    }
+                }
+
+                &__bottom{
+                    .list{
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+
+        }
+    }
+    */
+
+    .car{
+        &__top{
+            @include flex(column);
+
+            .right{
+
+            }
+        }
+
+        .image{
+            img{
+                width: 310px;
+                height: 270px;
+            }
+        }
+
+        &__infos{
+            @include flex(column);
+
+            .left{
+                width: 95%;
+                margin: auto 0;
+
+                .images{
+                    @include flex(column);
+                    margin: auto;
+
+                    img{
+                        width: 310px;
+                    }
+                }
+
+
+
+            }
+
+            .right{
+                width: 95%;
+                margin: auto 0;
+
+                .card{
+                    width: 330px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    form{
+        width: 340px;
+
+        .details{
+            @include flex(column);
+
+            label{
+                .textarea{
+                    width: 320px;
+                    margin: auto;
+                }
+            }
+        }
+
+
+    }
+
+    .contact{
+        width: 95%;
+
+        label{
+            width: 95%;
+            margin: auto;
+
+            input{
+                width: 95%;
+            }
+        }
+    }
+
+    .table{
+        width: 300px;
+        display: none;
+    }
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+
+
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+
+
+    .footer{
+        &__top{
+            @include flex(column);
+        }
+    }
+}

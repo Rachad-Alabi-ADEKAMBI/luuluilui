@@ -1,0 +1,974 @@
+html, body {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.9em;
+  text-align: center;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #bc111d;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  text-align: center;
+}
+
+button,
+.btn-primary {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  height: 35px;
+  width: 110px;
+}
+
+button:hover,
+.btn-primary:hover {
+  background-color: black;
+  color: white;
+}
+
+.green {
+  background-color: green;
+}
+
+.purple {
+  background-color: purple;
+  width: 100px;
+  color: white;
+}
+
+.red {
+  background-color: #bc111d;
+  width: 100px;
+  color: white;
+}
+
+.close {
+  margin: 10px auto;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #bc111d;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  margin: 60px auto;
+  background-color: #bc111d;
+}
+.search__content {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.search__content__item {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.search__content__item p {
+  color: white;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.search__content__item p strong {
+  font-weight: 700;
+  color: white;
+  font-size: 1.3em;
+}
+.search__content__item p span {
+  font-weight: 700;
+  color: black;
+  font-size: 1.3em;
+}
+.search__content__item label {
+  margin: 5px;
+  color: white;
+}
+.search__content__item label select {
+  height: 34px;
+  width: 120px;
+  background-color: white;
+  color: black;
+}
+.search__content__item label button {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  height: 32pxs;
+  border-radius: 2px;
+  border: 2px solid white;
+  width: 120px;
+}
+.search__content__item label button a {
+  color: white;
+}
+.search__content__item label button:hover {
+  background-color: #bc111d;
+  color: white;
+}
+.search__content__item label button:hover a {
+  color: white;
+}
+
+.buttons {
+  margin: auto;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.buttons button {
+  background-color: #bc111d;
+  margin: 10px;
+}
+.buttons button:hover {
+  background-color: black;
+}
+
+.center {
+  width: 80%;
+  margin: 15px auto;
+  text-align: center;
+}
+.center p {
+  text-align: center;
+}
+
+section {
+  margin: 15px auto;
+}
+section .close:hover {
+  color: #bc111d;
+}
+section h2 {
+  margin: 10px auto;
+}
+section h2 span {
+  font-size: 0.7em;
+  font-weight: normal;
+}
+section .container .row .item {
+  height: auto;
+  margin: 10px;
+  width: 300px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
+}
+section .container .row .item__top {
+  height: 230px;
+  width: 100%;
+  position: relative;
+}
+section .container .row .item__top img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+section .container .row .item__top .info {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  height: 25px;
+  width: auto;
+  background-color: #bc111d;
+  color: white;
+  padding-top: 5px;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+}
+section .container .row .item__top .bar {
+  margin: auto 0 0 0;
+  height: 90px;
+  width: 100%;
+  text-align: left;
+}
+section .container .row .item__top .bar p {
+  color: white;
+}
+section .container .row .item__bottom {
+  display: block;
+  height: 250px;
+  text-align: center;
+  width: 100%;
+}
+section .container .row .item__bottom h3 {
+  color: black;
+  font-size: 1.3em;
+  margin: 10px auto;
+}
+section .container .row .item__bottom .description {
+  margin: 15px auto;
+  color: black;
+  width: 90%;
+}
+section .container .row .item__bottom .list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  margin: auto;
+  width: 95%;
+}
+section .container .row .item__bottom .list__item {
+  margin: 5px;
+}
+section .container .row .item__bottom .list__item span {
+  font-weight: bold;
+}
+section .container .row .item__bottom .price {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #bc111d;
+}
+section .container .row .item__bottom button {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #bc111d;
+  border: 1px solid #bc111d;
+}
+section .container .row .item__bottom button a {
+  color: white;
+}
+section .container .row .item__bottom button:hover {
+  background-color: black;
+  border: 1px solid black;
+}
+section .container .row .item__bottom button:hover a {
+  color: white;
+}
+section .container .row .card {
+  border: none;
+}
+section .cards {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+section .cards .card {
+  display: block;
+  text-align: center;
+  flex: 1;
+}
+section .cards .card i {
+  font-size: 2em;
+  color: #bc111d;
+}
+section .cards .card p {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+section .cards .card .text {
+  color: rgb(32, 29, 29);
+  font-weight: normal;
+  font-size: 1em;
+}
+
+.black {
+  height: 200px;
+  background-color: black;
+  width: 100%;
+  display: table;
+  margin: 20px auto 60px auto;
+}
+.black__content {
+  width: 60%;
+  background-color: black;
+  display: table-cell;
+  margin: 80px auto;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.black__content p {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.black__content button {
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  width: 200px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.black__content button a {
+  color: white;
+}
+.black__content button:hover {
+  background-color: white;
+}
+.black__content button:hover a {
+  color: black;
+}
+
+.testimonies {
+  background-color: #F8F8F8;
+  height: 350px;
+  display: block;
+}
+.testimonies__content {
+  width: 80%;
+  text-align: center;
+}
+
+.car {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.car hr {
+  width: 100%;
+}
+.car__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+.car__top h1 {
+  color: #bc111d;
+}
+.car__top .right {
+  display: block;
+}
+.car__top .right h2 {
+  color: #bc111d;
+  margin: auto auto 0 auto;
+}
+.car__top .right p {
+  margin: 0 auto;
+}
+.car__top .right p span {
+  color: black;
+  font-size: 1em;
+}
+.car .image {
+  text-align: center;
+  margin: 20px auto;
+}
+.car .image img {
+  width: 700px;
+  height: 350px;
+  margin: auto;
+}
+.car__infos {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.car__infos .left {
+  width: 60%;
+}
+.car__infos .left .details p span {
+  color: #bc111d;
+  font-weight: bold;
+}
+.car__infos .left .images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.car__infos .left .images a {
+  cursor: pointer;
+  margin: 5px;
+}
+.car__infos .left .images a img {
+  width: 230px;
+  margin: 10x;
+  height: 170px;
+}
+.car__infos .left .images img {
+  width: 230px;
+  height: 170px;
+  margin: 10px;
+}
+.car__infos .left .images h4 {
+  text-align: center;
+  color: #bc111d;
+  margin: 10px auto;
+}
+.car__infos .left .images button {
+  background-color: #bc111d;
+}
+.car__infos .left .images button:hover {
+  background-color: black;
+}
+.car__infos .right {
+  width: 30%;
+}
+.car__infos .right .card {
+  display: block;
+}
+.car__infos .right .card__top {
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
+  padding: 10px;
+  margin: auto;
+}
+.car__infos .right .card__top img {
+  width: 100px;
+  height: 100px;
+}
+.car__infos .right .card__top__infos {
+  font-weight: bold;
+}
+.car__infos .right .card__top__infos i {
+  color: red;
+}
+.car__infos .right .card__bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: auto;
+  text-align: left;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
+}
+.car__infos .right .card__bottom label {
+  margin: 10px auto auto 0;
+  width: 100%;
+}
+.car__infos .right .card__bottom label input {
+  height: 30px;
+  width: 250px;
+}
+.car__infos .right .card__bottom label .message {
+  height: 120px;
+  width: 250px;
+}
+.car__infos .right .card__bottom label textarea {
+  width: 250px;
+  text-align: left;
+}
+.car__infos .right .card__bottom label button {
+  width: 120px;
+  height: 35px;
+  font-weight: bold;
+  background-color: #bc111d;
+  color: white;
+}
+.car__infos .right .card__bottom label button:hover {
+  background-color: black;
+  color: white;
+}
+.car__infos .right .card__bottom label button:hover {
+  background-color: white;
+  color: #bc111d;
+}
+
+.contact {
+  width: 80%;
+  margin: 30px auto;
+  display: block;
+  text-align: center;
+  height: auto;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
+}
+.contact label {
+  margin: 10px auto;
+  width: 550px;
+}
+.contact label input {
+  width: 90%;
+  height: 30px;
+}
+.contact label .message {
+  height: 200px;
+}
+.contact button {
+  background-color: #bc111d;
+  color: white;
+  border-color: #bc111d;
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+.table {
+  width: 850px;
+  border-collapse: collapse;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.table td, .table th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+.table th {
+  background-color: #bc111d;
+  color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.options {
+  text-align: center;
+  margin: 30px auto;
+}
+.options__list li button {
+  height: 30px;
+  width: 120px;
+  background-color: green;
+  border: 1px solid green;
+  color: white;
+}
+.options__list li button:hover {
+  background-color: black;
+}
+
+form {
+  width: 550px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
+  padding: 10px;
+  margin: 30px auto;
+}
+form h2 {
+  color: black;
+}
+form .close {
+  text-align: center;
+  margin: auto;
+}
+form .details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+form .details label {
+  flex: 1;
+  margin: 5px;
+}
+form .details label input {
+  width: 120px;
+}
+form .details label select {
+  width: 120px;
+}
+form .details label .textarea {
+  width: 485px;
+  height: 110px;
+}
+form p {
+  text-align: center;
+}
+form .choices {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+form .choices button {
+  margin: 5px;
+}
+form button {
+  background-color: #bc111d;
+}
+
+.carousel {
+  margin: 40px auto;
+  height: 250px;
+  text-align: center;
+  background-color: white;
+  padding-top: 20px;
+}
+.carousel .carousel-inner .item img {
+  width: 90px;
+  height: 90px;
+  border-radius: 30px;
+  margin: 10px auto;
+}
+.carousel .carousel-inner .item p {
+  margin: 20px auto;
+}
+.carousel .carousel-inner .item p span {
+  color: #bc111d;
+}
+
+.footer {
+  height: auto;
+  background-color: black;
+  display: block;
+  margin: 80px auto 0 auto;
+  padding-top: 10px;
+}
+.footer__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: auto;
+}
+.footer__top .box {
+  flex: 1;
+  display: block;
+  text-align: left;
+  color: white;
+}
+.footer__top .box h4 {
+  color: #bc111d;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.footer__top .box p {
+  margin: 2px auto auto 0;
+  text-align: left;
+}
+.footer__top .box form {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto 5px 10px 0;
+}
+.footer__top .box form label {
+  margin: 2px;
+}
+.footer__top .box form label input {
+  height: 30px;
+  width: 140px;
+}
+.footer__top .box form label button {
+  background-color: black;
+  height: 35px;
+  color: white;
+}
+.footer__top .box .cars .car {
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+}
+.footer__top .box .cars .car img {
+  width: 70px;
+  height: 40px;
+}
+.footer__top .box .cars .car h5 {
+  color: #bc111d;
+  font-weight: bold;
+}
+.footer__top .box .cars .car h5 span {
+  color: white;
+  font-weight: bold;
+}
+.footer__top .box .cars .car:hover {
+  transform: scale(1.1);
+}
+.footer hr {
+  margin: 40px auto;
+}
+.footer__bottom {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: auto;
+}
+
+/*responsive for 1024px*/
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  section .items {
+    width: 98%;
+  }
+  section .items .item {
+    width: 320px;
+  }
+  section .items .item__top {
+    margin: auto;
+  }
+  section .items .item__bottom {
+    height: 270px;
+  }
+  section .cards {
+    width: 98%;
+  }
+  .car__infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+/*responsive for 767x*/
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  section .items {
+    width: 98%;
+  }
+  section .items .item {
+    width: 230px;
+  }
+  section .items .item__top img {
+    height: 80%;
+  }
+  section .items .item__bottom {
+    height: 260px;
+  }
+  section .items .item__bottom h3 {
+    margin: -20px auto;
+  }
+  section .items .item__bottom .list {
+    flex-wrap: wrap;
+  }
+  section .cards {
+    width: 98%;
+  }
+  .car__top {
+    width: 95%;
+  }
+  .car__infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 95%;
+  }
+  .car__infos .left {
+    width: 90%;
+    margin: auto 0;
+  }
+  .car__infos .left .images a img {
+    width: 220px;
+  }
+  .car__infos .left .images .image img {
+    width: 220px;
+    height: 160px;
+  }
+  .car__infos .right {
+    width: 50%;
+  }
+  .footer__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+/*responsive for 350px*/
+@media screen and (min-width: 350px) and (max-width: 766px) {
+  h2 {
+    font-size: 1.5em;
+  }
+  .grey {
+    height: auto;
+  }
+  .grey .cards {
+    height: auto;
+  }
+  .search {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .search__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .search__content__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  /*
+      section{
+          .items{
+              @include flex(column);
+              width: 90%;
+              margin: auto;
+
+              .item{
+                  width: 330px;
+                  margin: auto;
+
+
+                  &__top{
+                      margin: auto;
+
+                      img{
+                          margin: auto;
+                          width: 310px
+                      }
+                  }
+
+                  &__bottom{
+                      .list{
+                          flex-wrap: wrap;
+                      }
+                  }
+              }
+
+          }
+      }
+      */
+  .car__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .car .image img {
+    width: 310px;
+    height: 270px;
+  }
+  .car__infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .car__infos .left {
+    width: 95%;
+    margin: auto 0;
+  }
+  .car__infos .left .images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  .car__infos .left .images img {
+    width: 310px;
+  }
+  .car__infos .right {
+    width: 95%;
+    margin: auto 0;
+  }
+  .car__infos .right .card {
+    width: 330px;
+    margin: auto;
+  }
+  form {
+    width: 340px;
+  }
+  form .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  form .details label .textarea {
+    width: 320px;
+    margin: auto;
+  }
+  .contact {
+    width: 95%;
+  }
+  .contact label {
+    width: 95%;
+    margin: auto;
+  }
+  .contact label input {
+    width: 95%;
+  }
+  .table {
+    width: 300px;
+    display: none;
+  }
+  .table thead {
+    display: none;
+  }
+  .table, .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .footer__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}/*# sourceMappingURL=main.css.map */
