@@ -1,4 +1,4 @@
-@extends ('master');
+@extends ('./layouts/app');
 
 
 
@@ -8,10 +8,11 @@
 
 <div class="">
     <div class="main">
+
         <div class="container">
             <section class='section bg-light'>
                 <h2>
-                    Derniers ajout
+                    Derniers ajouts
                 </h2>
 
                 <div class="container ">
@@ -46,9 +47,7 @@
                                     <p class="price"> {{$ad->price}} F CFA
                                     </p>
 
-                                    <button>
-                                        <a href="{{url('item',$ad->id)}}">Voir</a>
-                                    </button>
+                                    <a href="{{url('item',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>

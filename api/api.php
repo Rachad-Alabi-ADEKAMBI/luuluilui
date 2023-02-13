@@ -1,11 +1,18 @@
 <?php
 session_start();
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header(
+    'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'
+);
+
 //local
-$pdo = new PDO('mysql:dbname=frankobizness;host=localhost', 'root', '');
+$pdo = new PDO('mysql:dbname=franko;host=localhost', 'root', '');
 function getConnexion()
 {
     return new PDO(
-        'mysql:host=localhost; dbname=frankobizness; charset=UTF8',
+        'mysql:host=localhost; dbname=franko; charset=UTF8',
         'root',
         ''
     );

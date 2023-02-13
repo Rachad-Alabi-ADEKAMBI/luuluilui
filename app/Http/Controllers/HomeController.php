@@ -11,14 +11,21 @@ class HomeController extends Controller
     {
         $data = Ad::limit(3)->get();
 
-        return view('pages/home', compact('data'));
+        return view('home', compact('data'));
     }
 
     public function ads()
     {
         $data = Ad::all();
 
-        return view('pages/ads', compact('data'));
+        return view('ads', compact('data'));
+    }
+
+    public function dashboard()
+    {
+        $data = Ad::all();
+
+        return view('dashboard', compact('data'));
     }
 
     /*

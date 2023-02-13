@@ -3,7 +3,6 @@ html, body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
     margin: 0;
-
 }
 
 $black: black;
@@ -43,20 +42,13 @@ li{
 }
 
 button,
-.btn-primary{
+.btn{
     cursor: pointer;
-    padding: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: $white;
-    height: 35px;
-    width: 110px;
 }
 
 button:hover,
 .btn-primary:hover{
-    background-color: $black;
-    color: $white;
+    //
 }
 
 
@@ -67,13 +59,11 @@ button:hover,
 
 .purple{
     background-color: $purple;
-    width: 100px;
     color: $white;
 }
 
 .red{
     background-color: $red;
-        width: 100px;
         color: $white;
 }
 
@@ -168,7 +158,7 @@ button:hover,
 
 .buttons{
     margin: auto;
-    width: 400px;
+    width: auto;
     @include flex();
 
 
@@ -215,8 +205,7 @@ section{
         .row{
             .item{
                 height: auto;
-                margin: 10px;
-                width: 300px;
+                width: 290px;
                 background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
                 background: #FFFFFF 0% 0% no-repeat padding-box;
                 box-shadow: 0px 10px 12px #00000029;
@@ -227,7 +216,7 @@ section{
                     position: relative;
                     img{
                         width: 100%;
-                        height: 100%;
+                        height: 200px;
                         position: absolute;
                     }
 
@@ -235,7 +224,7 @@ section{
                         position: absolute;
                         top: 15px;
                         left: 15px;
-                        height: 25px;
+                        height: 30px;
                         width: auto;
                         background-color: $red;
                         color: $white;
@@ -648,113 +637,6 @@ section{
 
 }
 
-.table{
-	width: 850px;
-	border-collapse: collapse;
-	margin: auto;
-	font-family: sans-serif;
-}
-
-.table td,.table th{
-  padding:12px 15px;
-  border:1px solid #ddd;
-  text-align: center;
-  font-size:16px;
-}
-
-.table th{
-	background-color: $red;
-	color:#ffffff;
-}
-
-.table tbody tr:nth-child(even){
-	background-color: #f5f5f5;
-}
-
-.options{
-    text-align: center;
-    margin: 30px auto;
-
-
-
-    &__list{
-       li{
-         button{
-            height: 30px;
-            width: 120px;
-            background-color: $green;
-            border: 1px solid $green;
-            color: $white;
-        }
-
-        button:hover{
-            background-color: $black;
-            }
-       }
-    }
-}
-
-form{
-    width: 550px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 10px 12px #00000029;
-    padding: 10px;
-    margin: 30px auto;
-
-    h2{
-        color: $black
-    }
-
-    .close{
-        text-align: center;
-        margin: auto;
-    }
-
-    .details{
-        @include flex();
-        margin: 10px auto;
-
-
-        label{
-            flex: 1;
-            margin: 5px;
-            input{
-                width: 120px;
-            }
-
-            select{
-                width: 120px;
-            }
-
-            .textarea{
-                width: 485px;
-                height: 110px;
-            }
-        }
-
-
-    }
-
-    p{
-        text-align: center;
-    }
-
-    .choices{
-        width: 50%;
-        margin: auto;
-        @include flex();
-
-        button{
-            margin: 5px;
-        }
-    }
-
-    button{
-        background-color: $red;
-
-    }
-
-}
 
 .carousel{
     margin: 40px auto;
@@ -817,25 +699,6 @@ form{
                 text-align: left;
             }
 
-            form{
-                width: 200px;
-                @include flex();
-                margin: auto 5px 10px 0;
-
-                label{
-                    margin: 2px;
-                    input{
-                        height: 30px;
-                        width: 140px;
-                    }
-
-                    button{
-                        background-color: $black;
-                        height: 35px;
-                        color: $white;
-                    }
-                }
-            }
 
             .cars{
                 .car{
@@ -1105,71 +968,6 @@ form{
             }
         }
     }
-
-    form{
-        width: 340px;
-
-        .details{
-            @include flex(column);
-
-            label{
-                .textarea{
-                    width: 320px;
-                    margin: auto;
-                }
-            }
-        }
-
-
-    }
-
-    .contact{
-        width: 95%;
-
-        label{
-            width: 95%;
-            margin: auto;
-
-            input{
-                width: 95%;
-            }
-        }
-    }
-
-    .table{
-        width: 300px;
-        display: none;
-    }
-	.table thead{
-		display: none;
-	}
-
-	.table, .table tbody, .table tr, .table td{
-		display: block;
-		width: 100%;
-	}
-	.table tr{
-		margin-bottom:15px;
-	}
-	.table td{
-		text-align: right;
-		padding-left: 50%;
-		text-align: right;
-		position: relative;
-
-
-	}
-	.table td::before{
-		content: attr(data-label);
-		position: absolute;
-		left:0;
-		width: 50%;
-		padding-left:15px;
-		font-size:15px;
-		font-weight: bold;
-		text-align: left;
-	}
-
 
     .footer{
         &__top{
