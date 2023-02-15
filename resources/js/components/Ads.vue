@@ -157,7 +157,7 @@
 
 <script>
    export default {
-  name: 'App',
+  name: 'Ads',
   props: {
     msg: String
   },
@@ -180,20 +180,6 @@ mounted: function() {
    this.getToSell();
 },
 methods: {
-
-    displayAdd(){
-        this.showBtn = false;
-        this.showCars = false;
-        this.showAdd = true
-    },
-
-    getAllCars() {
-        axios.get('http://127.0.0.1/frankoo/api/allCars').then(response =>
-            this.details = response.data)
-            this.showAllCars = true;
-            this.showToRent = false;
-            this.showToSell =false
-    },
     getToSell(){
         axios.get('http://127.0.0.1/frankoo/api/carsToSell').then(response =>
             this.details = response.data);
@@ -202,6 +188,7 @@ methods: {
             this.showAllCars = false;
             this.showToRent = false;
             this.showToSell = true;
+            console.log('ok');
     },
     getToRent(){
         axios.get('http://127.0.0.1/frankoo/api/carsToRent').then(response =>

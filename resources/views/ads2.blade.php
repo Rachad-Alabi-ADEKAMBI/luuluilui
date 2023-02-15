@@ -6,8 +6,8 @@
 @section ('content')
 
 
-<div class="" id='Ads'>
-    <Ads />
+<div class="" id='Ads2'>
+    <Ads2 />
 </div>
 
 

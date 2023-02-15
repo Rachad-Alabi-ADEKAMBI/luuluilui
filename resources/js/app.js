@@ -5,9 +5,17 @@ import focus from '@alpinejs/focus';
 
 import {createApp} from 'vue'
 
-import App from './App.vue'
+const app = createApp({
 
-createApp(App).mount("#app")
+})
+
+import Ads from '@/components/Ads.vue'
+import DashboardAdmin from '@/components/DashboardAdmin.vue'
+
+app.component('Ads', Ads)
+app.component('DashboardAdmin', DashboardAdmin)
+
+app.mount("#app")
 
 window.Alpine = Alpine;
 

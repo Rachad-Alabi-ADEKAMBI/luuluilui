@@ -52,9 +52,12 @@
         <!-- Page Content -->
         <main>
 
-            <div class="container">
+            <div class="container" id='app'>
+
                 @yield('content')
             </div>
+
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
         </main>
     </div>
 
