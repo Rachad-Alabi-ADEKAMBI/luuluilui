@@ -5,6 +5,14 @@ html, body {
   margin: 0;
 }
 
+h1, .title {
+  font-size: 1.8em;
+  text-align: center;
+  color: #bc111d;
+  font-weight: bold;
+  margin: auto;
+}
+
 h2 {
   font-size: 1.9em;
   text-align: center;
@@ -129,7 +137,10 @@ button,
 
 .buttons {
   margin: auto;
-  width: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

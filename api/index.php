@@ -26,6 +26,10 @@ try {
                 getCars();
                 break;
 
+            case 'users':
+                getUsers();
+                break;
+
             case 'search':
                 search();
                 break;

@@ -32,18 +32,6 @@ function str_random($length)
 
     return substr(str_shuffle(str_repeat($alphabet, $length)), 0, $length);
 }
-
-// obtenir le titre de la page
-function PageName()
-{
-    return substr(
-        $_SERVER['SCRIPT_NAME'],
-        strrpos($_SERVER['SCRIPT_NAME'], '/') + 1
-    );
-}
-
-$current_page = PageName();
-
 //controle des input
 function verifyInput($inputContent)
 {
@@ -54,11 +42,12 @@ function verifyInput($inputContent)
     return $inputContent;
 }
 
-function getReceipt($receipt_id)
+function getUsers()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare('SELECT *  FROM receipts WHERE id = ?');
-    $req->execute([$receipt_id]);
+    $req = $pdo->prepare('SELECT *  FROM
+        users ORDER BY id DESC ');
+    $req->execute();
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
     sendJSON($datas);
