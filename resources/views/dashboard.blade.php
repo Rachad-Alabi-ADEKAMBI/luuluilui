@@ -10,6 +10,8 @@
             </p>
         </div>
     </div>
-    <Ads2 />
+
+
+    <User />
 </main>
 @endsection

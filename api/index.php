@@ -54,6 +54,10 @@ try {
                 getLastSaleAdded();
                 break;
 
+            case 'adsBySeller':
+                getAdsBySeller();
+                break;
+
             case 'lastRentAdded':
                 getLastRentAdded();
                 break;
@@ -62,7 +66,7 @@ try {
                 getLastSold();
                 break;
 
-            case 'car':
+            case 'ad':
                 if (!empty($url[1])) {
                     getCar($url[1]);
                 } else {

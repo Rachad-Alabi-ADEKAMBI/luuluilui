@@ -66,6 +66,18 @@ function getCar($id)
     return $datas;
 }
 
+function getAdsBySeller()
+{
+    $pdo = getConnexion();
+    $req = $pdo->prepare("SELECT *  FROM ads
+        WHERE seller_id = ?");
+    $req->execute([2]);
+    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->closeCursor();
+    sendJSON($datas);
+    return $datas;
+}
+
 function getCars()
 {
     $pdo = getConnexion();

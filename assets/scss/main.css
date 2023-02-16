@@ -13,6 +13,19 @@ h1, .title {
   margin: auto;
 }
 
+span {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.subtitle {
+  font-size: 1.4em;
+  text-align: center;
+  color: #bc111d;
+  font-weight: bold;
+  margin: auto;
+}
+
 h2 {
   font-size: 1.9em;
   text-align: center;
@@ -32,7 +45,6 @@ li {
   text-align: center;
 }
 
-button,
 .btn {
   cursor: pointer;
 }
@@ -51,11 +63,23 @@ button,
   color: white;
 }
 
+i {
+  cursor: pointer;
+}
+
+.icons {
+  display: table;
+  margin: 20px auto auto 10px;
+  font-size: 1.5em;
+}
+.icons i {
+  margin: 10px;
+}
+.icons i:hover {
+  color: #bc111d;
+}
+
 .close {
-  margin: 10px auto;
-  text-align: left;
-  color: black;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -507,35 +531,6 @@ section .cards .card .text {
 .car__infos .right .card__bottom label button:hover {
   background-color: white;
   color: #bc111d;
-}
-
-.contact {
-  width: 80%;
-  margin: 30px auto;
-  display: block;
-  text-align: center;
-  height: auto;
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
-}
-.contact label {
-  margin: 10px auto;
-  width: 550px;
-}
-.contact label input {
-  width: 90%;
-  height: 30px;
-}
-.contact label .message {
-  height: 200px;
-}
-.contact button {
-  background-color: #bc111d;
-  color: white;
-  border-color: #bc111d;
-  cursor: pointer;
-  margin: 20px auto;
 }
 
 .carousel {

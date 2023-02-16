@@ -24,7 +24,20 @@ $purple: purple;
 
 h1, .title{
     font-size: 1.8em;
-    text-align: center;
+    text-align: center  ;
+    color: $red;
+    font-weight: bold;
+    margin: auto;
+}
+
+span{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.subtitle{
+    font-size: 1.4em;
+    text-align: center  ;
     color: $red;
     font-weight: bold;
     margin: auto;
@@ -48,7 +61,7 @@ li{
     text-align: center;
 }
 
-button,
+
 .btn{
     cursor: pointer;
 }
@@ -74,11 +87,25 @@ button:hover,
         color: $white;
 }
 
+i{
+    cursor: pointer;
+}
+.icons{
+    display: table;
+    margin: 20px auto auto 10px;
+    font-size: 1.5em;
+
+    i{
+        margin: 10px;
+    }
+
+    i:hover{
+        color: $red;
+    }
+}
+
+
 .close{
-    margin: 10px auto;
-    text-align: left;
-    color: $black;
-    font-weight: bold;
     cursor: pointer;
 }
 
@@ -609,41 +636,7 @@ section{
 
 }
 
-.contact{
-    width: 80%;
-    margin: 30px auto;
-    display: block;
-    text-align: center;
-    height: auto;
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 10px 12px #00000029;
 
-    label{
-        margin: 10px auto;
-        width: 550px;
-        input{
-            width: 90%;
-            height: 30px;
-        }
-
-        .message{
-            height: 200px;
-        }
-    }
-
-    button{
-        background-color: $red;
-        color: $white;
-        border-color: $red;
-        cursor: pointer;
-        margin: 20px auto;
-    }
-
-
-
-
-}
 
 
 .carousel{

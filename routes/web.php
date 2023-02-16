@@ -34,9 +34,6 @@ Route::middleware([
 /*
 Route::post('/upload', [HomeController::class, 'upload']);
 
-Route::get('/home', [HomeController::class, 'index']);
-
-Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/delete/{id}', [HomeController::class, 'delete']);

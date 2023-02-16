@@ -10,10 +10,10 @@ const app = createApp({
 })
 
 import Ads from '@/components/Ads.vue'
-import Ads2 from '@/components/Ads2.vue'
+import User from '@/components/User.vue'
 
 app.component('Ads', Ads)
-app.component('Ads2', Ads2)
+app.component('User', User)
 
 app.mount("#app")
 

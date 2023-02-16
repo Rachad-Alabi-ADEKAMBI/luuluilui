@@ -124,7 +124,9 @@
         getImgUrl(pic) {
         return "http://127.0.0.1/frankoo/assets/img/" + pic;
     },
-    got
+    goToAd(id){
+        redirect('http://127.0.0.1/item?ad='+id);
+    }
     }
     }
     </script>
