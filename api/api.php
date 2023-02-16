@@ -313,7 +313,7 @@ function newCar()
             ?>
 <script>
 alert('Nouveau véhicule ajouté avec succs');
-window.location.replace('./index.php?action=dashboard');
+window.location.replace('./dashboard');
 </script>
 <?php
         }

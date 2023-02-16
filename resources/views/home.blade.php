@@ -2,23 +2,20 @@
 
 
 
-
 @section ('content')
-
 
 <div class="">
     <div class="main">
-
         <div class="container">
             <section class='section bg-light'>
-                <h2>
+                <h2 class="subtitle">
                     Derniers ajouts
                 </h2>
 
-                <div class="container ">
+                <div class="container mt-2">
                     <div class="row">
                         @foreach($data as $ad)
-                        <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="col-md-12 col-lg-4">
                             <div class="item">
                                 <div class="item__top">
                                     <img src="http://127.0.0.1/frankoo/assets/img/blake-meyer-CRNbHjNaljo-unsplash.jpg"
@@ -35,26 +32,25 @@
                                     </h3>
 
                                     <p class="description">
-                                        {{$ad->description}}
+                                        @php echo App\Http\Controllers\HomeController::formatText($ad->description);
+                                        @endphp
                                     </p>
 
                                     <div class="list">
-                                        <div class="list__item">Annee: <span>{{$ad->year}}</span></div>
-                                        <div class="list__item">Etat: <span>{{$ad->rate}}</span></div>
+                                        <div class="list__item">Année: <span>{{$ad->year}}</span></div>
+                                        <div class="list__item">Etat: <span>{{$ad->rate}}/5</span></div>
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{$ad->price}} F CFA
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} X0F
                                     </p>
 
-                                    <a href="{{url('item',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
+                                    <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                     </div>
-
-
                 </div>
 
             </section>
@@ -118,14 +114,14 @@
 
         <div class="container">
             <section class='section bg-light'>
-                <h2>
+                <h2 class="subtitle">
                     Les plus consultées
                 </h2>
 
-                <div class="container ">
+                <div class="container mt-2">
                     <div class="row">
                         @foreach($data as $ad)
-                        <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="col-md-12 col-lg-4">
                             <div class="item">
                                 <div class="item__top">
                                     <img src="http://127.0.0.1/frankoo/assets/img/blake-meyer-CRNbHjNaljo-unsplash.jpg"
@@ -142,28 +138,25 @@
                                     </h3>
 
                                     <p class="description">
-                                        {{$ad->description}}
+                                        @php echo App\Http\Controllers\HomeController::formatText($ad->description);
+                                        @endphp
                                     </p>
 
                                     <div class="list">
-                                        <div class="list__item">Annee: <span>{{$ad->year}}</span></div>
-                                        <div class="list__item">Etat: <span>{{$ad->rate}}</span></div>
+                                        <div class="list__item">Année: <span>{{$ad->year}}</span></div>
+                                        <div class="list__item">Etat: <span>{{$ad->rate}}/5</span></div>
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{$ad->price}} F CFA
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} X0F
                                     </p>
 
-                                    <button>
-                                        <a href="{{url('item',$ad->id)}}">Voir</a>
-                                    </button>
+                                    <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                     </div>
-
-
                 </div>
 
             </section>
@@ -191,14 +184,14 @@
 
         <div class="container">
             <section class='section bg-light'>
-                <h2>
-                    Top vendeurs
+                <h2 class="subtitle">
+                    Annonces en vedette
                 </h2>
 
-                <div class="container ">
+                <div class="container mt-2">
                     <div class="row">
                         @foreach($data as $ad)
-                        <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="col-md-12 col-lg-4">
                             <div class="item">
                                 <div class="item__top">
                                     <img src="http://127.0.0.1/frankoo/assets/img/blake-meyer-CRNbHjNaljo-unsplash.jpg"
@@ -215,28 +208,25 @@
                                     </h3>
 
                                     <p class="description">
-                                        {{$ad->description}}
+                                        @php echo App\Http\Controllers\HomeController::formatText($ad->description);
+                                        @endphp
                                     </p>
 
                                     <div class="list">
-                                        <div class="list__item">Annee: <span>{{$ad->year}}</span></div>
-                                        <div class="list__item">Etat: <span>{{$ad->rate}}</span></div>
+                                        <div class="list__item">Année: <span>{{$ad->year}}</span></div>
+                                        <div class="list__item">Etat: <span>{{$ad->rate}}/5</span></div>
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{$ad->price}} F CFA
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} X0F
                                     </p>
 
-                                    <button>
-                                        <a href="{{url('item',$ad->id)}}">Voir</a>
-                                    </button>
+                                    <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                     </div>
-
-
                 </div>
 
             </section>

@@ -2,17 +2,13 @@
     <div class="footer__top">
         <div class="box">
             <h4>
-                Frankobizness
+                luuluilui
             </h4>
 
             <p>
-                Vente et locations de vehicules
-            </p>
-
-            <p>9722412</p>
-            <p>Facebook</p>
-            <p>Instagram</p>
-            <p>contact@frankobizness.com</p>
+                Annonces de vente et <br> locations de vehicules
+            </p> <br>
+            <p>contact@luuluilui</p>
         </div>
 
         <div class="box">

@@ -22,6 +22,8 @@ Route::get('/', [HomeController::class, 'view']);
 Route::get('/ads', [HomeController::class, 'ads']);
 Route::get('/sellers', [UserController::class, 'sellers']);
 
+Route::get('/ad/{id}', [HomeController::class, 'ad']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -36,7 +36,7 @@
                                     <th scope="row">{{ detail.id }}</th>
                                     <td>{{ detail.name }}</td>
                                     <td>{{ format(detail.price) }} XOF</td>
-                                    <td><img src="http://127.0.0.1/frankoo/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg"
+                                    <td><img src="https://www.luuluilui.fr/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg"
                                         width="120" height="60" alt=""></td>
                                     <td>
                                         <div class="icons">
@@ -57,7 +57,7 @@
     <div class="container" v-if="showAdd">
         <div class="row">
             <div class="col-md-12 col-lg-6 mx-auto p-3 bg-light text-center">
-                <form action="{{ url('/upload') }}"
+                <form action="https://www.luuluilui.fr/api/api.php?action=newCar"
                           enctype="multipart/form-data" method='POST' class="mx-auto">
 
                 <div class="close text-center" @click='getMyAds()'>
@@ -71,18 +71,20 @@
                 <div class="row">
                     <div class="form-group col-md-12 col-lg-6">
                         <label for="inputEmail4">Nom</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Nom">
+                        <input type="text" class="form-control" name="name"
+                        id="inputEmail4" placeholder="Nom" required>
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
                         <label for="inputEmail4">Marque</label>
-                        <input type="text" class="form-control" id="inputEmail4"
+                        <input type="text" class="form-control" name="brand_name"
+                        required id="inputEmail4"
                          placeholder="Modèle">
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
                         <label for="inputEmail4">Prix</label>
-                        <input type="text" class="form-control" id="inputEmail4"
+                        <input type="text" class="form-control" name="price" id="inputEmail4"
                          placeholder="Price">
                       </div>
                 </div>
@@ -90,7 +92,8 @@
                 <div class="row mt-3">
                     <div class="form-group col-md-12 col-lg-6">
                         <label for="inputEmail4">Année: </label>
-                        <input type="number" class="form-control" id="inputEmail4" placeholder="Nom">
+                        <input type="number" class="form-control"
+                           name="year" id="inputEmail4" placeholder="Nom" required>
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
@@ -105,14 +108,14 @@
                       <div class="form-group col-md-12 col-lg-3">
                         <label for="inputEmail4">Couleur: </label>
                         <input type="text" class="form-control" id="inputEmail4"
-                         placeholder="Price">
+                         placeholder="Price" name="color" required >
                       </div>
                 </div>
 
                 <div class="row mt-3">
                     <div class="col-12">
                         <label for="">Description: </label>
-                        <textarea name="description" id="" cols="55" rows="5"></textarea>
+                        <textarea name="description" id="" cols="58"  required rows="5"></textarea>
                     </div>
                 </div>
 
@@ -328,7 +331,7 @@
     },
     methods: {
         getMyAds() {
-            axios.get('http://127.0.0.1/frankoo/api/adsBySeller').then(response =>
+            axios.get('https://www.luuluilui.fr/api/adsBySeller').then(response =>
                 this.details = response.data)
               this.showMyAds = true;
               this.showEdit = false;
@@ -336,7 +339,7 @@
               this.showAdd = false;
         },
         edit(id) {
-            axios.get('http://127.0.0.1/frankoo/api/ad/'+id).then(response =>
+            axios.get('https://www.luuluilui.fr/api/ad/'+id).then(response =>
                 this.details = response.data)
               this.showMyAds = false;
               this.showEdit = true;
@@ -344,7 +347,7 @@
               this.showAdd = false;
         },
         deleteAd(id) {
-            axios.get('http://127.0.0.1/frankoo/api/ad/'+id).then(response =>
+            axios.get('https://www.luuluilui.fr/api/ad/'+id).then(response =>
                 this.details = response.data)
               this.showMyAds = false;
               this.showEdit = false;
@@ -363,7 +366,7 @@
         return res;
     },
         getImgUrl(pic) {
-        return "http://127.0.0.1/frankoo/assets/img/" + pic;
+        return "https://www.luuluilui.fr/assets/img/" + pic;
     },
     goToAd(id){
         redirect('http://127.0.0.1/item?ad='+id);

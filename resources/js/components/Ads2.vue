@@ -37,7 +37,7 @@
                                 <th scope="row"></th>
                                 <td>{{ detail.name }}</td>
                                 <td>{{ format(detail.price) }} XOF</td>
-                                <td><img src="http://127.0.0.1/frankoo/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg"
+                                <td><img src="https://www.luuluilui.fr/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg"
                                     width="120" height="60" alt=""></td>
                                 <td>
                                     <i class="bi bi-eye" @click="goToAd(detail.id)" ></i>
@@ -69,7 +69,7 @@
                             <tr v-for="detail in details" :key="detail.id">
                                 <th scope="row"></th>
                                 <td>{{ detail.first_name }} {{ detail.last_name }}</td>
-                                <td><img src="http://127.0.0.1/frankoo/assets/img/pdg.jpg"
+                                <td><img src="https://www.luuluilui.fr/assets/img/pdg.jpg"
                                     width="120" height="60" alt=""></td>
                                 <td>
                                     <i class="bi bi-eye" @click="goToUser(detail.id)" ></i>
@@ -105,14 +105,14 @@
     },
     methods: {
         getAllAds() {
-            axios.get('http://127.0.0.1/frankoo/api/allCars').then(response =>
+            axios.get('https://www.luuluilui.fr/api/allCars').then(response =>
                 this.details = response.data)
               this.showAllAds = true;
               this.showAllUsers = false;
         },
 
         getAllUsers() {
-            axios.get('http://127.0.0.1/frankoo/api/users').then(response =>
+            axios.get('https://www.luuluilui.fr/api/users').then(response =>
                 this.details = response.data)
                 this.showAllAds = false;
               this.showAllUsers = true;
@@ -122,7 +122,7 @@
         return res;
     },
         getImgUrl(pic) {
-        return "http://127.0.0.1/frankoo/assets/img/" + pic;
+        return "https://www.luuluilui.fr/assets/img/" + pic;
     },
     goToAd(id){
         redirect('http://127.0.0.1/item?ad='+id);

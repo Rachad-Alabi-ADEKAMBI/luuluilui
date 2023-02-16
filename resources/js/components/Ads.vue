@@ -14,11 +14,11 @@
     </div>
 
     <section class='section bg-light' v-if='showToSell'>
-        <h2>
+        <h2 class="subtitle">
             Véhicules à vendre
         </h2>
 
-        <div class="container ">
+        <div class="container mt-5 ">
             <div class="row">
 
                 <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in details' :key='car.id'>
@@ -47,10 +47,10 @@
                             </div>
 
                             <p class="price">
-                                {{ car.price}} F CFA
+                                {{ format(car.price)}} XOF
                             </p>
 
-                            <button @click='getCar(car.id)'>
+                            <button  class="btn btn-primary" @click='getCar(car.id)'>
                                 Voir
                             </button>
                         </div>
@@ -62,11 +62,11 @@
     </section>
 
     <section v-if='showToRent'>
-        <h2>
+        <h2 class="subtitle">
             Véhicules à louer
         </h2>
 
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4" v-for='car in details' :key='car.id'>
                     <div class="item">
@@ -94,10 +94,10 @@
                             </div>
 
                             <p class="price">
-                                {{ car.price}} F CFA
+                                {{ format(car.price)}} XOF
                             </p>
 
-                            <button @click='getCar(car.id)'>
+                            <button  class="btn btn-primary" @click='getCar(car.id)'>
                                 Voir
                             </button>
                         </div>
@@ -108,11 +108,11 @@
     </section>
 
     <section v-if='showAllCars'>
-        <h2>
+        <h1 class="title" >
             Tous les véhicules
-        </h2>
+        </h1>
 
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4" v-for='car in details' :key='car.id'>
                     <div class="item">
@@ -140,10 +140,10 @@
                             </div>
 
                             <p class="price">
-                                {{ car.price}} F CFA
+                                {{ format(car.price)}} XOF
                             </p>
 
-                            <button @click='getCar(car.id)'>
+                            <button class="btn btn-primary"  @click='getCar(car.id)'>
                                 Voir
                             </button>
                         </div>

@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <img src="http://127.0.0.1/frankoo/assets/img/logo.jpg" width='90' height='40'>
+                        <img src="http://127.0.0.1/frankoo/assets/img/logo.jpg" width='90' height='70'>
                     </a>
                 </div>
 
