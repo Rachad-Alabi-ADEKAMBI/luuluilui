@@ -13,6 +13,7 @@ class UserController extends Controller
 
         return view('pages/users', compact('data'));
     }
+
     /*
 
     public function ads()

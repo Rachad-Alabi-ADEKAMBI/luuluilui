@@ -20,7 +20,7 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Tableau de board') }}
                     </x-jet-nav-link>
 
 
@@ -112,11 +112,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Gestion du comptte') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Profil') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -159,8 +159,14 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ url('/') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Accueil') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ url('/ads') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Annonces') }}
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Tableau de bord') }}
             </x-jet-responsive-nav-link>
         </div>
 

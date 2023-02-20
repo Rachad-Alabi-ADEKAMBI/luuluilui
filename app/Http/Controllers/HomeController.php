@@ -41,6 +41,20 @@ class HomeController extends Controller
         return view('ad', compact('data'));
     }
 
+    public function myAds()
+    {
+        $id = 3;
+
+        //  $data = Ad::where('seller_id', $id)->get();
+        $data = Ad::find($id);
+        $datas = compact('data');
+
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        //   echo json_encode($datas, JSON_UNESCAPED_UNICODE);
+        return $datas;
+    }
+
     public function upload(Request $request)
     {
         $ad = new Ad();

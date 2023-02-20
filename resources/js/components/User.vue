@@ -15,14 +15,15 @@
         </div>
 
         <!--show ads-->
-        <div class="row" >
+        <div class="row">
             <h1 class="title">
                         Mes annonces
                     </h1>
 
 
                     <div class="col-md-12 col-lg-8 mx-auto">
-                        <table class="table table-striped">
+                       <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -36,7 +37,7 @@
                                     <th scope="row">{{ detail.id }}</th>
                                     <td>{{ detail.name }}</td>
                                     <td>{{ format(detail.price) }} XOF</td>
-                                    <td><img src="https://www.luuluilui.fr/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg"
+                                    <td>  <img :src='getImgUrl(detail.pic1)'
                                         width="120" height="60" alt=""></td>
                                     <td>
                                         <div class="icons">
@@ -48,6 +49,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                       </div>
                     </div>
 
         </div>
@@ -57,7 +59,7 @@
     <div class="container" v-if="showAdd">
         <div class="row">
             <div class="col-md-12 col-lg-6 mx-auto p-3 bg-light text-center">
-                <form action="https://www.luuluilui.fr/api/api.php?action=newCar"
+                <form action="http://127.0.0.1/luuluilui/api/api.php?action=newCar"
                           enctype="multipart/form-data" method='POST' class="mx-auto">
 
                 <div class="close text-center" @click='getMyAds()'>
@@ -117,7 +119,7 @@
                         <label for="">Description: </label>
                         <textarea name="description" id="" cols="58"  required rows="5"></textarea>
                     </div>
-                </div>
+                </div> <br>
 
                 <div class="row mt-3">
                     <div class="col-4">
@@ -154,9 +156,9 @@
                             </select>
                         </label>
                     </div>
-                </div>
+                </div>  <br>
 
-                <button type='submit' class='btn btn-success'>
+                <button type='submit' class='btn btn-success' id="btn-success">
                     Ajouter
                 </button>
 
@@ -331,7 +333,7 @@
     },
     methods: {
         getMyAds() {
-            axios.get('https://www.luuluilui.fr/api/adsBySeller').then(response =>
+            axios.get('http://127.0.0.1:8080/myAds').then(response =>
                 this.details = response.data)
               this.showMyAds = true;
               this.showEdit = false;
@@ -339,15 +341,19 @@
               this.showAdd = false;
         },
         edit(id) {
-            axios.get('https://www.luuluilui.fr/api/ad/'+id).then(response =>
+            axios.get('http://127.0.0.1/luuluilui/api/ad/'+id).then(response =>
                 this.details = response.data)
               this.showMyAds = false;
               this.showEdit = true;
               this.showDelete = false;
               this.showAdd = false;
         },
+
+        goToAd(id){
+            window.location.replace('http://127.0.0.1:8080/ad/'+id);
+        },
         deleteAd(id) {
-            axios.get('https://www.luuluilui.fr/api/ad/'+id).then(response =>
+            axios.get('http://127.0.0.1/luuluilui/api/ad/'+id).then(response =>
                 this.details = response.data)
               this.showMyAds = false;
               this.showEdit = false;
@@ -366,11 +372,8 @@
         return res;
     },
         getImgUrl(pic) {
-        return "https://www.luuluilui.fr/assets/img/" + pic;
+        return "http://127.0.0.1/luuluilui/assets/img/" + pic;
     },
-    goToAd(id){
-        redirect('http://127.0.0.1/item?ad='+id);
-    }
     }
     }
     </script>

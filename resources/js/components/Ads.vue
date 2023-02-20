@@ -1,6 +1,6 @@
 <template>
      <div class="main" >
-    <div class='buttons'>
+    <div class='buttons mt-3'>
         <button class="btn btn-primary"  @click='getAllCars()'>
             Tout voir
         </button>
@@ -13,12 +13,12 @@
         </button>
     </div>
 
-    <section class='section bg-light' v-if='showToSell'>
+    <section class='section bg-light pt-2' v-if='showToSell'>
         <h2 class="subtitle">
-            Véhicules à vendre
+            EN VENTE
         </h2>
 
-        <div class="container mt-5 ">
+        <div class="container mt-3 ">
             <div class="row">
 
                 <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in details' :key='car.id'>
@@ -37,12 +37,12 @@
                             </h3>
 
                             <p class="description">
-                                {{ car.description }}
+                                {{ reduceString( car.description ) }}
                             </p>
 
                             <div class="list">
                                 <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                                <div class="list__item">Etat: <span> {{ car.year }} </span></div>
+                                <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
                                 <div class="list__item">Couleur: <span> {{ car.color }} </span></div>
                             </div>
 
@@ -61,12 +61,12 @@
 
     </section>
 
-    <section v-if='showToRent'>
+    <section v-if='showToRent' class="mt-4 pt-2"  >
         <h2 class="subtitle">
-            Véhicules à louer
+            EN LOCATION
         </h2>
 
-        <div class="container mt-5">
+        <div class="container mt-3">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4" v-for='car in details' :key='car.id'>
                     <div class="item">
@@ -89,7 +89,7 @@
 
                             <div class="list">
                                 <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                                <div class="list__item">Etat: <span> {{ car.year }} </span></div>
+                                <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
                                 <div class="list__item">Couleur: <span> {{ car.color }} </span></div>
                             </div>
 
@@ -135,7 +135,7 @@
 
                             <div class="list">
                                 <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                                <div class="list__item">Etat: <span> {{ car.year }} </span></div>
+                                <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
                                 <div class="list__item">Couleur: <span> {{ car.color }} </span></div>
                             </div>
 
@@ -177,35 +177,50 @@
     }
 },
 mounted: function() {
-   this.getToSell();
+   this.getAllCars();
 },
 methods: {
     getToSell(){
-        axios.get('http://127.0.0.1/frankoo/api/carsToSell').then(response =>
+        axios.get('http://127.0.0.1/luuluilui/api/carsToSell').then(response =>
             this.details = response.data);
-            this.showHome = false;
             this.showCar = false;
             this.showAllCars = false;
             this.showToRent = false;
             this.showToSell = true;
-            console.log('ok');
+    },
+    getAllCars(){
+        axios.get('http://127.0.0.1/luuluilui/api/cars').then(response =>
+            this.details = response.data);
+            this.showCar = false;
+            this.showAllCars = false;
+            this.showToRent = false;
+            this.showToSell = true;
     },
     getToRent(){
-        axios.get('http://127.0.0.1/frankoo/api/carsToRent').then(response =>
+        axios.get('http://127.0.0.1/luuluilui/api/carsToRent').then(response =>
             this.details = response.data);
-            this.showHome = false;
             this.showCar = false;
             this.showAllCars = false;
             this.showToRent = true;
             this.showToSell = false;
     },
+    getCar(id){
+        window.location.replace('http://127.0.0.1:8080/ad/'+id);
+    },
+    reduceString(str) {
+    if (str.length > 20) {
+      return str.substring(0, 20) + '...';
+    } else {
+      return str;
+    }
+  },
 
     format(num){
     let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
     return res;
 },
     getImgUrl(pic) {
-    return "http://127.0.0.1/frankoo/assets/img/" + pic;
+    return "http://127.0.0.1/luuluilui/assets/img/" + pic;
 },
 }
 }

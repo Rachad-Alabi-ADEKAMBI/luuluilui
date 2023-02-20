@@ -36,13 +36,17 @@ h1, .title{
     font-size: 1.4em;
 }
 
+.text-white{
+    color: $white;
+}
+
 span{
     font-weight: bold;
     font-size: larger;
 }
 
 .subtitle{
-    font-size: 1.4em;
+    font-size: 1.6em;
     text-align: center  ;
     color: $red;
     font-weight: bold;
@@ -77,6 +81,24 @@ button:hover,
     //
 }
 
+.btn-primary{
+    background-color: $red;
+    border: $red;
+    font-weight: bold;
+}
+
+.btn-primary:hover{
+    background: $black;
+}
+
+.btn-success{
+    background-color: $green;
+}
+
+
+h3{
+    font-weight: bold;
+}
 
 
 .green{
@@ -196,10 +218,46 @@ i{
 
 }
 
+.hero{
+    height: 60vh;
+    min-height: 400px;
+    margin: 0 auto;
+    display: block;
+    background-image: url('http://127.0.0.1/frankoo/assets/img/agustin-segura-eDXRq-2LfNM-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 90px;
+
+
+    &__content{
+        width: 80%;
+        margin: auto;
+        height: 100%;
+        padding-top: 60px;
+        text-align: center;
+
+        h1{
+            font-size: 3em;
+            font-style: italic;
+            color: $white;
+        }
+
+        p{
+            margin: 20px auto;
+            font-style: 1.1em;
+            font-weight: 800;
+        }
+
+
+    }
+}
+
 .buttons{
     margin: auto;
     width: max-content;
-    display: none;
     @include flex();
 
 
@@ -247,6 +305,8 @@ section{
             .item{
                 height: auto;
                 width: 290px;
+                width: 80%;
+                margin-top: 10px;
                 background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
                 background: #FFFFFF 0% 0% no-repeat padding-box;
                 box-shadow: 0px 10px 12px #00000029;
@@ -295,7 +355,8 @@ section{
 
                     h3{
                         color: $black;
-                        font-size: 1.3em;
+                        font-size: 1.5em;
+                        font-weight: bold;
                         margin: 10px auto;
                     }
 
@@ -348,17 +409,13 @@ section{
                         }
                 }
             }
-
-            .card{
-                border: none;
-            }
         }
     }
 
 
 
     .cards{
-        width: 80%;
+
         @include flex();
         margin: auto;
 
@@ -366,9 +423,18 @@ section{
             display: block;
             text-align: center;
             flex: 1;
+            margin: auto;
+            height: 160px;
+            width: 250px;
 
            i{
             font-size: 2em;
+            color: $red;
+            margin-top: 30px;
+           }
+
+           span{
+            font-weight: bold;
             color: $red;
            }
 
@@ -392,7 +458,8 @@ section{
 
 
 .black{
-    height: 200px;
+    height: auto;
+    min-height: 200px;
     background-color: $black;
     width: 100%;
     display: table;
@@ -501,12 +568,11 @@ section{
     }
 
     &__infos{
-        width: 90%;
+        width: 100%;
         margin: auto;
         @include flex();
 
         .left{
-            width: 60%;
 
             .details{
                p{
@@ -557,19 +623,14 @@ section{
         }
 
         .right{
-            width: 30%;
 
             .card{
                 display: block;
-
+                margin: auto;
+                padding: 5px;
+                width: 250px;
 
                 &__top{
-                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-                    background: #FFFFFF 0% 0% no-repeat padding-box;
-                    box-shadow: 0px 10px 12px #00000029;
-                    padding: 10px;
-                    margin: auto;
-
                     img{
                         width: 100px;
                         height: 100px;
@@ -581,59 +642,6 @@ section{
                             color: red;
                         }
                     }
-                }
-
-                &__bottom{
-                    @include flex(column);
-                    padding: 10px;
-                    margin: auto;
-                    text-align: left;
-                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-                    background: #FFFFFF 0% 0% no-repeat padding-box;
-                    box-shadow: 0px 10px 12px #00000029;
-
-
-
-                    label{
-                        margin: 10px auto auto 0;
-                        width: 100%;
-
-                        input{
-                            height: 30px;
-                            width: 250px;
-                        }
-
-                        .message{
-                            height: 120px;
-                            width: 250px;
-                        }
-
-                        textarea{
-                            width: 250px;
-                            text-align: left;
-                        }
-
-                        button{
-                            width: 120px;
-                            height: 35px;
-                            font-weight: bold;
-                            background-color: $red;
-                            color: $white;
-                        }
-
-                        button:hover{
-                            background-color: $black;
-                            color: $white;
-                        }
-
-                        button:hover{
-                            background-color: $white;
-                            color: $red;
-                        }
-
-                    }
-
-
                 }
             }
         }
@@ -654,6 +662,7 @@ section{
 
     .carousel-inner{
         .item{
+            ma
             img{
                 width: 90px;
                 height: 90px;
@@ -665,7 +674,7 @@ section{
                 margin: 20px auto;
 
                 span{
-                    color: $red
+                    color: $red;
                 }
             }
         }
@@ -873,9 +882,25 @@ section{
 /*responsive for 350px*/
 @media screen and (min-width: 350px) and (max-width: 766px){
 
-   h2{
-    font-size: 1.5em;
+   .subtitle{
+    font-size: 1.4em;
    }
+
+   section{
+    .container{
+        .row{
+            .item{
+                width: 100%;
+            }
+        }
+    }
+   }
+
+   .hero{
+    height: 40vh;
+    padding-top: 60px;
+   }
+
 
    .grey{
     height: auto;
@@ -896,37 +921,6 @@ section{
             }
         }
     }
-/*
-    section{
-        .items{
-            @include flex(column);
-            width: 90%;
-            margin: auto;
-
-            .item{
-                width: 330px;
-                margin: auto;
-
-
-                &__top{
-                    margin: auto;
-
-                    img{
-                        margin: auto;
-                        width: 310px
-                    }
-                }
-
-                &__bottom{
-                    .list{
-                        flex-wrap: wrap;
-                    }
-                }
-            }
-
-        }
-    }
-    */
 
     .car{
         &__top{
@@ -965,11 +959,10 @@ section{
             }
 
             .right{
-                width: 95%;
                 margin: auto 0;
 
                 .card{
-                    width: 330px;
+                    width: 280px;
                     margin: auto;
                 }
             }

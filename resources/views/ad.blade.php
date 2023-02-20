@@ -18,31 +18,33 @@
 
                         <div class="right text-center">
                             <h2 class="text-center title mx-auto">
-                                {{ $data->name }}
+                                {{ strtoupper($data->name) }}
                             </h2>
 
                         </div>
                     </div>
 
                     <div class="image">
-                        <img src='http://127.0.0.1/frankoo/assets/img/joey-banks-YApiWyp0lqo-unsplash.jpg'>
+                        <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic1) }}">
                     </div>
 
-                    <div class="car__infos">
-                        <div class="left">
-                            <h3>
-                                Description:
+                    <div class="car__infos row">
+                        <div class="left col-md-12 col-lg-9">
+                            <h3 class="text-bold text-left">
+                                DESCRIPTION:
                             </h3>
                             <p>
                                 {{ $data->description }}
                             </p> <br>
 
                             <h3 class="text text-bold">
-                                Details:
+                                DETAILS:
                             </h3>
 
                             <div class="details">
                                 <p>
+                                    Prix: <span> {{ number_format($data->price, 0,'', ' ') }} XOF </span> <br>
+                                    Catégorie: <span> {{ $data->category }}</span><br>
                                     Couleur: <span> {{ $data->color }}</span><br>
                                     Annee: <span> {{ $data->year }} </span> <br>
                                     Etat: <span> {{ $data->rate }} /5</span>
@@ -50,23 +52,34 @@
                             </div>
 
                             <div class="images">
-                                <img src='http://127.0.0.1/frankoo/assets/img/joey-banks-YApiWyp0lqo-unsplash.jpg'>
-                                <img src='http://127.0.0.1/frankoo/assets/img/joey-banks-YApiWyp0lqo-unsplash.jpg'>
-                                <img src='http://127.0.0.1/frankoo/assets/img/joey-banks-YApiWyp0lqo-unsplash.jpg'>
+                                @if($data->pic2)
+                                <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic2) }}">
+                                @endif
+
+                                @if($data->pic3)
+                                <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic3) }}">
+                                @endif
+
+                                @if($data->pic4)
+                                <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic4) }}">
+                                @endif
+
+
+
                             </div> <br>
 
 
                         </div>
 
-                        <div class="right">
-                            <div class="card">
+                        <div class="right  col-md-12 col-lg-3">
+                            <div class="card mx-auto">
                                 <div class="card__top">
-                                    <img src='http://127.0.0.1/frankoo/assets/img/joey-banks-YApiWyp0lqo-unsplash.jpg'>
+                                    <img src='http://127.0.0.1/luuluilui/assets/img/pdg.jpeg'>
                                     <div class="card__top__infos">
-                                        <i class="fas fa-user"></i> {{ $data->id }} <br>
-                                        <i class="fas fa-phone"></i> {{ $data->color }} <br>
-                                        <i class="fas fa-phone"></i> {{ $data->color }} <br>
-                                        <i class="fas fa-envelope"></i> {{ $data->color }} <br>
+                                        <i class="fas fa-user"></i> John Doe <br>
+                                        <i class="bi bi-phone"></i> 547 852 457<br>
+                                        <i class="bi bi-whatsapp"></i> 46 466 456 <br>
+                                        <i class="fas fa-envelope"></i> john@doe.fr <br>
                                     </div>
                                 </div>
 

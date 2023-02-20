@@ -19,13 +19,17 @@ h1, .title {
   font-size: 1.4em;
 }
 
+.text-white {
+  color: white;
+}
+
 span {
   font-weight: bold;
   font-size: larger;
 }
 
 .subtitle {
-  font-size: 1.4em;
+  font-size: 1.6em;
   text-align: center;
   color: #bc111d;
   font-weight: bold;
@@ -53,6 +57,24 @@ li {
 
 .btn {
   cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #bc111d;
+  border: #bc111d;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: black;
+}
+
+.btn-success {
+  background-color: green;
+}
+
+h3 {
+  font-weight: bold;
 }
 
 .green {
@@ -165,12 +187,41 @@ i {
   color: white;
 }
 
+.hero {
+  height: 60vh;
+  min-height: 400px;
+  margin: 0 auto;
+  display: block;
+  background-image: url("http://127.0.0.1/frankoo/assets/img/agustin-segura-eDXRq-2LfNM-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 90px;
+}
+.hero__content {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  padding-top: 60px;
+  text-align: center;
+}
+.hero__content h1 {
+  font-size: 3em;
+  font-style: italic;
+  color: white;
+}
+.hero__content p {
+  margin: 20px auto;
+  font-style: 1.1em;
+  font-weight: 800;
+}
+
 .buttons {
   margin: auto;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  display: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -209,6 +260,8 @@ section h2 span {
 section .container .row .item {
   height: auto;
   width: 290px;
+  width: 80%;
+  margin-top: 10px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
@@ -253,7 +306,8 @@ section .container .row .item__bottom {
 }
 section .container .row .item__bottom h3 {
   color: black;
-  font-size: 1.3em;
+  font-size: 1.5em;
+  font-weight: bold;
   margin: 10px auto;
 }
 section .container .row .item__bottom .description {
@@ -297,11 +351,7 @@ section .container .row .item__bottom button:hover {
 section .container .row .item__bottom button:hover a {
   color: white;
 }
-section .container .row .card {
-  border: none;
-}
 section .cards {
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -312,9 +362,17 @@ section .cards .card {
   display: block;
   text-align: center;
   flex: 1;
+  margin: auto;
+  height: 160px;
+  width: 250px;
 }
 section .cards .card i {
   font-size: 2em;
+  color: #bc111d;
+  margin-top: 30px;
+}
+section .cards .card span {
+  font-weight: bold;
   color: #bc111d;
 }
 section .cards .card p {
@@ -328,7 +386,8 @@ section .cards .card .text {
 }
 
 .black {
-  height: 200px;
+  height: auto;
+  min-height: 200px;
   background-color: black;
   width: 100%;
   display: table;
@@ -425,15 +484,12 @@ section .cards .card .text {
   margin: auto;
 }
 .car__infos {
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-.car__infos .left {
-  width: 60%;
 }
 .car__infos .left .details p span {
   color: #bc111d;
@@ -472,18 +528,11 @@ section .cards .card .text {
 .car__infos .left .images button:hover {
   background-color: black;
 }
-.car__infos .right {
-  width: 30%;
-}
 .car__infos .right .card {
   display: block;
-}
-.car__infos .right .card__top {
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
-  padding: 10px;
   margin: auto;
+  padding: 5px;
+  width: 250px;
 }
 .car__infos .right .card__top img {
   width: 100px;
@@ -495,49 +544,6 @@ section .cards .card .text {
 .car__infos .right .card__top__infos i {
   color: red;
 }
-.car__infos .right .card__bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin: auto;
-  text-align: left;
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
-}
-.car__infos .right .card__bottom label {
-  margin: 10px auto auto 0;
-  width: 100%;
-}
-.car__infos .right .card__bottom label input {
-  height: 30px;
-  width: 250px;
-}
-.car__infos .right .card__bottom label .message {
-  height: 120px;
-  width: 250px;
-}
-.car__infos .right .card__bottom label textarea {
-  width: 250px;
-  text-align: left;
-}
-.car__infos .right .card__bottom label button {
-  width: 120px;
-  height: 35px;
-  font-weight: bold;
-  background-color: #bc111d;
-  color: white;
-}
-.car__infos .right .card__bottom label button:hover {
-  background-color: black;
-  color: white;
-}
-.car__infos .right .card__bottom label button:hover {
-  background-color: white;
-  color: #bc111d;
-}
 
 .carousel {
   margin: 40px auto;
@@ -546,7 +552,7 @@ section .cards .card .text {
   background-color: white;
   padding-top: 20px;
 }
-.carousel .carousel-inner .item img {
+.carousel .carousel-inner .item ma img {
   width: 90px;
   height: 90px;
   border-radius: 30px;
@@ -701,8 +707,15 @@ section .cards .card .text {
 }
 /*responsive for 350px*/
 @media screen and (min-width: 350px) and (max-width: 766px) {
-  h2 {
-    font-size: 1.5em;
+  .subtitle {
+    font-size: 1.4em;
+  }
+  section .container .row .item {
+    width: 100%;
+  }
+  .hero {
+    height: 40vh;
+    padding-top: 60px;
   }
   .grey {
     height: auto;
@@ -729,37 +742,6 @@ section .cards .card .text {
     justify-content: space-between;
     flex-wrap: wrap;
   }
-  /*
-      section{
-          .items{
-              @include flex(column);
-              width: 90%;
-              margin: auto;
-
-              .item{
-                  width: 330px;
-                  margin: auto;
-
-
-                  &__top{
-                      margin: auto;
-
-                      img{
-                          margin: auto;
-                          width: 310px
-                      }
-                  }
-
-                  &__bottom{
-                      .list{
-                          flex-wrap: wrap;
-                      }
-                  }
-              }
-
-          }
-      }
-      */
   .car__top {
     display: flex;
     flex-direction: column;
@@ -791,11 +773,10 @@ section .cards .card .text {
     width: 310px;
   }
   .car__infos .right {
-    width: 95%;
     margin: auto 0;
   }
   .car__infos .right .card {
-    width: 330px;
+    width: 280px;
     margin: auto;
   }
   .footer__top {

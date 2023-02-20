@@ -1,75 +1,58 @@
 <footer class="footer">
-    <div class="footer__top">
-        <div class="box">
+    <div class="footer__top row">
+        <div class="box col-sm-12 col-md-4">
+            <img src="http://127.0.0.1/luuluilui/assets/img/logo.jpg" alt="" class="logo" width='100' height='50'>
+
+            <br>
             <h4>
-                luuluilui
+                LUULUILUI
             </h4>
 
             <p>
                 Annonces de vente et <br> locations de vehicules
-            </p> <br>
-            <p>contact@luuluilui</p>
+            </p>
+            <p>contact@luuluilui.fr</p>
         </div>
 
-        <div class="box">
+        <div class="box col-sm-12 col-md-4">
             <h4>
-                Les plus consultées
+                LES PLUS CONSULTEES
             </h4>
 
             <div class="cars">
                 <div class="car">
-                    <h5>car 1 <br>
-                        <span>car 2</span>
-                    </h5>
+                    <span>car 1</span>
+                    <span>car 2</span>
                 </div>
             </div>
         </div>
 
-        <div class="box">
+        <div class="box col-sm-12 col-md-4">
             <h4>
-                Liens
+                LIENS
             </h4>
 
-            <p>
-                A louer
-            </p>
+            <a href="/#stars" class="text text-white">
+                En vedette
+            </a> <br>
 
-            <p>
-                A vendre
-            </p>
+            <a href="/#most">
+                Les plus consultées
+            </a> <br>
 
-            <p>
+            <a href="/#last">
                 Derniers ajouts
-            </p>
-        </div>
-
-        <div class="box">
-            <h4>
-                Newsletters
-            </h4>
-
-            <form action="api/api.php?registerToNewsletters" style='background:black'>
-                <label for="">
-                    <input type="email" placeholder="Votre email">
-                </label>
-
-                <label for="">
-                    <button>
-                        S'abonner
-                    </button>
-                </label>
-            </form>
-            <p>
-                Abonnez vous pour recevoir chaque nouvel ajout
-            </p>
+            </a>
         </div>
     </div>
 
-    <hr>
+    <hr class="text text-white">
     <div class="footer__bottom">
-        <p>Frankobizness2022</p>
+        <p>Luuluilui2023</p>
         <p>
-            Codeurcreatif
+            <a href="adekambirachad.com">
+                Codeurcreatif
+            </a>
         </p>
 
     </div>

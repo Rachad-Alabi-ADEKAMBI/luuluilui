@@ -20,9 +20,12 @@ Route::get('/home', [HomeController::class, 'view']);
 Route::get('/', [HomeController::class, 'view']);
 
 Route::get('/ads', [HomeController::class, 'ads']);
+
 Route::get('/sellers', [UserController::class, 'sellers']);
 
 Route::get('/ad/{id}', [HomeController::class, 'ad']);
+
+Route::get('/myAds', [HomeController::class, 'myAds']);
 
 Route::middleware([
     'auth:sanctum',

@@ -7,6 +7,9 @@ header(
     'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'
 );
 
+$dashboard = 'http://127.0.0.1:8080/dashboard';
+$images = 'http://127.0.0.1/luuluilui/assets/img';
+
 //local
 $pdo = new PDO('mysql:dbname=franko;host=localhost', 'root', '');
 function getConnexion()
@@ -57,7 +60,7 @@ function getUsers()
 function getCar($id)
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars
+    $req = $pdo->prepare("SELECT *  FROM ads
         WHERE id = ?");
     $req->execute([$id]);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -66,12 +69,13 @@ function getCar($id)
     return $datas;
 }
 
-function getAdsBySeller()
+function getmyAds()
 {
     $pdo = getConnexion();
     $req = $pdo->prepare("SELECT *  FROM ads
         WHERE seller_id = ?");
-    $req->execute([2]);
+    $id = 2;
+    $req->execute([]);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
     sendJSON($datas);
@@ -81,7 +85,8 @@ function getAdsBySeller()
 function getCars()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare('SELECT *  FROM cars ORDER BY id DESC');
+    $req = $pdo->prepare('SELECT *  FROM
+    ads ORDER BY id DESC');
     $req->execute([]);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
@@ -92,7 +97,7 @@ function getCars()
 function getCarsToSell()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars
+    $req = $pdo->prepare("SELECT *  FROM ads
         WHERE category = ? ORDER BY id DESC");
     $req->execute(['A vendre']);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -104,8 +109,8 @@ function getCarsToSell()
 function getCarsToRent()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars
-        WHERE category = ? ORDER BY id DESC");
+    $req = $pdo->prepare("SELECT *  FROM ads
+    WHERE category = ? ORDER BY id DESC");
     $req->execute(['A louer']);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
@@ -116,7 +121,7 @@ function getCarsToRent()
 function getAllCars()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars
+    $req = $pdo->prepare("SELECT *  FROM ads
         WHERE status = ? ORDER BY id DESC");
     $req->execute(['Disponible']);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -128,7 +133,7 @@ function getAllCars()
 function getLastAdded()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars ORDER BY id DESC
+    $req = $pdo->prepare("SELECT *  FROM ads ORDER BY id DESC
     LIMIT 3");
     $req->execute();
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -140,7 +145,7 @@ function getLastAdded()
 function getFooterCars()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars ORDER BY views DESC
+    $req = $pdo->prepare("SELECT *  FROM ads ORDER BY views DESC
     LIMIT 2");
     $req->execute();
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -152,7 +157,7 @@ function getFooterCars()
 function getLastSaleAdded()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars
+    $req = $pdo->prepare("SELECT *  FROM ads
     WHERE category = ? ORDER BY id DESC
     LIMIT 3");
     $req->execute(['A vendre']);
@@ -165,7 +170,7 @@ function getLastSaleAdded()
 function getLastRentAdded()
 {
     $pdo = getConnexion();
-    $req = $pdo->prepare("SELECT *  FROM cars
+    $req = $pdo->prepare("SELECT *  FROM ads
     WHERE category = ? ORDER BY id DESC
     LIMIT 3");
     $req->execute(['A louer']);
@@ -281,7 +286,7 @@ function newCar()
             $pic3 = time() . '_' . $_FILES['pic3']['name'];
             $pic4 = time() . '_' . $_FILES['pic4']['name'];
 
-            $target = '../public/img/' . $pic1;
+            $target = 'http://127.0.0.1/luuluilui/assets/img/' . $pic1;
 
             if (move_uploaded_file($_FILES['pic1']['tmp_name'], $target)) {
                 $req = $pdo->prepare("UPDATE cars SET
@@ -313,7 +318,7 @@ function newCar()
             ?>
 <script>
 alert('Nouveau véhicule ajouté avec succs');
-window.location.replace('./dashboard');
+window.location.replace($dashboard);
 </script>
 <?php
         }

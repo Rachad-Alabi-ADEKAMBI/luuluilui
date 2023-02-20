@@ -54,16 +54,16 @@ try {
                 getLastSaleAdded();
                 break;
 
-            case 'adsBySeller':
-                getAdsBySeller();
-                break;
-
             case 'lastRentAdded':
                 getLastRentAdded();
                 break;
 
             case 'lastSold':
                 getLastSold();
+                break;
+
+            case 'myAds':
+                getMyAds();
                 break;
 
             case 'ad':
