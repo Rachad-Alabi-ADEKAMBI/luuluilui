@@ -11,15 +11,7 @@ $dashboard = 'http://127.0.0.1:8080/dashboard';
 $images = 'http://127.0.0.1/luuluilui/assets/img';
 
 //local
-$pdo = new PDO('mysql:dbname=franko;host=localhost', 'root', '');
-function getConnexion()
-{
-    return new PDO(
-        'mysql:host=localhost; dbname=franko; charset=UTF8',
-        'root',
-        ''
-    );
-}
+include 'db.php';
 
 $error = ['error' => false];
 $action = '';
