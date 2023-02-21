@@ -14,7 +14,6 @@ import User from '@/components/User.vue'
 
 app.component('Ads', Ads)
 app.component('User', User)
-
 app.mount("#app")
 
 window.Alpine = Alpine;

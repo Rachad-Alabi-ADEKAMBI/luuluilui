@@ -24,7 +24,20 @@ class HomeController extends Controller
     {
         $data = Ad::all();
 
+        // $data2 = Ad::where('category', 'Electronics')->get();
+
         return view('ads', compact('data'));
+    }
+
+    public function footerAds()
+    {
+        $data = Ad::orderBy('id', 'desc')
+            ->limit(2)
+            ->get();
+
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        return json_encode($data, JSON_UNESCAPED_UNICODE);
     }
 
     public function dashboard()

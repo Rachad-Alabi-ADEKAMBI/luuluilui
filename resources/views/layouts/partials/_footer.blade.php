@@ -21,8 +21,12 @@
 
             <div class="cars">
                 <div class="car">
-                    <span>car 1</span>
-                    <span>car 2</span>
+                    <img src="http://127.0.0.1/luuluilui/assets/img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt=""
+                        width="250" height="150"> <br>
+
+                    <img src="http://127.0.0.1/luuluilui/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="" width="150"
+                        height="90" class="mt-2">
+
                 </div>
             </div>
         </div>

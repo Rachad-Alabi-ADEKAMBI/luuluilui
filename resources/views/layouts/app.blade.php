@@ -55,6 +55,9 @@
             <div class="container" id='app'>
 
                 @yield('content')
+                <div class="" id='FooterV'>
+                    <FooterV />
+                </div>
             </div>
 
             @vite(['resources/css/app.css', 'resources/js/app.js'])
