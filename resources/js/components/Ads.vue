@@ -258,7 +258,7 @@ methods: {
     },
 
     getToSell(){
-        axios.get('http://127.0.0.1/luuluilui/api/carsToSell').then(response =>
+        axios.get('https://luuluilui.fr/api/carsToSell').then(response =>
             this.details = response.data);
             this.showCar = false;
             this.showAllCars = false;
@@ -267,7 +267,7 @@ methods: {
 
     },
     getAllCars(){
-        axios.get('http://127.0.0.1/luuluilui/api/cars').then(response =>
+        axios.get('https://luuluilui.fr/api/cars').then(response =>
             this.details = response.data);
             this.showCar = false;
             this.showAllCars = false;
@@ -277,7 +277,7 @@ methods: {
             this.showSearch = false;
     },
     getToRent(){
-        axios.get('http://127.0.0.1/luuluilui/api/carsToRent').then(response =>
+        axios.get('https://luuluilui.fr/api/carsToRent').then(response =>
             this.details = response.data);
             this.showCar = false;
             this.showAllCars = false;
@@ -285,7 +285,8 @@ methods: {
             this.showToSell = false;
     },
     getCar(id){
-        window.location.replace('http://127.0.0.1:8080/ad/'+id);
+        window.location.replace('https://luuluilui.fr/ad/'+id);
+     //  window.location.replace('https://127.0.0.1:8001/ad/'+id);
     },
     reduceString(str) {
     if (str.length > 20) {
@@ -300,7 +301,7 @@ methods: {
     return res;
 },
     getImgUrl(pic) {
-    return "http://127.0.0.1/luuluilui/assets/img/" + pic;
+    return "https://luuluilui.fr/assets/img/" + pic;
 },
 }
 }

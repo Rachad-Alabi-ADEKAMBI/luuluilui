@@ -19,9 +19,11 @@
                         Annonces
                     </x-jet-nav-link>
 
+                    @auth
                     <x-jet-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
                         {{ __('Tableau de board') }}
                     </x-jet-nav-link>
+                    @endauth
 
 
                 </div>
@@ -29,8 +31,17 @@
 
             </div>
 
+
+
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                @guest
+                <a class="btn btn-success mr-0" href="/login">
+                    Login
+                </a>
+                @endguest
+
                 <!-- Teams Dropdown -->
+                @auth
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="60">
@@ -138,6 +149,8 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -171,6 +184,7 @@
         </div>
 
         <!-- Responsive Settings Options -->
+        @auth
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -243,5 +257,6 @@
                 @endif
             </div>
         </div>
+        @endauth
     </div>
 </nav>

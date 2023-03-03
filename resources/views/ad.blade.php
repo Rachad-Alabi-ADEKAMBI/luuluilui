@@ -1,4 +1,4 @@
-@extends ('./layouts/app');
+d@extends ('./layouts/app');
 
 
 
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="image">
-                        <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic1) }}">
+                        <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic1) }}">
                     </div>
 
                     <div class="car__infos row">
@@ -53,15 +53,15 @@
 
                             <div class="images">
                                 @if($data->pic2)
-                                <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic2) }}">
+                                <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic2) }}">
                                 @endif
 
                                 @if($data->pic3)
-                                <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic3) }}">
+                                <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic3) }}">
                                 @endif
 
                                 @if($data->pic4)
-                                <img src="{{ url('http://127.0.0.1/luuluilui/assets/img/' . $data->pic4) }}">
+                                <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic4) }}">
                                 @endif
 
 
@@ -74,7 +74,7 @@
                         <div class="right  col-md-12 col-lg-3">
                             <div class="card mx-auto">
                                 <div class="card__top">
-                                    <img src='http://127.0.0.1/luuluilui/assets/img/pdg.jpeg'>
+                                    <img src='http://luuluilui.fr/public/img/pdg.jpeg'>
                                     <div class="card__top__infos">
                                         <i class="fas fa-user"></i> John Doe <br>
                                         <i class="bi bi-phone"></i> 547 852 457<br>
