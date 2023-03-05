@@ -29,6 +29,13 @@ class HomeController extends Controller
         return view('ads', compact('data'));
     }
 
+    public function adsApi()
+    {
+        $data = Ad::all();
+
+        return $data;
+    }
+
     public function footerAds()
     {
         $data = Ad::orderBy('id', 'desc')

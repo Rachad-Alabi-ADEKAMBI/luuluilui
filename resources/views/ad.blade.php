@@ -1,4 +1,4 @@
-d@extends ('./layouts/app');
+@extends ('./layouts/app');
 
 
 
@@ -25,7 +25,7 @@ d@extends ('./layouts/app');
                     </div>
 
                     <div class="image">
-                        <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic1) }}">
+                        <img src="{{ asset('img/'.$data->pic1) }}">
                     </div>
 
                     <div class="car__infos row">

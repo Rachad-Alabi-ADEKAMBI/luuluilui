@@ -36,8 +36,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $ad->pic1) }}">
-                                    class='' alt="">
+                                    <img src="http://luuluilui.fr/public/img/{{ $ad->pic1 }}">
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
                                         <p></p>
@@ -138,8 +137,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $ad->pic1) }}">
-                                    class='' alt="">
+                                    <img src="http://luuluilui.fr/public/img/{{ $ad->pic1 }}">
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
                                         <p></p>

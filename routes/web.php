@@ -38,6 +38,9 @@ Route::middleware([
         'dashboard'
     );
 });
+
+Route::get('/adsApi', [HomeController::class, 'adsApi']);
+
 /*
 Route::post('/upload', [HomeController::class, 'upload']);
 

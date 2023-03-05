@@ -258,7 +258,7 @@ methods: {
     },
 
     getToSell(){
-        axios.get('https://luuluilui.fr/api/carsToSell').then(response =>
+        axios.get('http://127.0.0.1:8000/adsApi').then(response =>
             this.details = response.data);
             this.showCar = false;
             this.showAllCars = false;
@@ -267,7 +267,7 @@ methods: {
 
     },
     getAllCars(){
-        axios.get('https://luuluilui.fr/api/cars').then(response =>
+        axios.get('http://127.0.0.1:8000/adsApi').then(response =>
             this.details = response.data);
             this.showCar = false;
             this.showAllCars = false;
@@ -301,7 +301,7 @@ methods: {
     return res;
 },
     getImgUrl(pic) {
-    return "https://luuluilui.fr/assets/img/" + pic;
+    return "https://luuluilui.fr/public/img/" + pic;
 },
 }
 }

@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer__top row">
         <div class="box col-sm-12 col-md-4">
-            <img src="http://127.0.0.1/luuluilui/assets/img/logo.jpg" alt="" class="logo" width='100' height='50'>
+            <img src="https://luuluilui.fr/public/img/logo.jpg" alt="" class="logo" width='100' height='50'>
 
             <br>
             <h4>
@@ -21,10 +21,10 @@
 
             <div class="cars">
                 <div class="car">
-                    <img src="http://127.0.0.1/luuluilui/assets/img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt=""
-                        width="250" height="150"> <br>
+                    <img src="https://luuluilui.fr/public/img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt="" width="250"
+                        height="150"> <br>
 
-                    <img src="http://127.0.0.1/luuluilui/assets/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="" width="150"
+                    <img src="https://luuluilui.fr/public/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="" width="150"
                         height="90" class="mt-2">
 
                 </div>
@@ -61,8 +61,8 @@
 
     </div>
 </footer>
-<script type="text/javascript" src='./public/js/vue.js'></script>
-<script type="text/javascript" src='./public/js/script.js'></script>
+<script type="text/javascript" src='http://luuluilui.fr/public/js/vue.js'></script>
+<script type="text/javascript" src='http://luuluilui.fr/public/js/script.js'></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
