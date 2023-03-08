@@ -43,7 +43,7 @@
 
                             <div class="details">
                                 <p>
-                                    Prix: <span> {{ number_format($data->price, 0,'', ' ') }} XOF </span> <br>
+                                    Prix: <span> {{ number_format($data->price, 0,'', ' ') }} € </span> <br>
                                     Catégorie: <span> {{ $data->category }}</span><br>
                                     Couleur: <span> {{ $data->color }}</span><br>
                                     Annee: <span> {{ $data->year }} </span> <br>

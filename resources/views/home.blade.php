@@ -59,7 +59,7 @@
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} X0F
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
                                     </p>
 
                                     <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
@@ -160,7 +160,7 @@
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} X0F
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
                                     </p>
 
                                     <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
@@ -229,7 +229,7 @@
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} X0F
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
                                     </p>
 
                                     <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
