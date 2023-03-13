@@ -72,11 +72,39 @@
 
             </section>
         </div>
-        <section class='section mt-5 pt-2 bg-light'>
+
+
+        <section class="section mt-5 p-3">
             <h2 class="title">
                 LUULUILUI
             </h2>
 
+            <div class="row mt-3 intro">
+                <div class="col-sm-12 col-md-6">
+                    <img src="{{ asset('img/c-b-cAbH8B-14Vo-unsplash.jpg') }}" alt="voiture a vendre" class="mx-auto">
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <p class="text text-justify p-3">
+                        Luuluilui est un site d'annonces de vente de voitures qui vous permet de trouver facilement
+                        et
+                        rapidement la voiture de vos rêves. Que vous cherchiez une voiture d'occasion ou une voiture
+                        neuve, Luuluilui vous offre une vaste sélection de véhicules à des prix compétitifs. <br>
+
+                        Sur Luuluilui, vous pouvez rechercher des voitures par marque ou Avec des options de
+                        recherche
+                        aussi détaillées, vous êtes sûr de
+                        trouver la voiture qui répondra à vos besoins et à votre budget.
+                    </p>
+
+                    <a class="btn btn-primary" href="/about">
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class='section mt-5 pt-2 bg-light'>
             <div class="container">
                 <div class="row">
                     <div class="cards mt-3 text-center">
@@ -125,6 +153,7 @@
                 </div>
             </div>
         </section>
+
         <div class="container mt-3 pt-2" id="most">
             <section class='section bg-light'>
                 <h2 class="subtitle">
@@ -137,7 +166,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="http://luuluilui.fr/public/img/{{ $ad->pic1 }}">
+                                    <img src="https://luuluilui.fr/public/img/{{ $ad->pic1 }}">
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
                                         <p></p>

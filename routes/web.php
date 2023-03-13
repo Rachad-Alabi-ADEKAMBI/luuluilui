@@ -17,6 +17,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/home', [HomeController::class, 'view']);
 
+Route::get('/about', [HomeController::class, 'about']);
+
+Route::get('/contact', [HomeController::class, 'contact']);
+
 Route::get('/', [HomeController::class, 'view']);
 
 Route::get('/ads', [HomeController::class, 'ads']);

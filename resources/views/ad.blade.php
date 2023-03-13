@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="image">
-                        <img src="{{ asset('img/'.$data->pic1) }}">
+                        <img src="{{ asset('/img/'.$data->pic1) }}">
                     </div>
 
                     <div class="car__infos row">

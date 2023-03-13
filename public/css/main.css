@@ -87,8 +87,13 @@ h3 {
 }
 
 .red {
-  background-color: #bc111d;
-  color: white;
+  color: #bc111d;
+}
+
+.intro img {
+  width: 80%;
+  height: 250px;
+  margin: auto;
 }
 
 i {
@@ -187,6 +192,35 @@ i {
   color: white;
 }
 
+.search-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 15px 0 auto auto;
+  cursor: pointer;
+}
+.search-icon .text {
+  display: inline;
+  margin-top: 5px;
+}
+.search-icon i {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.search-icon i, .search-icon .text {
+  transition: 500ms ease-in-out;
+}
+
+.search-icon:hover i, .search-icon:hover .text {
+  color: #bc111d;
+  font-weight: bold;
+}
+
 .hero {
   height: 60vh;
   min-height: 400px;
@@ -215,6 +249,12 @@ i {
   margin: 20px auto;
   font-style: 1.1em;
   font-weight: 800;
+}
+
+.about img {
+  height: 300px;
+  height: 250px;
+  margin: auto;
 }
 
 .buttons {

@@ -111,8 +111,15 @@ h3{
 }
 
 .red{
-    background-color: $red;
-        color: $white;
+        color: $red;
+}
+
+.intro{
+    img{
+        width: 80%;
+        height: 250px;
+        margin: auto;
+    }
 }
 
 i{
@@ -218,6 +225,35 @@ i{
 
 }
 
+.search-icon{
+    @include flex();
+    width: fit-content;
+    margin: 15px 0 auto auto;
+    cursor: pointer;
+
+    .text{
+        display: inline;
+        margin-top: 5px;
+    }
+
+    i{
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    i,.text{
+        transition: 500ms ease-in-out;
+    }
+}
+
+.search-icon:hover{
+    i,.text{
+        color: $red;
+        font-weight: bold;
+    }
+}
+
 .hero{
     height: 60vh;
     min-height: 400px;
@@ -251,6 +287,14 @@ i{
         }
 
 
+    }
+}
+
+.about{
+    img{
+        height: 300px;
+        height: 250px;
+        margin: auto;
     }
 }
 

@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <img src="http://127.0.0.1/frankoo/assets/img/logo.jpg" width='90' height='70'>
+                        <img src="{{ asset('/img/logonoir.png') }}" width='150' height='90'
+                            alt="location et vente de véhicule" class="mx-auto">
                     </a>
                 </div>
 
@@ -19,9 +20,17 @@
                         Annonces
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="/about" :active="request()->routeIs('ads')">
+                        A propos
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="/contact" :active="request()->routeIs('ads')">
+                        Contact
+                    </x-jet-nav-link>
+
                     @auth
                     <x-jet-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
-                        {{ __('Tableau de board') }}
+                        {{ __('Tableau de bord') }}
                     </x-jet-nav-link>
                     @endauth
 
@@ -36,7 +45,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @guest
                 <a class="btn btn-success mr-0" href="/login">
-                    Login
+                    Connexion
                 </a>
                 @endguest
 
@@ -143,7 +152,7 @@
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __("Déconnexion") }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -178,9 +187,17 @@
             <x-jet-responsive-nav-link href="{{ url('/ads') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Annonces') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ url('/about') }}" :active="request()->routeIs('dashboard')">
+                {{ __('A propos') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ url('/contact') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Contact') }}
+            </x-jet-responsive-nav-link>
+            @auth
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Tableau de bord') }}
             </x-jet-responsive-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->
@@ -204,7 +221,7 @@
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}"
                     :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    {{ __('Profil') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -219,7 +236,7 @@
                     @csrf
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Déconnexion') }}
                     </x-jet-responsive-nav-link>
                 </form>
 

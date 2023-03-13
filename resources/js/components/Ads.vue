@@ -16,8 +16,9 @@
     </div>
 
     <div class="mx-auto text-center pt-3" v-if="showSearch">
-        <input type="text" placeholder="Nom ou modèle" v-model="searchText">
-        <i class="bi bi-x search-icon " @click="getAllCars()"></i>
+        <input type="range" v-model="rangeValue" min="0" max="30000000" class="mr-2">
+        <input type="text" placeholder="Nom ou modèle" v-model="searchText" class="mr-2">
+        <i class="bi bi-x search-icon fw-bold" @click="getAllCars()"></i>
     </div>
 
     <section class='section bg-light pt-2' v-if='showSearch'>
@@ -25,10 +26,15 @@
             RESULTATS DE LA RECHERCHE
         </h2>
 
+
         <div class="container mt-3 ">
             <div class="row">
+                <p class="text text-center">
+                        Resultats pour <span>{{ format(rangeValue)  }}</span> XOF
+                    </p>
 
-                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in filteredItems' :key='car.id'>
+                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in sortedItems' :key='car.id'>
+
                     <div class="item mx-auto">
                         <div class="item__top">
                             <img :src="getImgUrl(car.pic1)" class='' alt="">
@@ -231,7 +237,8 @@
         showSearch: false,
         showFilters: false,
         footerCars: [],
-        searchText: ''
+        searchText: '',
+        rangeValue: ''
 
     }
 },
@@ -246,7 +253,12 @@ computed: {
                     return ad.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
                         ad.brand_name.toLowerCase().includes(this.searchText.toLowerCase())
                 })
-            }
+            },
+            sortedItems() {
+      return this.details
+        .filter((ad) => ad.price >= this.rangeValue)
+        .sort((a, b) => b.price - a.price);
+    },
         },
 methods: {
     displaySearch(){
@@ -258,7 +270,7 @@ methods: {
     },
 
     getToSell(){
-        axios.get('http://127.0.0.1:8000/adsApi').then(response =>
+        axios.get('https://luuluilui.fr/api/carsToSell').then(response =>
             this.details = response.data);
             this.showCar = false;
             this.showAllCars = false;

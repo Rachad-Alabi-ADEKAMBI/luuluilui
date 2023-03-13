@@ -22,8 +22,8 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="icon" type="image/png" href="http://www.luuluilui.fr/public/img/logo.ico">
-    <link rel="stylesheet" href="http://www.luuluilui.fr/public/css/main.css">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.ico')}}">
+    <link rel="stylesheet" href="{{ asset('css/main.css')}}">
 
     <!--  @vite('resources/css/app.css')-->
 
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
+
         </main>
     </div>
 

@@ -1,9 +1,14 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <img src="https://luuluilui.fr/public/img/logo.jpg"
-             alt="" width="130" height='30'>
+            <img src="{{ asset('img/logonoir.png') }}" alt="" width="140" height='90' class="mx-auto">
         </x-slot>
+
+        <div class="">
+            <h1 class="text-center subtitle" style="font-size: 2em; color: #bc111d; font-weight: bold;">
+                Connexion
+            </h1>
+        </div>
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -15,6 +20,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />

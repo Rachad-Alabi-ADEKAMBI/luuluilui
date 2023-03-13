@@ -63,15 +63,11 @@ class HomeController extends Controller
 
     public function myAds()
     {
-        $id = 3;
+        $userId = auth()->id();
 
-        //  $data = Ad::where('seller_id', $id)->get();
-        $data = Ad::find($id);
+        $data = Ad::where('user_id', $userId)->get();
+
         $datas = compact('data');
-
-        header('Access-Control-Allow-Origin: *');
-        header('Content-Type: application/json');
-        //   echo json_encode($datas, JSON_UNESCAPED_UNICODE);
         return $datas;
     }
 
@@ -102,19 +98,21 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    /*
-    public function index()
+    public function about()
     {
-        return View('home');
+        return View('about');
     }
 
+    public function contact()
+    {
+        return View('contact');
+    }
+
+    /*
     public function welcome()
     {
         return View('welcome');
     }
-
-
-
 
 
     public function delete($id)
@@ -132,7 +130,6 @@ class HomeController extends Controller
             ->get();
         return view('display', compact('data'));
     }
-
 
     public function update(Request $request, $id)
     {

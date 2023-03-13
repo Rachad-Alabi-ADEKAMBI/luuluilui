@@ -1,12 +1,9 @@
 <footer class="footer">
     <div class="footer__top row">
         <div class="box col-sm-12 col-md-4">
-            <img src="https://luuluilui.fr/public/img/logo.jpg" alt="" class="logo" width='100' height='50'>
-
+            <img src="{{ asset('/img/logoblanc.png') }}" width='150' height='90' alt="location et vente de véhicule"
+                class="ml-0">
             <br>
-            <h4>
-                LUULUILUI
-            </h4>
 
             <p>
                 Annonces de vente et <br> locations de vehicules
@@ -24,7 +21,7 @@
                     <img src="https://luuluilui.fr/public/img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt="" width="250"
                         height="150"> <br>
 
-                    <img src="https://luuluilui.fr/public/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="" width="150"
+                    <img src="https://luuluilui.fr/public/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="" width="250"
                         height="90" class="mt-2">
 
                 </div>
