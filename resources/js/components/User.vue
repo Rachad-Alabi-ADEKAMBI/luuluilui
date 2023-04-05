@@ -125,34 +125,34 @@
 
                 <div class="row">
                     <div class="form-group col-md-12 col-lg-6">
-                        <label for="inputEmail4">Nom</label>
+                        <label for="inputEmail4">Nom <span>*</span> </label>
                         <input type="text" class="form-control" name="name"
                         id="inputEmail4" placeholder="Nom" required>
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
-                        <label for="inputEmail4">Marque</label>
+                        <label for="inputEmail4">Marque <span>*</span></label>
                         <input type="text" class="form-control" name="brand_name"
                         required id="inputEmail4"
                          placeholder="Modèle">
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
-                        <label for="inputEmail4">Prix</label>
+                        <label for="inputEmail4">Prix <span>*</span></label>
                         <input type="text" class="form-control" name="price" id="inputEmail4"
-                         placeholder="Price">
+                         placeholder="Prix">
                       </div>
                 </div>
 
                 <div class="row mt-3">
                     <div class="form-group col-md-12 col-lg-6">
-                        <label for="inputEmail4">Année: </label>
+                        <label for="inputEmail4">Année: <span>*</span></label>
                         <input type="number" class="form-control"
                            name="year" id="inputEmail4" placeholder="Nom" required>
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
-                        <label for="inputEmail4">Etat:</label> <br>
+                        <label for="inputEmail4">Etat: <span>*</span></label> <br>
                         <select name="rate" id="" required>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -161,41 +161,48 @@
                       </div>
 
                       <div class="form-group col-md-12 col-lg-3">
-                        <label for="inputEmail4">Couleur: </label>
+                        <label for="inputEmail4">Couleur: <span>*</span></label>
                         <input type="text" class="form-control" id="inputEmail4"
-                         placeholder="Price" name="color" required >
+                         placeholder="Couleur" name="color" required >
                       </div>
                 </div>
 
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label for="">Description: </label>
+                        <label for="">Description: <span>*</span></label>
                         <textarea name="description" id="" cols="58"  required rows="5"></textarea>
                     </div>
                 </div> <br>
 
                 <div class="row mt-3">
-                    <div class="col-4">
-                        <input type="file" name='pic1'>
+                    <div class="col-6">
+                        <label for="">Image 1: <span>*</span></label>
+                        <input type="file" name='pic1' required>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-6">
+                        <label for="">Image 2:</label>
                         <input type="file" name='pic2'>
-                    </div>
-
-                    <div class="col-4">
-                        <input type="file" name='pic3'>
                     </div>
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-4">
+
+                    <div class="col-6">
+                        <label for="">Image 3:</label>
+                        <input type="file" name='pic3'>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Image 4:</label>
                         <input type="file" name='pic4'>
                     </div>
+                </div>
 
-                    <div class="col-4">
-                        <input type="file" name='pic5'>
-                    </div>
+                <div class="row mt-3">
+                        <div class="col-6">
+                            <label for="">Image 5:</label>
+                            <input type="file" name='pic5'>
+                        </div>
                 </div>
 
                 <div class="row mt-3">
@@ -211,7 +218,8 @@
                     </div>
                 </div>  <br>
 
-                <button type='submit' class='btn btn-success' id="btn-success">
+                <button type='submit' class='btn btn-success' id="btn-success"
+                style='background: green'>
                     Ajouter
                 </button>
 

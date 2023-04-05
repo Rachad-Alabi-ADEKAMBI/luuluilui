@@ -391,6 +391,9 @@ section .container .row .item__bottom button:hover {
 section .container .row .item__bottom button:hover a {
   color: white;
 }
+section .container .row label {
+  display: none;
+}
 section .cards {
   display: flex;
   flex-direction: row;
