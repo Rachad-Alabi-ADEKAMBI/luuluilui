@@ -62,7 +62,7 @@
                                     <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
                                     </p>
 
-                                    <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
+                                    <a href="{{url('adView',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
                                     <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
                                     </p>
 
-                                    <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
+                                    <a href="{{url('adView',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>

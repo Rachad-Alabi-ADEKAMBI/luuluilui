@@ -58,6 +58,15 @@ class HomeController extends Controller
     {
         $data = Ad::find($id);
 
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        return json_encode($data, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function adView($id)
+    {
+        $data = Ad::find($id);
+
         return view('ad', compact('data'));
     }
 
@@ -65,10 +74,11 @@ class HomeController extends Controller
     {
         $userId = auth()->id();
 
-        $data = Ad::where('user_id', $userId)->get();
+        $data = Ad::where('seller_id', $userId)->get();
 
-        $datas = compact('data');
-        return $datas;
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        return json_encode($data, JSON_UNESCAPED_UNICODE);
     }
 
     public function upload(Request $request)

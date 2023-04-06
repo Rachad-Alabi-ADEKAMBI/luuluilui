@@ -56,7 +56,7 @@
 
                 @yield('content')
                 <div class="" id='FooterV'>
-                    <FooterV />
+
                 </div>
             </div>
 

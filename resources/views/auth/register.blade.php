@@ -16,16 +16,30 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Nom') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                    autofocus autocomplete="name" />
+                <x-jet-label for="first_name" value="{{ __('Nom') }}" />
+                <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name"
+                    :value="old('first_name')" required autofocus autocomplete="first_name" placeholder='John' />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="last_name" value="{{ __('Prénoms') }}" />
+                <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name"
+                    :value="old('last_name')" required autofocus autocomplete="last_name" placeholder='Doe' />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autocomplete="username" />
+                    required autocomplete="username" placeholder='johndoe@mail.fr' />
             </div>
+
+
+            <div class="mt-4">
+                <x-jet-label for="phone_number" value="{{ __('Numéro de tél') }}" />
+                <x-jet-input id="phone_number" class="block mt-1 w-full" type="number" name="phone_number"
+                    :value="old('phone_number')" required autocomplete="Numero de tel" placeholder='+ XXX XXXXXXX' />
+            </div>
+
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Mot de passe') }}" />

@@ -297,7 +297,7 @@ methods: {
             this.showToSell = false;
     },
     getCar(id){
-        window.location.replace('https://luuluilui.fr/ad/'+id);
+        window.location.replace('/adView/'+id);
      //  window.location.replace('https://127.0.0.1:8001/ad/'+id);
     },
     reduceString(str) {

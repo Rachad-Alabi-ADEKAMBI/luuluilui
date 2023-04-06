@@ -48,8 +48,8 @@
                 </a>
                 @endif
 
-                <a class="underline text-sm text-gray-600 hover:text-blue-900 ml-2" href="/register">
-                    {{ __('Créer un compte ?') }}
+                <a class="underline text-sm text-red-600 hover:text-blue-900 ml-2" href="/register">
+                    {{ __('Créer un compte ') }}
                 </a>
 
                 <x-jet-button class="ml-4">

@@ -66,12 +66,13 @@ function getmyAds()
     $pdo = getConnexion();
     $req = $pdo->prepare("SELECT *  FROM ads
         WHERE seller_id = ?");
-    $id = 2;
-    $req->execute([]);
+    $id = 4;
+    $req->execute([4]);
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
-    sendJSON($datas);
-    return $datas;
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    echo json_encode($datas, JSON_UNESCAPED_UNICODE);
 }
 
 function getCars()
@@ -227,7 +228,7 @@ function newCar()
         }
 
         if (empty($_POST['rate'])) {
-            $errors['year'] = "Veuillez definir l'état";
+            $errors['rate'] = "Veuillez definir l'état";
         }
 
         $_SESSION['car'] = [
