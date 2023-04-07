@@ -30,7 +30,7 @@
 
 
         <!--show ads-->
-        <div class="row">
+        <div class="row mt-2">
             <h1 class="title">
                 Mes annonces
             </h1>
@@ -42,7 +42,7 @@
                 </p>
             </div>
 
-            <div class="row">
+            <div class="row mt-4"  v-if="ads.length > 0">
 
                 <div class="col-sm-12 col-md-8 mx-auto">
                     <div class="table-responsive-md">
