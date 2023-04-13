@@ -47,6 +47,10 @@ Route::middleware([
 
 Route::get('/adsApi', [HomeController::class, 'adsApi']);
 
+Route::get('/cgu', [HomeController::class, 'cgu']);
+
+Route::get('/policy', [HomeController::class, 'policy']);
+
 /*
 Route::post('/upload', [HomeController::class, 'upload']);
 

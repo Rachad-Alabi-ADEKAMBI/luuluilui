@@ -16,12 +16,12 @@
     </div>
 
     <div class="mx-auto text-center pt-3" v-if="showSearch">
-        <input type="range" v-model="rangeValue" min="0" max="30000000" class="mr-2">
+        <input type="range" v-model="rangeValue" min="0" max="70000000" class="mr-2">
         <input type="text" placeholder="Nom ou modèle" v-model="searchText" class="mr-2">
         <i class="bi bi-x search-icon fw-bold" @click="getAllCars()"></i>
     </div>
 
-    <section class='section bg-light pt-2' v-if='showSearch'>
+    <section class='section bg-light pt-2' v-if='1<0'>
         <h2 class="subtitle">
             RESULTATS DE LA RECHERCHE
         </h2>
@@ -33,7 +33,69 @@
                         Resultats pour <span>{{ format(rangeValue)  }}</span> XOF
                     </p>
 
-                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in sortedItems' :key='car.id'>
+                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in filteredItems' :key='car.id'>
+
+                    <div class="item mx-auto">
+                        <div class="item__top">
+                            <img :src="getImgUrl(car.pic1)" class='' alt="">
+                            <div class="info"> {{ car.category }} </div>
+                            <div class="bar">
+                                <p></p>
+                            </div>
+                        </div>
+
+                        <div class="item__bottom">
+                            <h3>
+                                {{ car.name }}
+                            </h3>
+
+                            <p class="description">
+                                {{ reduceString( car.description ) }}
+                            </p>
+
+                            <div class="list">
+                                <div class="list__item">Annee: <span> {{ car.year }} </span></div>
+                                <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
+                                <div class="list__item">Couleur: <span> {{ car.color }} </span></div>
+                            </div>
+
+                            <p class="price">
+                                {{ format(car.price)}} XOF
+                            </p>
+
+                            <button  class="btn btn-primary" @click='getCar(car.id)'>
+                                Voir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section v-if="searchItems.length  == 0">
+        <p class="text text-center mt-3"  >
+                    Aucun résultat
+                </p>
+    </section>
+
+    <section class='section bg-light pt-2' v-if="searchItems.length > 0 && showResults">
+        <h2 class="subtitle">
+            RESULTATS DE LA RECHERCHE
+        </h2>
+
+
+        <div class="container mt-3 ">
+            <div class="row">
+                <p class="text text-center">
+                        Resultats pour <span>{{ searchText  }}</span>
+                    </p> <br>
+
+
+
+                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in
+                       searchItems' :key='car.id' v-if="searchItems.length > 0">
 
                     <div class="item mx-auto">
                         <div class="item__top">
@@ -236,9 +298,12 @@
         showToSell: false,
         showSearch: false,
         showFilters: false,
+       /// showSearchResults: true,
+        //showFilteredResults: false,
         footerCars: [],
         searchText: '',
-        rangeValue: ''
+        rangeValue: '',
+        showResults: false
 
     }
 },
@@ -246,19 +311,16 @@ mounted: function() {
    this.getAllCars();
 },
 computed: {
-            filteredItems() {
-                this.showAll = false;
-                this.showSearch = true;
-                return this.details.filter(ad => {
-                    return ad.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
-                        ad.brand_name.toLowerCase().includes(this.searchText.toLowerCase())
-                })
-            },
-            sortedItems() {
-      return this.details
+        filteredItems() {
+         return this.details
         .filter((ad) => ad.price >= this.rangeValue)
         .sort((a, b) => b.price - a.price);
     },
+    searchItems() {
+                   return this.details.filter(detail => {
+                    return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
+                })
+            }
         },
 methods: {
     displaySearch(){
@@ -267,6 +329,16 @@ methods: {
         this.showAllCars = false;
             this.showToRent = false;
             this.showToSell = false;
+        this.showResults = true;
+    },
+
+
+    closeSearch(){
+        this.showFilters = true;
+        this.showSearch = false;
+        this.showAllCars = true;
+        this.showResults = false;
+        this.searchItems.length = 0;
     },
 
     getToSell(){

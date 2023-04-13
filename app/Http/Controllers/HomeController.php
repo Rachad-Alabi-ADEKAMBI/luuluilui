@@ -118,13 +118,17 @@ class HomeController extends Controller
         return View('contact');
     }
 
-    /*
-    public function welcome()
+    public function cgu()
     {
-        return View('welcome');
+        return View('cgu');
     }
 
+    public function policy()
+    {
+        return View('policy');
+    }
 
+    /*
     public function delete($id)
     {
         $data = student::find($id);

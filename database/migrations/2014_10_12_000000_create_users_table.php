@@ -15,15 +15,17 @@ return new class extends Migration {
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->string('username')->unique();
             $table->string('phone_number');
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('username')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
             $table->string('role')->default('user');
+            $table->string('verification')->default('Non vérifié');
+            $table->string('status')->default('Actif');
         });
     }
 

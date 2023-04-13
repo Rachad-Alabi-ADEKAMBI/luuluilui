@@ -41,8 +41,12 @@
                 Les plus consultées
             </a> <br>
 
-            <a href="/#last">
-                Derniers ajouts
+            <a href="/cgu">
+                Conditions générales d'utilisation
+            </a><br>
+
+            <a href="/policy">
+                Politique de confidentialité
             </a>
         </div>
     </div>

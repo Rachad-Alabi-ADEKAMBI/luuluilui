@@ -27,11 +27,7 @@
                     :value="old('last_name')" required autofocus autocomplete="last_name" placeholder='Doe' />
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="username" value="{{ __('Pseudo') }}" />
-                <x-jet-input id=" username" class="block mt-1 w-full" type="text" name="username"
-                    :value="old('username')" required autofocus autocomplete="username" placeholder='johnDoe1' />
-            </div>
+
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -45,6 +41,13 @@
                 <x-jet-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number"
                     :value="old('phone_number')" required autocomplete="Numéro de téléphone"
                     placeholder='+ XXX XXXXXXXX' />
+            </div>
+            <hr>
+
+            <div class="mt-4">
+                <x-jet-label for="username" value='{{ __("Nom d`utilisateur") }}' />
+                <x-jet-input id=" username" class="block mt-1 w-full" type="text" name="username"
+                    :value="old(' username')" required autofocus autocomplete="username" placeholder='johnDoe1' />
             </div>
 
 
