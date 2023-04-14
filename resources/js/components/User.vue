@@ -20,7 +20,7 @@
             </div> <br>
         </div>
 
-        <div class="row" v-if="showAll">
+        <div class="row" v-if="showAll && ads.length >0">
             <div class="col-3 text-center mx-auto search-icon" @click="displaySearch()" v-if="showSearchBtn">
                 <i class="bi bi-search"></i>
             </div>
@@ -92,12 +92,14 @@
     <div class="container" v-if="showAdd">
         <div class="row">
             <div class="col-md-12 col-lg-6 mx-auto p-3 bg-light text-center">
-                <form action="http://127.0.0.1/luuluilui/api/api.php?action=newCar" enctype="multipart/form-data"
-                    method='POST' class="mx-auto">
+                <form action="upload" method="POST" enctype="multipart/form-data"
+                 class="mx-auto">
+                    @csrf
 
                     <div class="close text-center" @click='getMyAds()'>
                         <i class="bi bi-x-lg"></i>
                     </div>
+
 
                     <h2 class="subtitle">
                         Nouvel ajout
@@ -107,18 +109,19 @@
                         <div class="form-group col-md-12 col-lg-6">
                             <label for="inputEmail4">Nom <span>*</span> </label>
                             <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Nom"
-                                required>
+                                required value="caorsso" >
                         </div>
 
                         <div class="form-group col-md-12 col-lg-3">
                             <label for="inputEmail4">Marque <span>*</span></label>
                             <input type="text" class="form-control" name="brand_name" required id="inputEmail4"
-                                placeholder="Modèle">
+                                placeholder="Modèle" value="artic">
                         </div>
 
                         <div class="form-group col-md-12 col-lg-3">
                             <label for="inputEmail4">Prix <span>*</span></label>
-                            <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix">
+                            <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix"
+                            value="12000">
                         </div>
                     </div>
 
@@ -126,7 +129,7 @@
                         <div class="form-group col-md-12 col-lg-6">
                             <label for="inputEmail4">Année: <span>*</span></label>
                             <input type="number" class="form-control" name="year" id="inputEmail4" placeholder="Nom"
-                                required>
+                                required value="1992">
                         </div>
 
                         <div class="form-group col-md-12 col-lg-3">
@@ -140,7 +143,8 @@
 
                         <div class="form-group col-md-12 col-lg-3">
                             <label for="inputEmail4">Couleur: <span>*</span></label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur" name="color"
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur"
+                            value="perfect" name="color"
                                 required>
                         </div>
                     </div>
@@ -148,14 +152,15 @@
                     <div class="row mt-3">
                         <div class="col-12">
                             <label for="">Description: <span>*</span></label>
-                            <textarea name="description" id="" cols="58" required rows="5"></textarea>
+                            <textarea name="description" id="" cols="58" required rows="5"
+                                value="greenie" ></textarea>
                         </div>
                     </div> <br>
 
                     <div class="row mt-3">
                         <div class="col-6">
                             <label for="">Image 1: <span>*</span></label>
-                            <input type="file" name='pic1' required>
+                            <input type="file" name='pic1'>
                         </div>
 
                         <div class="col-6">
@@ -194,7 +199,7 @@
                         </label>
                     </div> <br>
 
-                    <button type='submit' class='btn btn-success mt-2' id="btn-success" style='background:green'>
+                    <button type='submit' class='btn btn-success mt-2'  style='background:green'>
                         Ajouter
                     </button>
 
@@ -202,7 +207,6 @@
             </div>
         </div>
     </div>
-
     <!--end add-->
 
 
@@ -312,7 +316,7 @@
                         </label>
                     </div> <br>
 
-                    <button type='submit' class='btn btn-success mt-2' id="btn-success" style='background: green'>
+                    <button type='submit' class='btn btn-success mt-2' id="btn-success" style='background-color: green'>
                         Ajouter
                     </button>
 

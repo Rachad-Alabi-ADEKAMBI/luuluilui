@@ -51,11 +51,9 @@ Route::get('/cgu', [HomeController::class, 'cgu']);
 
 Route::get('/policy', [HomeController::class, 'policy']);
 
-/*
 Route::post('/upload', [HomeController::class, 'upload']);
 
-
-
+/*
 Route::get('/delete/{id}', [HomeController::class, 'delete']);
 
 Route::get('/search', [HomeController::class, 'search']);
