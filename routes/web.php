@@ -31,6 +31,8 @@ Route::get('/ad/{id}', [HomeController::class, 'ad']);
 
 Route::get('/adView/{id}', [HomeController::class, 'adView']);
 
+Route::get('/newAd', [HomeController::class, 'newAd']);
+
 Route::get('/myAds', [HomeController::class, 'myAds']);
 
 Route::get('/footerAds', [HomeController::class, 'footerAds']);

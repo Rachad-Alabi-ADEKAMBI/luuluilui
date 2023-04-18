@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-md-12 lg-6 mx-auto text-center">
                 <div class="buttons">
-                    <button class='btn btn-primary' @click='add()'>
+                    <a class='btn btn-primary' href="/newAd">
                         Nouvelle annonce
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -88,126 +88,7 @@
     <!--end main-->
 
 
-    <!--start add-->
-    <div class="container" v-if="showAdd">
-        <div class="row">
-            <div class="col-md-12 col-lg-6 mx-auto p-3 bg-light text-center">
-                <form action="upload" method="POST" enctype="multipart/form-data"
-                 class="mx-auto">
-                    @csrf
 
-                    <div class="close text-center" @click='getMyAds()'>
-                        <i class="bi bi-x-lg"></i>
-                    </div>
-
-
-                    <h2 class="subtitle">
-                        Nouvel ajout
-                    </h2>
-
-                    <div class="row">
-                        <div class="form-group col-md-12 col-lg-6">
-                            <label for="inputEmail4">Nom <span>*</span> </label>
-                            <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Nom"
-                                required value="caorsso" >
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Marque <span>*</span></label>
-                            <input type="text" class="form-control" name="brand_name" required id="inputEmail4"
-                                placeholder="Modèle" value="artic">
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Prix <span>*</span></label>
-                            <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix"
-                            value="12000">
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="form-group col-md-12 col-lg-6">
-                            <label for="inputEmail4">Année: <span>*</span></label>
-                            <input type="number" class="form-control" name="year" id="inputEmail4" placeholder="Nom"
-                                required value="1992">
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Etat: <span>*</span></label> <br>
-                            <select name="rate" id="" required>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Couleur: <span>*</span></label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur"
-                            value="perfect" name="color"
-                                required>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <label for="">Description: <span>*</span></label>
-                            <textarea name="description" id="" cols="58" required rows="5"
-                                value="greenie" ></textarea>
-                        </div>
-                    </div> <br>
-
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <label for="">Image 1: <span>*</span></label>
-                            <input type="file" name='pic1'>
-                        </div>
-
-                        <div class="col-6">
-                            <label for="">Image 2:</label>
-                            <input type="file" name='pic2'>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-
-                        <div class="col-6">
-                            <label for="">Image 3:</label>
-                            <input type="file" name='pic3'>
-                        </div>
-                        <div class="col-6">
-                            <label for="">Image 4:</label>
-                            <input type="file" name='pic4'>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <label for="">Image 5:</label>
-                            <input type="file" name='pic5'>
-                        </div>
-                    </div>
-
-                    <div class="col-3 mx-auto text-center">
-                        <label for="" class="mx-auto text-center">
-                            Action:
-                            <select name="category" id="" required>
-                                <option value="">Veuillez selectionner</option>
-                                <option value="A vendre">A vendre</option>
-                                <option value="A louer"> A louer</option>
-                            </select>
-                        </label>
-                    </div> <br>
-
-                    <button type='submit' class='btn btn-success mt-2'  style='background:green'>
-                        Ajouter
-                    </button>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--end add-->
 
 
     <!--start edit-->
@@ -439,12 +320,6 @@ export default {
             this.showEdit = false;
             this.showDelete = true;
             this.showAdd = false;
-        },
-        add() {
-            this.showMyAds = false;
-            this.showEdit = false;
-            this.showDelete = false;
-            this.showAdd = true;
         },
 
         format(num) {

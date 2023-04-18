@@ -113,6 +113,11 @@ class HomeController extends Controller
         return View('about');
     }
 
+    public function newAd()
+    {
+        return View('newAd');
+    }
+
     public function contact()
     {
         return View('contact');

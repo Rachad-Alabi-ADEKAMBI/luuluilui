@@ -1,4 +1,3 @@
-gijnj
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
         {{ __('Profile Information') }}
@@ -96,4 +95,3 @@ gijnj
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
-glhbhb
