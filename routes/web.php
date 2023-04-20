@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,7 @@ Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/', [HomeController::class, 'view']);
 
-Route::get('/ads', [HomeController::class, 'ads']);
+Route::get('/marketplace', [HomeController::class, 'marketplace']);
 
 Route::get('/sellers', [UserController::class, 'sellers']);
 
@@ -49,11 +51,19 @@ Route::middleware([
 
 Route::get('/adsApi', [HomeController::class, 'adsApi']);
 
+Route::get('/carsToSellApi', [HomeController::class, 'carsToSellApi']);
+
+Route::get('/carsToRentApi', [HomeController::class, 'carsToRentApi']);
+
 Route::get('/cgu', [HomeController::class, 'cgu']);
 
 Route::get('/policy', [HomeController::class, 'policy']);
 
 Route::post('/upload', [HomeController::class, 'upload']);
+
+Route::get('/mail', [MailController::class, 'sendMail']);
+
+Route::get('/watermark', [ImageController::class, 'imageWaterMark']);
 
 /*
 Route::get('/delete/{id}', [HomeController::class, 'delete']);

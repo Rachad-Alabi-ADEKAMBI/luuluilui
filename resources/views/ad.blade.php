@@ -4,6 +4,9 @@
 
 @section ('content')
 
+
+
+
 <div class="">
     <div class="main">
         <div class="container mt-2 bg-light">
@@ -27,43 +30,37 @@
                     <div class="image">
                         <div class="row">
                             <div class="col-sm-12 col-md-8 text-center">
-                                <img src="{{ asset('/img/'.$data->pic1) }}" class="mx-auto">
+                                <img src="{{ asset('/ads/'.$data->pic1) }}" class="mx-auto">
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="images">
                                     @if($data->pic2)
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic2) }}"
-                                        class="images_item">
+                                    <img src="{{ asset('/ads/'.$data->pic2) }}" class="images_item">
                                     @endif
 
                                     @if($data->pic3)
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic3) }}"
-                                        class="images_item">
+                                    <img src="{{ asset('/ads/'.$data->pic3) }}" class="images_item">
                                     @endif
                                 </div>
 
                                 <div class="images">
                                     @if($data->pic4)
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic4) }}"
-                                        class="images_item">
+                                    <img src="{{ asset('/ads/'.$data->pic4) }}" class="images_item">
                                     @endif
 
                                     @if($data->pic5)
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic5) }}"
-                                        class="images_item">
+                                    <img src="{{ asset('/ads/'.$data->pic5) }}" class="images_item">
                                     @endif
                                 </div>
 
                                 <div class="images">
                                     @if($data->pic6)
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic6) }}"
-                                        class="images_item">
+                                    <img src="{{ asset('/ads/'.$data->pic6) }}" class="images_item">
                                     @endif
 
                                     @if($data->pic7)
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $data->pic7) }}"
-                                        class="images_item">
+                                    <img src="{{ asset('/ads/'.$data->pic7) }}" class="images_item">
                                     @endif
                                 </div>
 
@@ -89,7 +86,7 @@
 
                         <div class="details">
                             <p>
-                                Prix: <span> {{ number_format($data->price, 0,'', ' ') }} € </span> <br>
+                                Prix: <span> {{ number_format($data->price, 0,'', ' ') }} XOF </span> <br>
                                 Catégorie: <span> {{ $data->category }}</span><br>
                                 Couleur: <span> {{ $data->color }}</span><br>
                                 Annee: <span> {{ $data->year }} </span> <br>
@@ -101,12 +98,16 @@
                     <div class="right  col-md-12 col-lg-3">
                         <div class="card mx-auto">
                             <div class="card__top">
-                                <img src='http://luuluilui.fr/public/img/pdg.jpeg'>
+                                @if($data->pic)
+                                <img src="{{ asset('/img/users/'.$data->pic) }}" class="images_item">
+                                @else
+                                <img src="{{ asset('/img/users/icon.jpg') }}" class="images_item">
+                                @endif
+
                                 <div class="card__top__infos">
-                                    <i class="fas fa-user"></i> John Doe <br>
-                                    <i class="bi bi-phone"></i> 547 852 457<br>
-                                    <i class="bi bi-whatsapp"></i> 46 466 456 <br>
-                                    <i class="fas fa-envelope"></i> john@doe.fr <br>
+                                    <i class="fas fa-user"></i> {{  $data->first_name }} {{  $data->last_name }} <br>
+                                    <i class="bi bi-phone"></i> {{  $data->phone_number }} <br>
+                                    <i class="fas fa-envelope"></i> {{  $data->email}} <br>
                                 </div>
                             </div>
 

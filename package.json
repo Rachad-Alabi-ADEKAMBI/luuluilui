@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^4.0.0",
+        "animate.css": "^4.1.1",
         "vue": "^3.2.47",
         "vue-loader": "^17.0.1"
     }

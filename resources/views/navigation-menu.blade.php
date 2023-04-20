@@ -16,7 +16,7 @@
                         Accueil
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="/ads" :active="request()->routeIs('ads')">
+                    <x-jet-nav-link href="/marketplace" :active="request()->routeIs('marketplace')">
                         Annonces
                     </x-jet-nav-link>
 

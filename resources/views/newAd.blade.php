@@ -13,7 +13,7 @@
                     @csrf
 
                     <a href="/dashboard" class="close text-right mr-0">
-                        <i class="bi bi-x-lg text-left"></i>
+                        <i class="bi bi-x-lg text-right"></i>
                     </a>
 
 
@@ -50,7 +50,7 @@
 
                         <div class="form-group col-md-12 col-lg-3">
                             <label for="inputEmail4">Etat: <span>*</span></label> <br>
-                            <select name="rate" id="" required>
+                            <select name="rate" id="" required class="text-black fw-normal">
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-12">
+                        <div class="col-sm-6 col-sm-12">
                             <label for="">Description: <span>*</span></label>
                             <textarea name="description" id="" cols="58" required rows="5" class="text-black fw-normal"
                                 value="greenie"></textarea>
@@ -101,13 +101,24 @@
                             <label for="">Image 5:</label>
                             <input type="file" name='pic5'>
                         </div>
+
+                        <div class="col-6">
+                            <label for="">Image 6:</label>
+                            <input type="file" name='pic6'>
+                        </div>
                     </div>
 
-                    <div class="col-3 mx-auto text-center">
-                        <label for="" class="mx-auto text-center">
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label for="">Image 7:</label>
+                            <input type="file" name='pic7'>
+                        </div>
+                    </div>
+
+                    <div class="col-3 mx-auto">
+                        <label for="" class="mx-auto ">
                             Action:
-                            <select name="category" id="" required>
-                                <option value="">Veuillez selectionner</option>
+                            <select name="category" id="" required class="text-black fw-normal">
                                 <option value="A vendre">A vendre</option>
                                 <option value="A louer"> A louer</option>
                             </select>

@@ -329,7 +329,8 @@ export default {
             return res;
         },
         getImgUrl(pic) {
-            return "https://luuluilui.fr/public/img/" + pic;
+           // return "https://luuluilui.fr/public/img/" + pic;
+            return "https://127.0.0.1/luuluilui/public/ads/" + pic;
         },
     }
 }

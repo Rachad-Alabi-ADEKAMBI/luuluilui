@@ -6,32 +6,49 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Ad;
 
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     public function view()
     {
-        $data = Ad::limit(3)->get();
+        $lastAds = Ad::orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+        $mostViewedAds = Ad::orderBy('views', 'desc')
+            ->take(3)
+            ->get();
+        $highestRatedAds = Ad::orderBy('stars', 'desc')
+            ->take(3)
+            ->get();
 
-        return view('home', compact('data'));
+        return view(
+            'home',
+            compact('lastAds', 'mostViewedAds', 'highestRatedAds')
+        );
     }
-
     static function formatText($text)
     {
         return Str::limit($text, 20, ' ...');
     }
 
-    public function ads()
-    {
-        $data = Ad::all();
-
-        // $data2 = Ad::where('category', 'Electronics')->get();
-
-        return view('ads', compact('data'));
-    }
-
     public function adsApi()
     {
         $data = Ad::all();
+
+        return $data;
+    }
+
+    public function carsToSellApi()
+    {
+        $data = Ad::where('category', 'A vendre')->get();
+
+        return $data;
+    }
+
+    public function carsToRentApi()
+    {
+        $data = Ad::where('category', 'A louer')->get();
 
         return $data;
     }
@@ -65,7 +82,11 @@ class HomeController extends Controller
 
     public function adView($id)
     {
-        $data = Ad::find($id);
+        $data = DB::table('ads')
+            ->select('ads.*', 'users.*')
+            ->leftJoin('users', 'ads.seller_id', '=', 'users.id')
+            ->where('ads.id', '=', $id)
+            ->first();
 
         return view('ad', compact('data'));
     }
@@ -85,32 +106,54 @@ class HomeController extends Controller
     {
         $ad = new Ad();
 
-        $ad->name = $request->name;
-        $ad->price = $request->price;
-        $ad->rate = $request->rate;
-        $ad->category = $request->category;
-        $ad->year = $request->year;
-        $ad->color = $request->color;
-        $ad->brand_name = $request->brand_name;
+        $ad->name = $request->input('name');
+        $ad->price = $request->input('price');
+        $ad->rate = $request->input('rate');
+        $ad->category = $request->input('category');
+        $ad->year = $request->input('year');
+        $ad->color = $request->input('color');
+        $ad->brand_name = $request->input('brand_name');
+        $ad->description = $request->input('description');
+        $ad->seller_id = auth()->id();
         $ad->status = 'Disponible';
+        $ad->views = 0;
+        $ad->shares = 0;
 
-        /*   $image = $request->file('image');
+        $pic1 = $request->file('pic1');
 
-        if ($image) {
-            $imagename = time() . '.' . $image->getClientOriginalExtension();
-            $request->file->move('student', $imagename);
-            $ad->image = $imagename;
+        if ($pic1) {
+            $imagename = time() . '.' . $pic1->getClientOriginalExtension();
+            $pic1->move(public_path('ads'), $imagename);
+            $ad->pic1 = $imagename;
         }
-        */
+
+        for ($i = 2; $i < 8; $i++) {
+            $pic = 'pic' . $i;
+            $file = $request->file($pic);
+
+            if ($file) {
+                $imagename = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('ads'), $imagename);
+                $ad->$pic = $imagename;
+            }
+        }
 
         $ad->save();
 
-        return redirect()->back();
+        return redirect('/dashboard')->with(
+            'success',
+            'Nouvelle annonce enregistrée avec succès !'
+        );
     }
 
     public function about()
     {
         return View('about');
+    }
+
+    public function marketplace()
+    {
+        return View('marketplace');
     }
 
     public function newAd()

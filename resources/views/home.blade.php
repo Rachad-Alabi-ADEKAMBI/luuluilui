@@ -11,20 +11,20 @@
             <!--hero starts-->
             <div class="hero">
                 <div class="hero__content">
-                    <h1>
-                        LUULUILUI
-                    </h1>
+
+                    <h1 class="animate__animated animate__bounce fw-bold animate__repeat-2">LUULUILUI</h1>
+
 
                     <p class="text text-white">
                         Annonces de vente & location de voitures
                     </p>
-                    <a href="/ads" class="btn btn-primary">
+                    <a href="/ads" class="btn btn-primary fw-bold large-font">
                         Voir les annonces
                     </a>
                 </div>
             </div>
-            <!--hero ends-->
 
+            <!--last ads-->
             <section class='section bg-light' id="last">
                 <h2 class="subtitle mt-5">
                     DERNIERS AJOUTS
@@ -32,11 +32,12 @@
 
                 <div class="container mt-4">
                     <div class="row">
-                        @foreach($data as $ad)
+                        @foreach($lastAds as $ad)
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="http://luuluilui.fr/public/img/{{ $ad->pic1 }}">
+                                    <img src="https://luuluilui.fr/public/img/{{ $ad->pic1 }}"
+                                        alt='voiture a louer a cotonou, benin'>
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
                                         <p></p>
@@ -59,10 +60,11 @@
                                         <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
+                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} XOF
                                     </p>
 
-                                    <a href="{{url('adView',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
+                                    <a href="{{url('adView',$ad->id)}}"
+                                        class="btn btn-primary animate__zoomIn mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>
@@ -73,18 +75,18 @@
             </section>
         </div>
 
-
+        <!--about-->
         <section class="section mt-5 p-3">
             <h2 class="title">
                 LUULUILUI
             </h2>
 
             <div class="row mt-3 intro">
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6 animate__animated animate__fadeInLeft">
                     <img src="{{ asset('img/c-b-cAbH8B-14Vo-unsplash.jpg') }}" alt="voiture a vendre" class="mx-auto">
                 </div>
 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6 animate__animated animate__fadeInRight">
                     <p class="text text-justify p-3">
                         Luuluilui est un site d'annonces de vente de voitures qui vous permet de trouver facilement
                         et
@@ -103,6 +105,7 @@
                 </div>
             </div>
         </section>
+
 
         <section class='section mt-5 pt-2 bg-light'>
             <div class="container">
@@ -154,6 +157,7 @@
             </div>
         </section>
 
+        <!--most viewed-->
         <div class="container mt-3 pt-2" id="most">
             <section class='section bg-light'>
                 <h2 class="subtitle">
@@ -162,7 +166,7 @@
 
                 <div class="container mt-4">
                     <div class="row">
-                        @foreach($data as $ad)
+                        @foreach($mostViewedAds as $ad)
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
@@ -192,7 +196,7 @@
                                     <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
                                     </p>
 
-                                    <a href="{{url('adView',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
+                                    <a href="{{url('adView',$ad->id)}}" class="btn btn-primary  mt-2">Voir</a>
                                 </div>
                             </div>
                         </div>
@@ -203,6 +207,7 @@
             </section>
         </div>
 
+        <!--grey-->
         <section class="section">
             <div class="container black">
                 <div class="row black__content text-center">
@@ -223,6 +228,7 @@
             </div>
         </section>
 
+        <!--featured-->
         <div class="container mt-4" id="stars">
             <section class='section bg-light'>
                 <h2 class="subtitle">
@@ -231,7 +237,7 @@
 
                 <div class="container mt-4">
                     <div class="row">
-                        @foreach($data as $ad)
+                        @foreach($highestRatedAds as $ad)
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
