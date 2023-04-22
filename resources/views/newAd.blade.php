@@ -42,25 +42,113 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="form-group col-md-12 col-lg-6">
+                        <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Année: <span>*</span></label>
                             <input type="number" class="form-control" name="year" id="inputEmail4" placeholder="Nom"
                                 required value="1992">
                         </div>
 
-                        <div class="form-group col-md-12 col-lg-3">
+                        <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Etat: <span>*</span></label> <br>
-                            <select name="rate" id="" required class="text-black fw-normal">
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                            <select name="state" id="" required class="text-black fw-normal">
+                                <option value="">Veuillez sélectionner</option>
+                                <option value="Neuf">Neuf</option>
+                                <option value="Occasion">Occasion</option>
+                                <option value="Import">Import</option>
                             </select>
                         </div>
 
-                        <div class="form-group col-md-12 col-lg-3">
+                        <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Couleur: <span>*</span></label>
                             <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur"
                                 value="perfect" name="color" required>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Moteur: <span>*</span> </label>
+                            <input type="text" class="form-control" name="engine" id="inputEmail4" placeholder="Moteur"
+                                required value="honda">
+                        </div>
+
+
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Boîte: <span>*</span></label>
+                            <select type="text" class="form-control" name="box" id="inputEmail4">
+                                <option value="">Type de boîte de vitesse</option>
+                                <option value="Automatique">Automatique</option>
+                                <option value="Manuelle">Manuelle</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Action: <span>*</span> </label>
+                            <select type="text" class="form-control" name="category" id="inputEmail4"
+                                placeholder="Category" required>
+                                <option value="">Veuillez sélectionner</option>
+                                <option value="A vendre">Vendre</option>
+                                <option value="A louer">Louer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Kilométrage: <span>*</span> </label>
+                            <input type="number" class="form-control" name="kilometers" id="inputEmail4"
+                                placeholder="Kilométrage au compteur" required value="">
+                        </div>
+
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Carosserie: <span>*</span></label>
+                            <input type="text" class="form-control" name="body" required id="inputEmail4"
+                                placeholder="Berline, Semi-berline..." value="">
+                        </div>
+
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Climatisation: <span>*</span></label>
+                            <select type="text" class="form-control" name="air_conditionning" id="inputEmail4"
+                                placeholder="Climatisation" required>
+                                <option value="">Veuillez sélectionner</option>
+                                <option value="Oui">Oui</option>
+                                <option value="Non">Non</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Places: <span>*</span> </label>
+                            <input type="number" class="form-control" name="places" id="inputEmail4"
+                                placeholder="Nombre de places" required value="">
+                        </div>
+
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Volant: <span>*</span> </label>
+                            <select type="text" class="form-control" name="handlebar" id="inputEmail4"
+                                placeholder="Volant" required>
+                                <option value="">Veuillez sélectionner</option>
+                                <option value="Gauche">Gauche</option>
+                                <option value="Droite">Droite</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12 col-lg-4">
+                            <label for="inputEmail4">Localisation: <span>*</span> </label>
+                            <select type="text" class="form-control" name="location" id="inputEmail4"
+                                placeholder="Localisation" required>
+                                <option value="">Veuillez sélectionner</option>
+                                <option value="Cotonou">Cotonou</option>
+                                <option value="Abomey-Calavi">Abomey-Calavi</option>
+                                <option value="Porto-Novo">Porto-Novo</option>
+                                <option value="Parakou">Parakou</option>
+                                <option value="Bohicon">Bohicon</option>
+                                <option value="Ouidah">Ouidah</option>
+                                <option value="Abomey">Abomey</option>
+                                <option value="Malanville">Malanville</option>
+                                <option value="Natitingou">Natitingou</option>
+                            </select>
                         </div>
                     </div>
 
@@ -115,15 +203,6 @@
                         </div>
                     </div>
 
-                    <div class="col-3 mx-auto">
-                        <label for="" class="mx-auto ">
-                            Action:
-                            <select name="category" id="" required class="text-black fw-normal">
-                                <option value="A vendre">A vendre</option>
-                                <option value="A louer"> A louer</option>
-                            </select>
-                        </label>
-                    </div> <br>
 
                     <button type='submit' class='btn btn-success mt-2 mx-auto' style='background:green; margin: auto'>
                         Ajouter

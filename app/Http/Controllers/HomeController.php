@@ -12,19 +12,19 @@ class HomeController extends Controller
 {
     public function view()
     {
-        $lastAds = Ad::orderBy('created_at', 'desc')
+        $lasthome = Ad::orderBy('created_at', 'desc')
             ->take(3)
             ->get();
-        $mostViewedAds = Ad::orderBy('views', 'desc')
+        $mostViewedhome = Ad::orderBy('views', 'desc')
             ->take(3)
             ->get();
-        $highestRatedAds = Ad::orderBy('stars', 'desc')
+        $highestRatedhome = Ad::orderBy('stars', 'desc')
             ->take(3)
             ->get();
 
         return view(
             'home',
-            compact('lastAds', 'mostViewedAds', 'highestRatedAds')
+            compact('lasthome', 'mostViewedhome', 'highestRatedadsApi')
         );
     }
     static function formatText($text)
@@ -34,21 +34,25 @@ class HomeController extends Controller
 
     public function adsApi()
     {
-        $data = Ad::all();
+        $data = Ad::orderBy('id', 'desc')->get();
 
         return $data;
     }
 
     public function carsToSellApi()
     {
-        $data = Ad::where('category', 'A vendre')->get();
+        $data = Ad::where('category', 'A vendre')
+            ->orderBy('id', 'desc')
+            ->get();
 
         return $data;
     }
 
     public function carsToRentApi()
     {
-        $data = Ad::where('category', 'A louer')->get();
+        $data = Ad::where('category', 'A louer')
+            ->orderBy('id', 'desc')
+            ->get();
 
         return $data;
     }
@@ -95,7 +99,9 @@ class HomeController extends Controller
     {
         $userId = auth()->id();
 
-        $data = Ad::where('seller_id', $userId)->get();
+        $data = Ad::where('seller_id', $userId)
+            ->orderBy('id', 'desc')
+            ->get();
 
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: application/json');
@@ -108,22 +114,36 @@ class HomeController extends Controller
 
         $ad->name = $request->input('name');
         $ad->price = $request->input('price');
-        $ad->rate = $request->input('rate');
+        $ad->state = $request->input('state');
+
+        $ad->kilometers = $request->input('kilometers');
+        $ad->engine = $request->input('engine');
+        $ad->state = $request->input('state');
+        $ad->fuel = $request->input('fuel');
+        $ad->places = $request->input('places');
+        $ad->box = $request->input('box');
+        $ad->body = $request->input('body');
+        $ad->air_conditionning = $request->input('air_conditionning');
+        $ad->handlebar = $request->input('handlebar');
+
         $ad->category = $request->input('category');
         $ad->year = $request->input('year');
         $ad->color = $request->input('color');
         $ad->brand_name = $request->input('brand_name');
+        $ad->location = $request->input('location');
         $ad->description = $request->input('description');
         $ad->seller_id = auth()->id();
         $ad->status = 'Disponible';
         $ad->views = 0;
         $ad->shares = 0;
+        $ad->rate = 3;
+        $ad->stars = 0;
 
         $pic1 = $request->file('pic1');
 
         if ($pic1) {
             $imagename = time() . '.' . $pic1->getClientOriginalExtension();
-            $pic1->move(public_path('ads'), $imagename);
+            $pic1->move(public_path('img/ads'), $imagename);
             $ad->pic1 = $imagename;
         }
 
@@ -133,7 +153,7 @@ class HomeController extends Controller
 
             if ($file) {
                 $imagename = time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('ads'), $imagename);
+                $file->move(public_path('img/ads'), $imagename);
                 $ad->$pic = $imagename;
             }
         }

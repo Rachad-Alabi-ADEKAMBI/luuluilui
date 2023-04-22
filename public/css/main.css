@@ -125,6 +125,13 @@ i {
   cursor: pointer;
 }
 
+.close-search {
+  color: #bc111d;
+  font-size: 3px;
+  position: absolute;
+  left: 2px;
+}
+
 .close:hover {
   color: #bc111d;
 }
@@ -205,7 +212,6 @@ i {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin: 15px 0 auto auto;
@@ -267,7 +273,6 @@ i {
 
 .buttons {
   margin: auto;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   display: flex;
@@ -307,8 +312,7 @@ section h2 span {
 }
 section .container .row .item {
   height: auto;
-  width: 290px;
-  width: 80%;
+  width: 325px;
   margin-top: 10px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -318,6 +322,7 @@ section .container .row .item__top {
   height: 230px;
   width: 100%;
   position: relative;
+  margin-bottom: 0;
 }
 section .container .row .item__top img {
   width: 100%;
@@ -334,7 +339,8 @@ section .container .row .item__top .info {
   color: white;
   padding-top: 5px;
   font-weight: bold;
-  width: 100px;
+  width: 130px;
+  border-radius: 5px;
   text-align: center;
 }
 section .container .row .item__top .bar {
@@ -346,14 +352,27 @@ section .container .row .item__top .bar {
 section .container .row .item__top .bar p {
   color: white;
 }
+section .container .row .item__middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: -25px auto 10px auto;
+}
+section .container .row .item__middle img {
+  flex: 1;
+  height: 50px;
+  width: 55px;
+  margin: 3px;
+}
 section .container .row .item__bottom {
   display: block;
-  height: 250px;
+  height: 150px;
   text-align: center;
   width: 100%;
 }
 section .container .row .item__bottom h3 {
-  color: black;
+  color: #bc111d;
   font-size: 1.5em;
   font-weight: bold;
   margin: 10px auto;
@@ -377,27 +396,7 @@ section .container .row .item__bottom .list__item {
 }
 section .container .row .item__bottom .list__item span {
   font-weight: bold;
-}
-section .container .row .item__bottom .price {
-  font-size: 1.2em;
-  font-weight: 700;
-  color: #bc111d;
-}
-section .container .row .item__bottom button {
-  display: table-cell;
-  vertical-align: middle;
-  background-color: #bc111d;
-  border: 1px solid #bc111d;
-}
-section .container .row .item__bottom button a {
-  color: white;
-}
-section .container .row .item__bottom button:hover {
-  background-color: black;
-  border: 1px solid black;
-}
-section .container .row .item__bottom button:hover a {
-  color: white;
+  font-size: 1em;
 }
 section .cards {
   display: flex;
@@ -476,7 +475,7 @@ section .cards .card .text {
 }
 
 .testimonies {
-  background-color: #F8F8F8;
+  background-color: #777777;
   height: 350px;
   display: block;
 }
@@ -522,23 +521,23 @@ section .cards .card .text {
   color: black;
   font-size: 1em;
 }
-.car .image {
+.car__image {
   text-align: center;
   margin: 20px auto;
 }
-.car .image img {
+.car__image img {
   width: 700px;
   height: 352px;
   margin: auto;
 }
-.car .image .images {
+.car__image .images {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 3px auto 10px auto;
 }
-.car .image .images img {
+.car__image .images img {
   width: 147px;
   height: 110px;
 }
@@ -550,25 +549,33 @@ section .cards .card .text {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.car__infos .left .details p span {
-  color: #bc111d;
-  font-weight: bold;
+.car__infos .details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.car__infos .right .card {
-  display: block;
+.car__infos .details .detail {
+  flex: 1;
+  width: 130px;
+  height: auto;
+}
+.car__infos .details .detail__info {
+  border: 2px #777777 solid;
+  height: 70px;
+  width: 140px;
+  margin: 2px;
+  border-radius: 5px;
+  padding: 2px;
+}
+.car__infos .details .detail__info span {
+  color: #777777;
   margin: auto;
-  padding: 5px;
-  width: 250px;
+  text-align: center;
+  padding-left: 20px;
 }
-.car__infos .right .card__top img {
-  width: 100px;
-  height: 100px;
-}
-.car__infos .right .card__top__infos {
-  font-weight: bold;
-}
-.car__infos .right .card__top__infos i {
-  color: red;
+.car__infos .seller .card {
+  width: 310px;
 }
 
 .carousel {

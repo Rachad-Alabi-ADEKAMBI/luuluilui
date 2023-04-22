@@ -18,7 +18,7 @@
                     <p class="text text-white">
                         Annonces de vente & location de voitures
                     </p>
-                    <a href="/ads" class="btn btn-primary fw-bold large-font">
+                    <a href="/marketplace" class="btn btn-primary fw-bold large-font">
                         Voir les annonces
                     </a>
                 </div>
