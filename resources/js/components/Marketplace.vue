@@ -1,39 +1,39 @@
 <template>
     <div class="main" >
-   <div class='buttons mt-3' v-if="showFilters">
-    <select name="location" class="" id="" >
-        <option value="all">Toutes les villes</option>
-        <option value="Cotonou">Cotonou</option>
-        <option value="Abomey-Calavi">Abomey-Calavi</option>
-        <option value="Porto-Novo">Porto-Novo</option>
-        <option value="Parakou">Parakou</option>
-        <option value="Bohicon">Bohicon</option>
-        <option value="Ouidah">Ouidah</option>
-        <option value="Abomey">Abomey</option>
-        <option value="Malanville">Malanville</option>
-        <option value="Natitingou">Natitingou</option>
-    </select>
+        <div class='buttons mt-3' v-if="showFilters">
+            <select name="location" class="" id="" >
+                <option value="all">Toutes les villes</option>
+                <option value="Cotonou">Cotonou</option>
+                <option value="Abomey-Calavi">Abomey-Calavi</option>
+                <option value="Porto-Novo">Porto-Novo</option>
+                <option value="Parakou">Parakou</option>
+                <option value="Bohicon">Bohicon</option>
+                <option value="Ouidah">Ouidah</option>
+                <option value="Abomey">Abomey</option>
+                <option value="Malanville">Malanville</option>
+                <option value="Natitingou">Natitingou</option>
+            </select>
 
-    <input type="range" v-model="rangeValue" min="0" max="70000000" class="mr-2 ml-2">
+            <input type="range" v-model="rangeValue" min="0" max="80000000" class="mr-2 ml-2">
 
-       <button class="btn btn-primary"  @click='getAllCars()'>
-           Tout voir
-       </button>
-       <button @click='getToSell()' class="btn btn-primary">
-           A vendre
-       </button>
+            <button class="btn btn-primary"  @click='getAllCars()'>
+                Tout voir
+            </button>
+            <button @click='getToSell()' class="btn btn-primary">
+                A vendre
+            </button>
 
-       <button @click='getToRent()' class="btn btn-primary">
-           A louer
-       </button>
+            <button @click='getToRent()' class="btn btn-primary">
+                A louer
+            </button>
 
-           <i class="bi bi-search mt-4 search-icon" @click="displaySearch()"></i>
-   </div>
+                <i class="bi bi-search mt-4 search-icon" @click="displaySearch()"></i>
+        </div>
 
-   <div class="mx-auto text-center search-field pt-3" v-if="showSearch">
-        <input type="text" placeholder="Nom ou modèle" v-model="searchText">
-       <i class="bi bi-x search-icon close-search fw-bold" @click="getAllCars()"></i>
-   </div>
+        <div class="mx-auto text-center search-field pt-3" v-if="showSearch">
+                <input type="text" placeholder="Nom ou modèle" v-model="searchText">
+            <i class="bi bi-x search-icon close-search fw-bold" @click="getAllCars()"></i>
+        </div>
 
    <!--filtered-->
    <section class='section bg-light pt-2' v-if='showFiltered'>
@@ -43,7 +43,7 @@
 
        <div class="row">
                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in filteredItems' :key='car.id'>
-                   <div class="item mx-auto" @click='getCar(car.id)'>
+                <div class="item mx-auto" @click='getCar(car.id)'>
                        <div class="item__top mb-0">
                            <img :src="getImgUrl(car.pic1)" class='' alt="">
                            <div class="info"> {{ format(car.price)}} XOF </div>
@@ -53,9 +53,18 @@
                        </div>
 
                        <div class="item__middle">
-                        <img :src="getImgUrl(car.pic2)" class='' alt=" vehicule à vendre ou à louer à cotonou">
-                        <img :src="getImgUrl(car.pic3)" class='' alt=" vehicule à vendre ou à louer à au Benin">
-                        <img :src="getImgUrl(car.pic4)" class='' alt=" vehicule à vendre ou à louer en Afrique de l'ouest">
+                        <img :src="car.pic2 != null ? getImgUrl(car.pic2) : getSampleImg()"
+                                class=""
+                                alt="vehicule à louer au Bénin">
+
+                                <img :src="car.pic3 != null ? getImgUrl(car.pic3) : getSampleImg()"
+                                class=""
+                                alt="vehicule à vendre au Bénin">
+
+                                <img :src="car.pic4 !== null ? getImgUrl(car.pic4) : getSampleImg()"
+                                class=""
+                                alt="parc automobile benin">
+
                        </div>
 
                        <div class="item__bottom">
@@ -63,10 +72,22 @@
                                {{ car.name }}
                            </h3>
 
+                           <p>
+                            <i class="bi bi-tag-fill"></i>  <span>{{ car.category }}</span>, <br>
+                            <i class="bi bi-geo-alt-fill"></i> {{  car.location }}
+                           </p>
+
                            <div class="list">
-                            <div class="list__item">Modèle: <span> {{ car.brand_name }} </span></div>
-                               <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                               <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
+                            <div class="list__item">Moteur: <br>
+                                <i class="bi bi-gear-wide-connected"></i>
+                                  <span> {{ car.engine }} </span>
+                            </div>
+                               <div class="list__item"> Climatisation: <br>
+                                <i class="fas fa-snowflake"></i>
+                                <span> {{ car.air_conditionning }} </span></div>
+                               <div class="list__item">Année: <br>
+                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                <span> {{ car.year }} </span></div>
                             </div>
                        </div>
                    </div>
@@ -80,6 +101,7 @@
                </p>
    </section>
 
+   <!--
    <section class='section bg-light pt-2' v-if="searchItems.length > 0 && showResults">
        <h2 class="subtitle">
            RESULTATS DE LA RECHERCHE
@@ -135,6 +157,7 @@
        </div>
 
    </section>
+   -->
 
 
    <!--to sell-->
@@ -156,10 +179,18 @@
                        </div>
 
                        <div class="item__middle">
-                             <img :src="getImgUrl(car.pic3)" class=''
-                             alt="vehicule à louer à au Benin" v-if="pic3 !=''">
-                             <img src="" class=''
-                             alt="vehicule à louer à au Benin" v-if="pic3 ==''">
+                        <img :src="car.pic2 != null ? getImgUrl(car.pic2) : getSampleImg()"
+                                class=""
+                                alt="vehicule à louer au Bénin">
+
+                                <img :src="car.pic3 != null ? getImgUrl(car.pic3) : getSampleImg()"
+                                class=""
+                                alt="vehicule à vendre au Bénin">
+
+                                <img :src="car.pic4 !== null ? getImgUrl(car.pic4) : getSampleImg()"
+                                class=""
+                                alt="parc automobile benin">
+
                        </div>
 
                        <div class="item__bottom">
@@ -168,13 +199,21 @@
                            </h3>
 
                            <p>
-                            <span>{{ car.category }}</span>, à {{  car.location }}
+                            <i class="bi bi-tag-fill"></i>  <span>{{ car.category }}</span>, <br>
+                            <i class="bi bi-geo-alt-fill"></i> {{  car.location }}
                            </p>
 
                            <div class="list">
-                            <div class="list__item">Moteur: <br><span> {{ car.brand_name }} </span></div>
-                               <div class="list__item">Boite: <br><span> {{ car.box }} </span></div>
-                               <div class="list__item">KIlométrage: <br><span> {{ format(car.kilometers) }} km </span></div>
+                            <div class="list__item">Moteur: <br>
+                                <i class="bi bi-gear-wide-connected"></i>
+                                  <span> {{ car.engine }} </span>
+                            </div>
+                               <div class="list__item"> Climatisation: <br>
+                                <i class="fas fa-snowflake"></i>
+                                <span> {{ car.air_conditionning }} </span></div>
+                               <div class="list__item">Année: <br>
+                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                <span> {{ car.year }} </span></div>
                             </div>
                        </div>
                    </div>
@@ -184,7 +223,7 @@
 
    </section>
 
-   <!--to rent-->
+   <!--to rent -->
    <section v-if='showToRent' class="mt-4 pt-2"  >
        <h2 class="subtitle">
            EN LOCATION
@@ -193,7 +232,7 @@
        <div class="container mt-3 ">
            <div class="row">
                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in details' :key='car.id'>
-                   <div class="item mx-auto" @click='getCar(car.id)'>
+                <div class="item mx-auto" @click='getCar(car.id)'>
                        <div class="item__top mb-0">
                            <img :src="getImgUrl(car.pic1)" class='' alt="">
                            <div class="info"> {{ format(car.price)}} XOF </div>
@@ -203,9 +242,18 @@
                        </div>
 
                        <div class="item__middle">
-                        <img :src="getImgUrl(car.pic2)" class='' alt=" vehicule à vendre ou à louer à cotonou">
-                        <img :src="getImgUrl(car.pic3)" class='' alt=" vehicule à vendre ou à louer à au Benin">
-                        <img :src="getImgUrl(car.pic4)" class='' alt=" vehicule à vendre ou à louer en Afrique de l'ouest">
+                        <img :src="car.pic2 != null ? getImgUrl(car.pic2) : getSampleImg()"
+                                class=""
+                                alt="vehicule à louer au Bénin">
+
+                                <img :src="car.pic3 != null ? getImgUrl(car.pic3) : getSampleImg()"
+                                class=""
+                                alt="vehicule à vendre au Bénin">
+
+                                <img :src="car.pic4 !== null ? getImgUrl(car.pic4) : getSampleImg()"
+                                class=""
+                                alt="parc automobile benin">
+
                        </div>
 
                        <div class="item__bottom">
@@ -213,10 +261,22 @@
                                {{ car.name }}
                            </h3>
 
+                           <p>
+                            <i class="bi bi-tag-fill"></i>  <span>{{ car.category }}</span>, <br>
+                            <i class="bi bi-geo-alt-fill"></i> {{  car.location }}
+                           </p>
+
                            <div class="list">
-                            <div class="list__item">Modèle: <span> {{ car.brand_name }} </span></div>
-                               <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                               <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
+                            <div class="list__item">Moteur: <br>
+                                <i class="bi bi-gear-wide-connected"></i>
+                                  <span> {{ car.engine }} </span>
+                            </div>
+                               <div class="list__item"> Climatisation: <br>
+                                <i class="fas fa-snowflake"></i>
+                                <span> {{ car.air_conditionning }} </span></div>
+                               <div class="list__item">Année: <br>
+                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                <span> {{ car.year }} </span></div>
                             </div>
                        </div>
                    </div>
@@ -225,7 +285,7 @@
        </div>
    </section>
 
-   <!--all -->
+   <!--all-->
    <section class='section bg-light pt-2' v-if='showAllCars'>
        <h2 class="subtitle">
            TOUTES LES ANNONCES
@@ -234,7 +294,7 @@
        <div class="container mt-3 ">
            <div class="row">
                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in details' :key='car.id'>
-                   <div class="item mx-auto" @click='getCar(car.id)'>
+                <div class="item mx-auto" @click='getCar(car.id)'>
                        <div class="item__top mb-0">
                            <img :src="getImgUrl(car.pic1)" class='' alt="">
                            <div class="info"> {{ format(car.price)}} XOF </div>
@@ -244,9 +304,18 @@
                        </div>
 
                        <div class="item__middle">
-                        <img :src="getImgUrl(car.pic2)" class='' alt=" vehicule à vendre ou à louer à cotonou">
-                        <img :src="getImgUrl(car.pic3)" class='' alt=" vehicule à vendre ou à louer à au Benin">
-                        <img :src="getImgUrl(car.pic4)" class='' alt=" vehicule à vendre ou à louer en Afrique de l'ouest">
+                        <img :src="car.pic2 != null ? getImgUrl(car.pic2) : getSampleImg()"
+                                class=""
+                                alt="vehicule à louer au Bénin">
+
+                                <img :src="car.pic3 != null ? getImgUrl(car.pic3) : getSampleImg()"
+                                class=""
+                                alt="vehicule à vendre au Bénin">
+
+                                <img :src="car.pic4 !== null ? getImgUrl(car.pic4) : getSampleImg()"
+                                class=""
+                                alt="parc automobile benin">
+
                        </div>
 
                        <div class="item__bottom">
@@ -254,10 +323,22 @@
                                {{ car.name }}
                            </h3>
 
+                           <p>
+                            <i class="bi bi-tag-fill"></i>  <span>{{ car.category }}</span>, <br>
+                            <i class="bi bi-geo-alt-fill"></i> {{  car.location }}
+                           </p>
+
                            <div class="list">
-                            <div class="list__item">Modèle: <span> {{ car.brand_name }} </span></div>
-                               <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                               <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
+                            <div class="list__item">Moteur: <br>
+                                <i class="bi bi-gear-wide-connected"></i>
+                                  <span> {{ car.engine }} </span>
+                            </div>
+                               <div class="list__item"> Climatisation: <br>
+                                <i class="fas fa-snowflake"></i>
+                                <span> {{ car.air_conditionning }} </span></div>
+                               <div class="list__item">Année: <br>
+                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                <span> {{ car.year }} </span></div>
                             </div>
                        </div>
                    </div>
@@ -302,18 +383,12 @@ mounted: function() {
   this.getToSell();
 },
 computed: {
-       filteredItems() {
-        this.showFiltered = true;
-        this.showToSell =false;
-        this.showAllCars = false;
-        alert('OK');
-        this.showToRent = false;
-        return this.details
-       .filter((ad) => ad.price >= this.rangeValue)
-       .sort((a, b) => b.price - a.price);
-
-   },
-   searchItems() {
+    filteredItems() {
+            return this.cars
+              .filter((car) => car.price >= this.rangeValue)
+              .sort((a, b) => a.price - b.price);
+          },
+  searchItems() {
                   return this.details.filter(detail => {
                    return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
                })
@@ -378,11 +453,11 @@ methods: {
    return res;
 },
    getImgUrl(pic) {
-  // return "https://luuluilui.fr/public/img/ads/" + pic;
-  return "https://127.0.0.1/luuluilui/public/img/ads/" + pic;
+  // return "https://parc.fr/public/img/ads/" + pic;
+  return "https://127.0.0.1/parc/public/img/ads/" + pic;
     },getSampleImg(){
-       // return "https://127.0.0.1/luuluilui/public/img/ads/" + pic;
-       return "https://127.0.0.1/luuluilui/public/img/ads/" + pic;
+       // return "https://127.0.0.1/parc/public/img/ads/" + pic;
+       return "https://127.0.0.1/parc/public/img/ads/pic.jpg";
     }
 }
 }

@@ -1,6 +1,8 @@
 @extends ('./layouts/app')
 
-
+@section('title')
+Contact | Parc Auto Bénin
+@endsection
 
 @section ('content')
 

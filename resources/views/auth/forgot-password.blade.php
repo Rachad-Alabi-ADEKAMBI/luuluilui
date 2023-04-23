@@ -5,8 +5,8 @@
         </x-slot>
 
         <div class="">
-            <h1 class="text-center subtitle" style="font-size: 2em; color: #bc111d; font-weight: bold;">
-                Mot de passe oublié ?
+            <h1 class="text-center subtitle" style="font-size: 2.2em; color: #bc111d; font-weight: bold;">
+                Mot de passe oublié
             </h1>
         </div>
 
@@ -35,7 +35,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Lien de réinitialisation') }}
                 </x-jet-button>
             </div>
         </form>

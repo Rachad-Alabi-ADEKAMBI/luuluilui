@@ -12,19 +12,19 @@ class HomeController extends Controller
 {
     public function view()
     {
-        $lasthome = Ad::orderBy('created_at', 'desc')
+        $lastAds = Ad::orderBy('created_at', 'desc')
             ->take(3)
             ->get();
-        $mostViewedhome = Ad::orderBy('views', 'desc')
+        $mostViewedAds = Ad::orderBy('views', 'desc')
             ->take(3)
             ->get();
-        $highestRatedhome = Ad::orderBy('stars', 'desc')
+        $highestRatedAds = Ad::orderBy('stars', 'desc')
             ->take(3)
             ->get();
 
         return view(
             'home',
-            compact('lasthome', 'mostViewedhome', 'highestRatedadsApi')
+            compact('lastAds', 'mostViewedAds', 'highestRatedAds')
         );
     }
     static function formatText($text)

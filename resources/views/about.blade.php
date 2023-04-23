@@ -1,6 +1,8 @@
 @extends ('./layouts/app')
 
-
+@section('title')
+A propos
+@endsection
 
 @section ('content')
 

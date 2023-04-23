@@ -1,6 +1,9 @@
 @extends ('./layouts/app')
 
 
+@section('title')
+Accueil
+@endsection
 
 @section ('content')
 
@@ -12,7 +15,9 @@
             <div class="hero">
                 <div class="hero__content">
 
-                    <h1 class="animate__animated animate__bounce fw-bold animate__repeat-2">LUULUILUI</h1>
+                    <h1 class="animate__animated
+                    animate__bounce fw-bold animate__repeat-2">
+                        PARC AUTO BENIN</h1>
 
 
                     <p class="text text-white">
@@ -36,7 +41,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="https://luuluilui.fr/public/img/{{ $ad->pic1 }}"
+                                    <img src="https://127.0.0.1/parc/public/img/ads/{{ $ad->pic1 }}"
                                         alt='voiture a louer a cotonou, benin'>
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
@@ -170,7 +175,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="https://luuluilui.fr/public/img/{{ $ad->pic1 }}">
+                                    <img src="https://127.0.0.1/parc/public/img/ads/{{ $ad->pic1 }}">
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
                                         <p></p>
@@ -241,7 +246,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="item mx-auto">
                                 <div class="item__top">
-                                    <img src="{{ url('http://luuluilui.fr/public/img/' . $ad->pic1) }}">
+                                    <img src="{{ url('http://127.0.0.1/parc/public/img/' . $ad->pic1) }}">
                                     <div class="info">{{$ad->category}}</div>
                                     <div class="bar">
                                         <p></p>

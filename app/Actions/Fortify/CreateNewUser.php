@@ -34,6 +34,7 @@ class CreateNewUser implements CreatesNewUsers
             'role' => ['string', 'max:20'],
             'verification' => ['string', 'max:30'],
             'status' => ['string', 'max:30'],
+            'ads' => ['int', 'max:5'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature()
                 ? ['accepted', 'required']
@@ -49,6 +50,7 @@ class CreateNewUser implements CreatesNewUsers
             'role' => 'user',
             'verification' => 'Non vérifié',
             'status' => 'Actif',
+            'ads' => 0,
             'password' => Hash::make($input['password']),
         ]);
     }

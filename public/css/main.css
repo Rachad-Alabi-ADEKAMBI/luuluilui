@@ -128,7 +128,6 @@ i {
 .close-search {
   color: #bc111d;
   font-size: 3px;
-  position: absolute;
   left: 2px;
 }
 
@@ -313,7 +312,8 @@ section h2 span {
 section .container .row .item {
   height: auto;
   width: 325px;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-bottom: 15px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
@@ -382,6 +382,10 @@ section .container .row .item__bottom .description {
   color: black;
   width: 90%;
 }
+section .container .row .item__bottom i {
+  color: #bc111d;
+  font-weight: bold;
+}
 section .container .row .item__bottom .list {
   display: flex;
   flex-direction: row;
@@ -389,14 +393,38 @@ section .container .row .item__bottom .list {
   flex-wrap: wrap;
   flex-wrap: nowrap;
   margin: auto;
-  width: 95%;
+  width: 98%;
 }
 section .container .row .item__bottom .list__item {
   margin: 5px;
+  flex: 1;
+  position: relative;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: rgb(247, 239, 225) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 5px;
+  border: 1px solid #777777;
+  padding: 2px;
+  font-size: 1em;
 }
 section .container .row .item__bottom .list__item span {
   font-weight: bold;
+  font-size: 0.8em;
+}
+section .container .row .item__bottom .list__item i {
+  position: absolute;
+  left: 2px;
+  top: 23px;
+  color: #bc111d;
   font-size: 1em;
+}
+section .container .row .item__bottom .list__item .bi-arrow {
+  font-weight: bold;
+}
+section .container .row .item__bottom .list__item span {
+  right: 2px;
+  top: 10px;
+  color: #777777;
 }
 section .cards {
   display: flex;
@@ -541,6 +569,9 @@ section .cards .card .text {
   width: 147px;
   height: 110px;
 }
+.car__image span {
+  color: #bc111d;
+}
 .car__infos {
   width: 100%;
   margin: auto;
@@ -549,33 +580,63 @@ section .cards .card .text {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.car__infos .details {
+.car__infos .details .up {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.car__infos .details .detail {
+.car__infos .details .up .detail {
   flex: 1;
   width: 130px;
   height: auto;
 }
-.car__infos .details .detail__info {
+.car__infos .details .up .detail__info {
   border: 2px #777777 solid;
   height: 70px;
   width: 140px;
   margin: 2px;
   border-radius: 5px;
   padding: 2px;
+  text-align: center;
+  position: relative;
 }
-.car__infos .details .detail__info span {
+.car__infos .details .up .detail__info i {
+  color: #bc111d;
+  font-weight: bold;
+  font-size: 1.2em;
+  left: 3px;
+  padding-right: 2px;
+  bottom: 23px;
+  margin: auto;
+  position: absolute;
+}
+.car__infos .details .up .detail__info span {
   color: #777777;
   margin: auto;
   text-align: center;
-  padding-left: 20px;
+  margin-left: 5px;
 }
 .car__infos .seller .card {
   width: 310px;
+}
+.car__infos .seller .card__top img {
+  width: 90px;
+  height: 80px;
+  border-radius: 15px;
+  margin: auto;
+}
+.car__infos .seller .card__top__infos {
+  padding: 5px;
+  color: #777777;
+  font-weight: bold;
+}
+.car__infos .seller .card__top__infos i {
+  padding-left: 5px;
+  color: #bc111d;
+}
+.car__infos .seller .card__top__infos .bi-whatsapp {
+  color: green;
 }
 
 .carousel {
@@ -700,9 +761,6 @@ section .cards .card .text {
   }
   section .items .item__bottom h3 {
     margin: -20px auto;
-  }
-  section .items .item__bottom .list {
-    flex-wrap: wrap;
   }
   section .cards {
     width: 98%;
