@@ -1,9 +1,7 @@
 @extends ('./layouts/app')
 
 
-@section('title')
-Accueil
-@endsection
+@section('title', 'Parc Auto Bénin')
 
 @section ('content')
 
@@ -35,43 +33,73 @@ Accueil
                     DERNIERS AJOUTS
                 </h2>
 
-                <div class="container mt-4">
+                <div class="container mt-2">
                     <div class="row">
-                        @foreach($lastAds as $ad)
+                        @foreach($lastAds as $data)
                         <div class="col-md-12 col-lg-4">
-                            <div class="item mx-auto">
-                                <div class="item__top">
-                                    <img src="https://127.0.0.1/parc/public/img/ads/{{ $ad->pic1 }}"
-                                        alt='voiture a louer a cotonou, benin'>
-                                    <div class="info">{{$ad->category}}</div>
-                                    <div class="bar">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                                <div class="item__bottom">
-                                    <h3>
-                                        {{$ad->name}}
-                                    </h3>
-
-                                    <p class="description">
-                                        @php echo App\Http\Controllers\HomeController::formatText($ad->description);
-                                        @endphp
-                                    </p>
-
-                                    <div class="list">
-                                        <div class="list__item">Année: <span>{{$ad->year}}</span></div>
-                                        <div class="list__item">Etat: <span>{{$ad->rate}}/5</span></div>
-                                        <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
+                            <a href="{{ url('/adView/'.$data->id) }}">
+                                <div class="item mx-auto">
+                                    <div class="item__top mb-0">
+                                        <img src="{{ asset('img/ads/'.$data->pic1) }}" class='' alt="">
+                                        <div class="info"> {{ number_format($data->price, 0, '',' ')}} XOF </div>
+                                        <div class="bar">
+                                            <p>{{  $data->category }}</p>
+                                        </div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} XOF
-                                    </p>
+                                    <div class="item__middle">
+                                        @if(!empty($data->pic2))
+                                        <img src="{{ asset('img/ads/'.$data->pic2) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
 
-                                    <a href="{{url('adView',$ad->id)}}"
-                                        class="btn btn-primary animate__zoomIn mt-2">Voir</a>
+                                        @if(!empty($data->pic3))
+                                        <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
+
+                                        @if(!empty($data->pic3))
+                                        <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
+                                    </div>
+
+                                    <div class="item__bottom">
+                                        <h3>
+                                            {{ $data->name }}
+                                        </h3>
+
+                                        <p>
+                                            <i class="bi bi-tag-fill"></i> <span>{{ $data->category }}</span>, <br>
+                                            <i class="bi bi-geo-alt-fill"></i> {{  $data->location }}
+                                        </p>
+
+                                        <div class="list">
+                                            <div class="list__item">Moteur: <br>
+                                                <i class="bi bi-gear-wide-connected"></i>
+                                                <span> {{ $data->engine }} </span>
+                                            </div>
+                                            <div class="list__item"> Climatisation: <br>
+                                                <i class="fas fa-snowflake"></i>
+                                                <span> {{ $data->air_conditionning }} </span>
+                                            </div>
+                                            <div class="list__item">Année: <br>
+                                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                                <span> {{ $data->year }} </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>
@@ -83,7 +111,7 @@ Accueil
         <!--about-->
         <section class="section mt-5 p-3">
             <h2 class="title">
-                LUULUILUI
+                PARC AUTO BENIN
             </h2>
 
             <div class="row mt-3 intro">
@@ -93,12 +121,13 @@ Accueil
 
                 <div class="col-sm-12 col-md-6 animate__animated animate__fadeInRight">
                     <p class="text text-justify p-3">
-                        Luuluilui est un site d'annonces de vente de voitures qui vous permet de trouver facilement
+                        Parc Auto Bénin est un site d'annonces de vente de voitures qui vous permet de trouver
+                        facilement
                         et
                         rapidement la voiture de vos rêves. Que vous cherchiez une voiture d'occasion ou une voiture
-                        neuve, Luuluilui vous offre une vaste sélection de véhicules à des prix compétitifs. <br>
+                        neuve, Parc Auto Bénin vous offre une vaste sélection de véhicules à des prix compétitifs. <br>
 
-                        Sur Luuluilui, vous pouvez rechercher des voitures par marque ou Avec des options de
+                        Sur Parc Auto Bénin, vous pouvez rechercher des voitures par marque ou Avec des options de
                         recherche
                         aussi détaillées, vous êtes sûr de
                         trouver la voiture qui répondra à vos besoins et à votre budget.
@@ -134,12 +163,12 @@ Accueil
                             <div class="card">
                                 <i class="fas fa-lock"></i>
                                 <br> <span>
-                                    Garantie de votre achat
+                                    site sécurisé
                                 </span>
 
                                 <p class='text'>
                                     Achetez le coeur
-                                    tranquuille
+                                    tranquille
                                 </p>
                             </div>
                         </div>
@@ -152,8 +181,7 @@ Accueil
                                 </span>
 
                                 <p class="text">
-                                    Cherhez vous un modele précis ?
-
+                                    Options de recherche avancées
                                 </p>
                             </div>
                         </div>
@@ -171,39 +199,71 @@ Accueil
 
                 <div class="container mt-4">
                     <div class="row">
-                        @foreach($mostViewedAds as $ad)
+                        @foreach($mostViewedAds as $data)
                         <div class="col-md-12 col-lg-4">
-                            <div class="item mx-auto">
-                                <div class="item__top">
-                                    <img src="https://127.0.0.1/parc/public/img/ads/{{ $ad->pic1 }}">
-                                    <div class="info">{{$ad->category}}</div>
-                                    <div class="bar">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                                <div class="item__bottom">
-                                    <h3>
-                                        {{$ad->name}}
-                                    </h3>
-
-                                    <p class="description">
-                                        @php echo App\Http\Controllers\HomeController::formatText($ad->description);
-                                        @endphp
-                                    </p>
-
-                                    <div class="list">
-                                        <div class="list__item">Année: <span>{{$ad->year}}</span></div>
-                                        <div class="list__item">Etat: <span>{{$ad->rate}}/5</span></div>
-                                        <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
+                            <a href="{{ url('/adView/'.$data->id) }}">
+                                <div class="item mx-auto">
+                                    <div class="item__top mb-0">
+                                        <img src="{{ asset('img/ads/'.$data->pic1) }}" class='' alt="">
+                                        <div class="info"> {{ number_format($data->price, 0, '',' ')}} XOF </div>
+                                        <div class="bar">
+                                            <p>{{  $data->category }}</p>
+                                        </div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
-                                    </p>
+                                    <div class="item__middle">
+                                        @if(!empty($data->pic2))
+                                        <img src="{{ asset('img/ads/'.$data->pic2) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
 
-                                    <a href="{{url('adView',$ad->id)}}" class="btn btn-primary  mt-2">Voir</a>
+                                        @if(!empty($data->pic3))
+                                        <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
+
+                                        @if(!empty($data->pic3))
+                                        <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
+                                    </div>
+
+                                    <div class="item__bottom">
+                                        <h3>
+                                            {{ $data->name }}
+                                        </h3>
+
+                                        <p>
+                                            <i class="bi bi-tag-fill"></i> <span>{{ $data->category }}</span>, <br>
+                                            <i class="bi bi-geo-alt-fill"></i> {{  $data->location }}
+                                        </p>
+
+                                        <div class="list">
+                                            <div class="list__item">Moteur: <br>
+                                                <i class="bi bi-gear-wide-connected"></i>
+                                                <span> {{ $data->engine }} </span>
+                                            </div>
+                                            <div class="list__item"> Climatisation: <br>
+                                                <i class="fas fa-snowflake"></i>
+                                                <span> {{ $data->air_conditionning }} </span>
+                                            </div>
+                                            <div class="list__item">Année: <br>
+                                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                                <span> {{ $data->year }} </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>
@@ -223,7 +283,7 @@ Accueil
 
                     <div class="col-sm-12 col-md-6">
                         <button class="mx-auto mt-2">
-                            <a href="/ads">
+                            <a href="/marketplace">
                                 Voir les annonces
                             </a>
                         </button>
@@ -242,39 +302,71 @@ Accueil
 
                 <div class="container mt-4">
                     <div class="row">
-                        @foreach($highestRatedAds as $ad)
+                        @foreach($mostViewedAds as $data)
                         <div class="col-md-12 col-lg-4">
-                            <div class="item mx-auto">
-                                <div class="item__top">
-                                    <img src="{{ url('http://127.0.0.1/parc/public/img/' . $ad->pic1) }}">
-                                    <div class="info">{{$ad->category}}</div>
-                                    <div class="bar">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                                <div class="item__bottom">
-                                    <h3>
-                                        {{$ad->name}}
-                                    </h3>
-
-                                    <p class="description">
-                                        @php echo App\Http\Controllers\HomeController::formatText($ad->description);
-                                        @endphp
-                                    </p>
-
-                                    <div class="list">
-                                        <div class="list__item">Année: <span>{{$ad->year}}</span></div>
-                                        <div class="list__item">Etat: <span>{{$ad->rate}}/5</span></div>
-                                        <div class="list__item">Couleur: <span>{{$ad->color}}</span></div>
+                            <a href="{{ url('/adView/'.$data->id) }}">
+                                <div class="item mx-auto">
+                                    <div class="item__top mb-0">
+                                        <img src="{{ asset('img/ads/'.$data->pic1) }}" class='' alt="">
+                                        <div class="info"> {{ number_format($data->price, 0, '',' ')}} XOF </div>
+                                        <div class="bar">
+                                            <p>{{  $data->category }}</p>
+                                        </div>
                                     </div>
 
-                                    <p class="price"> {{ number_format($ad->price, 0, '', ' ')}} €
-                                    </p>
+                                    <div class="item__middle">
+                                        @if(!empty($data->pic2))
+                                        <img src="{{ asset('img/ads/'.$data->pic2) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
 
-                                    <a href="{{url('ad',$ad->id)}}" class="btn btn-primary mt-2">Voir</a>
+                                        @if(!empty($data->pic3))
+                                        <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
+
+                                        @if(!empty($data->pic3))
+                                        <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                            class="images_item">
+                                        @else
+                                        <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
+                                            class="images_item">
+                                        @endif
+                                    </div>
+
+                                    <div class="item__bottom">
+                                        <h3>
+                                            {{ $data->name }}
+                                        </h3>
+
+                                        <p>
+                                            <i class="bi bi-tag-fill"></i> <span>{{ $data->category }}</span>, <br>
+                                            <i class="bi bi-geo-alt-fill"></i> {{  $data->location }}
+                                        </p>
+
+                                        <div class="list">
+                                            <div class="list__item">Moteur: <br>
+                                                <i class="bi bi-gear-wide-connected"></i>
+                                                <span> {{ $data->engine }} </span>
+                                            </div>
+                                            <div class="list__item"> Climatisation: <br>
+                                                <i class="fas fa-snowflake"></i>
+                                                <span> {{ $data->air_conditionning }} </span>
+                                            </div>
+                                            <div class="list__item">Année: <br>
+                                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                                <span> {{ $data->year }} </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>

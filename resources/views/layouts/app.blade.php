@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> @yield('title' | env('APP_NAME'))</title>
+    <title> @yield('title')</title>
 
     <!-- Fonts -->
     <script src="https://kit.fontawesome.com/b14771b76e.js" crossorigin="anonymous"></script>
@@ -56,6 +56,7 @@
             <div class="container" id='app'>
 
                 @yield('content')
+                {{ env('APP_NAME') }}
                 <div class="" id='FooterV'>
 
                 </div>

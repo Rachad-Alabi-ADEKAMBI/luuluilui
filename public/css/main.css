@@ -311,7 +311,7 @@ section h2 span {
 }
 section .container .row .item {
   height: auto;
-  width: 325px;
+  width: 320px;
   margin-top: 20px;
   padding-bottom: 15px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
