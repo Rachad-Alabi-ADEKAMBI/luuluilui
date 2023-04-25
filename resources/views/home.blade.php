@@ -1,7 +1,7 @@
 @extends ('./layouts/app')
 
 
-@section('title', 'Parc Auto Bénin')
+@section('title', 'Luuluilui')
 
 @section ('content')
 
@@ -15,7 +15,7 @@
 
                     <h1 class="animate__animated
                     animate__bounce fw-bold animate__repeat-2">
-                        PARC AUTO BENIN</h1>
+                        LUULUILUI</h1>
 
 
                     <p class="text text-white">
@@ -121,13 +121,13 @@
 
                 <div class="col-sm-12 col-md-6 animate__animated animate__fadeInRight">
                     <p class="text text-justify p-3">
-                        Parc Auto Bénin est un site d'annonces de vente de voitures qui vous permet de trouver
+                        Luuluilui est un site d'annonces de vente de voitures qui vous permet de trouver
                         facilement
                         et
                         rapidement la voiture de vos rêves. Que vous cherchiez une voiture d'occasion ou une voiture
-                        neuve, Parc Auto Bénin vous offre une vaste sélection de véhicules à des prix compétitifs. <br>
+                        neuve, Luuluilui vous offre une vaste sélection de véhicules à des prix compétitifs. <br>
 
-                        Sur Parc Auto Bénin, vous pouvez rechercher des voitures par marque ou Avec des options de
+                        Sur Luuluilui, vous pouvez rechercher des voitures par marque ou Avec des options de
                         recherche
                         aussi détaillées, vous êtes sûr de
                         trouver la voiture qui répondra à vos besoins et à votre budget.
