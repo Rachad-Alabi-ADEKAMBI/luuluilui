@@ -10,7 +10,7 @@ const app = createApp({
 })
 
 import Ads from '@/components/Ads.vue'
-import User from '@/components/User.vue'
+import User from '@/components/user/User.vue'
 import Marketplace from '@/components/Marketplace.vue'
 
 app.component('Ads', Ads)

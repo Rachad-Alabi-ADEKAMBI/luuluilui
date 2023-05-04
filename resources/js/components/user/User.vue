@@ -26,9 +26,6 @@
             </div>
         </div>
 
-
-
-
         <!--show ads-->
         <div class="row mt-2">
             <h1 class="title">
@@ -86,9 +83,6 @@
 
     </div>
     <!--end main-->
-
-
-
 
 
     <!--start edit-->
@@ -207,42 +201,6 @@
     </div>
     <!--end edit-->
 
-
-    <!--delete start-->
-    <div class="container" v-if="showDelete">
-        <div class="row">
-            <div class="col-6 mx-auto text-center bg-light mt-4">
-                <form action="">
-                    <div class="close" @click='getMyAds()'>
-                        <i class="bi bi-x-lg text-center"></i>
-                    </div>
-
-                    <div class="" >
-                        <h2 class="subtitle">
-                            Suppression
-                        </h2>
-
-                        <p class="text text-center">
-                            Confirmez vous la suppression de
-                            <span> </span> ?
-                        </p>
-
-                        <div class="choices">
-                            <button class='btn btn-success m-2' @click="getMyAds()">
-                                Oui
-                            </button>
-
-                            <button class='btn btn-danger m-2' @click="getMyAds()">
-                                Non
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--delete end-->
-
 </template>
 
 <script>
@@ -309,17 +267,12 @@ export default {
             this.showDelete = false;
             this.showAdd = false;
         },
+        deleteAd(id){
+            window.location.replace('deleteView/' + id)
+        },
 
         goToAd(id) {
             window.location.replace('/adView/' + id);
-        },
-        deleteAd(id) {
-            axios.get('/ad/' + id).then(response =>
-                this.details = response.data)
-            this.showMyAds = false;
-            this.showEdit = false;
-            this.showDelete = true;
-            this.showAdd = false;
         },
 
         format(num) {
@@ -329,8 +282,7 @@ export default {
             return res;
         },
         getImgUrl(pic) {
-           // return "https://luuluilui.fr/public/img/" + pic;
-            return "https://127.0.0.1/luuluilui/public/ads/" + pic;
+            return "img/ads/" + pic ;
         },
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Ad;
-
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -93,6 +93,88 @@ class HomeController extends Controller
             ->first();
 
         return view('ad', compact('data'));
+    }
+
+    public function deleteView($id)
+    {
+        $ad = Ad::find($id);
+
+        if ($ad->seller_id == Auth::user()->id) {
+            return view('/pages/back/users/deleteView', compact('ad'));
+        } else {
+            return redirect('/dashboard')->with('error', 'Page not found');
+        }
+    }
+
+    public function delete($id)
+    {
+        $ad = Ad::find($id);
+
+        if ($ad->seller_id == Auth::user()->id) {
+            $ad->delete();
+            return redirect('/dashboard')->with('success', 'Ad deleted !!!');
+        } else {
+            return redirect('/dashboard')->with('error', 'Page not found');
+        }
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $ad = Ad::find($id);
+
+        $ad->name = $request->input('name');
+        /*  $ad->price = $request->input('price');
+        $ad->state = $request->input('state');
+
+        $ad->kilometers = $request->input('kilometers');
+        $ad->engine = $request->input('engine');
+        $ad->state = $request->input('state');
+        $ad->fuel = $request->input('fuel');
+        $ad->places = $request->input('places');
+        $ad->box = $request->input('box');
+        $ad->body = $request->input('body');
+        $ad->air_conditionning = $request->input('air_conditionning');
+        $ad->handlebar = $request->input('handlebar');
+
+        $ad->category = $request->input('category');
+        $ad->year = $request->input('year');
+        $ad->color = $request->input('color');
+        $ad->brand_name = $request->input('brand_name');
+        $ad->location = $request->input('location');
+        $ad->description = $request->input('description');
+        $ad->seller_id = auth()->id();
+        $ad->status = 'Disponible';
+        $ad->views = 0;
+        $ad->shares = 0;
+        $ad->rate = 3;
+        $ad->stars = 0;
+
+        $pic1 = $request->file('pic1');
+
+        if ($pic1) {
+            $imagename = time() . '.' . $pic1->getClientOriginalExtension();
+            $pic1->move(public_path('img/ads'), $imagename);
+            $ad->pic1 = $imagename;
+        }
+
+        for ($i = 2; $i < 8; $i++) {
+            $pic = 'pic' . $i;
+            $file = $request->file($pic);
+
+            if ($file) {
+                $imagename = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('img/ads'), $imagename);
+                $ad->$pic = $imagename;
+            }
+        }
+        */
+
+        $ad->save();
+
+        return redirect('/dashboard')->with(
+            'success',
+            'Annonce modifiée avec succès !'
+        );
     }
 
     public function myAds()
@@ -197,13 +279,6 @@ class HomeController extends Controller
     }
 
     /*
-    public function delete($id)
-    {
-        $data = student::find($id);
-        $data->delete();
-        return redirect()->back();
-    }
-
     public function search(Request $request)
     {
         $search = $request->search;

@@ -65,14 +65,16 @@ Route::get('/mail', [MailController::class, 'sendMail']);
 
 Route::get('/watermark', [ImageController::class, 'imageWaterMark']);
 
-/*
+Route::get('/deleteView/{id}', [HomeController::class, 'deleteView']);
+
 Route::get('/delete/{id}', [HomeController::class, 'delete']);
+
+Route::get('/editView/{id}', [HomeController::class, 'editView']);
+
+Route::get('/edit/{id}', [HomeController::class, 'edit']);
 
 Route::get('/search', [HomeController::class, 'search']);
 
 Route::get('/update_view/{id}', [HomeController::class, 'update_view']);
 
 Route::post('/update/{id}', [HomeController::class, 'update']);
-
-
-*/

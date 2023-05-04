@@ -56,7 +56,6 @@
             <div class="container" id='app'>
 
                 @yield('content')
-                {{ env('APP_NAME') }}
                 <div class="" id='FooterV'>
 
                 </div>
