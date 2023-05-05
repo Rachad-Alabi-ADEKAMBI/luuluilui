@@ -11,7 +11,7 @@ Supprimer annonce
         <div class="container mt-2 bg-light about">
             <div class="row">
                 <div class="col-6 mx-auto text-center bg-light mt-4">
-                    <divm action="{{ url('delete', $ad->id) }}">
+                    <div>
                         <a class="close" href="/dashboard">
                             <i class="bi bi-x-lg text-center"></i>
                         </a>
@@ -41,7 +41,7 @@ Supprimer annonce
                             </div>
 
                         </div>
-                    </divm>
+                    </div>
                 </div>
             </div>
         </div>

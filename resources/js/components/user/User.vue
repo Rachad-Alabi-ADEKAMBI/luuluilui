@@ -84,123 +84,6 @@
     </div>
     <!--end main-->
 
-
-    <!--start edit-->
-    <div class="container" v-if="showEdit">
-        <div class="row">
-            <div class="col-md-12 col-lg-6 mx-auto p-3 bg-light text-center">
-                <form action="http://127.0.0.1/luuluilui/api/api.php?action=newCar" enctype="multipart/form-data"
-                    method='POST' class="mx-auto">
-
-                    <div class="close text-center" @click='getMyAds()'>
-                        <i class="bi bi-x-lg"></i>
-                    </div>
-
-                    <h2 class="subtitle">
-                        Modifier annonce
-                    </h2>
-
-                    <div class="row">
-                        <div class="form-group col-md-12 col-lg-6">
-                            <label for="inputEmail4">Nom <span>*</span> </label>
-                            <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Nom"
-                                required>
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Marque <span>*</span></label>
-                            <input type="text" class="form-control" name="brand_name" required id="inputEmail4"
-                                placeholder="Modèle">
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Prix <span>*</span></label>
-                            <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix">
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="form-group col-md-12 col-lg-6">
-                            <label for="inputEmail4">Année: <span>*</span></label>
-                            <input type="number" class="form-control" name="year" id="inputEmail4" placeholder="Nom"
-                                required>
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Etat: <span>*</span></label> <br>
-                            <select name="rate" id="" required>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-12 col-lg-3">
-                            <label for="inputEmail4">Couleur: <span>*</span></label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur" name="color"
-                                required>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <label for="">Description: <span>*</span></label>
-                            <textarea name="description" id="" cols="58" required rows="5"></textarea>
-                        </div>
-                    </div> <br>
-
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <label for="">Image 1: <span>*</span></label>
-                            <input type="file" name='pic1' required>
-                        </div>
-
-                        <div class="col-6">
-                            <label for="">Image 2:</label>
-                            <input type="file" name='pic2'>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-
-                        <div class="col-6">
-                            <label for="">Image 3:</label>
-                            <input type="file" name='pic3'>
-                        </div>
-                        <div class="col-6">
-                            <label for="">Image 4:</label>
-                            <input type="file" name='pic4'>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <label for="">Image 5:</label>
-                            <input type="file" name='pic5'>
-                        </div>
-                    </div>
-
-                    <div class="col-3 mx-auto text-center">
-                        <label for="" class="mx-auto text-center">
-                            Action:
-                            <select name="category" id="" required>
-                                <option value="">Veuillez selectionner</option>
-                                <option value="A vendre">A vendre</option>
-                                <option value="A louer"> A louer</option>
-                            </select>
-                        </label>
-                    </div> <br>
-
-                    <button type='submit' class='btn btn-success mt-2' id="btn-success" style='background-color: green'>
-                        Ajouter
-                    </button>
-
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--end edit-->
-
 </template>
 
 <script>
@@ -214,9 +97,7 @@ export default {
             ads: [],
             showMyAds: false,
             showAdd: false,
-            showDelete: false,
             details: [],
-            showEdit: false,
             searchKey: '',
             showSearch: false,
             showAll: false,
@@ -244,8 +125,6 @@ export default {
                 });
 
             this.showMyAds = true;
-            this.showEdit = false;
-            this.showDelete = false;
             this.showSearchBtn = true;
             this.showAdd = false;
             this.showAll = true;
@@ -260,12 +139,7 @@ export default {
             this.showSearch = false;
         },
         edit(id) {
-            axios.get('/ad/' + id).then(response =>
-                this.details = response.data)
-            this.showMyAds = false;
-            this.showEdit = true;
-            this.showDelete = false;
-            this.showAdd = false;
+            window.location.replace('editView/' + id)
         },
         deleteAd(id){
             window.location.replace('deleteView/' + id)
