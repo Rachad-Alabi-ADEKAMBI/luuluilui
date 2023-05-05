@@ -102,36 +102,46 @@
    </section>
    <!-- end filtered-->
 
-   <section v-if="searchItems.length  == 0">
-       <p class="text text-center mt-3"  >
-                   Aucun résultat
-               </p>
-   </section>
-   <!--
-   <section class='section bg-light pt-2' v-if="searchItems.length > 0 && showResults">
+   <!--show resukts -->
+   <section class="mt-4 pt-2" v-if="showResults" >
        <h2 class="subtitle">
-           RESULTATS DE LA RECHERCHE
+           RESULTAS DE LA RECHERCHE
        </h2>
 
+       <p class="text text-center">
+        Resultas pour:  <span> {{ searchText  }}  </span>
+       </p>
 
-       <div class="container mt-3 ">
+
+       <p class="text text-center" v-if="searchItems.length  == 0">
+        Aucun résultat
+       </p>
+
+       <div class="container mt-3 " v-if="searchItems.length  > 0">
            <div class="row">
-               <p class="text text-center">
-                       Resultats pour <span>{{ searchText  }}</span>
-                   </p> <br>
-
-
-
-               <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in
-                      searchItems' :key='car.id' v-if="searchItems.length > 0">
-
-                   <div class="item mx-auto">
-                       <div class="item__top">
+               <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in searchItems' :key='car.id'>
+                <div class="item mx-auto" @click='getCar(car.id)'>
+                       <div class="item__top mb-0">
                            <img :src="getImgUrl(car.pic1)" class='' alt="">
-                           <div class="info"> {{ car.category }} </div>
+                           <div class="info"> {{ format(car.price)}} XOF </div>
                            <div class="bar">
-                               <p></p>
+                               <p>{{  car.category }}</p>
                            </div>
+                       </div>
+
+                       <div class="item__middle">
+                        <img :src="car.pic2 != null ? getImgUrl(car.pic2) : getSampleImg()"
+                                class=""
+                                alt="vehicule à louer au Bénin">
+
+                                <img :src="car.pic3 != null ? getImgUrl(car.pic3) : getSampleImg()"
+                                class=""
+                                alt="vehicule à vendre au Bénin">
+
+                                <img :src="car.pic4 !== null ? getImgUrl(car.pic4) : getSampleImg()"
+                                class=""
+                                alt="parc automobile benin">
+
                        </div>
 
                        <div class="item__bottom">
@@ -139,32 +149,30 @@
                                {{ car.name }}
                            </h3>
 
-                           <p class="description">
-                               {{ reduceString( car.description ) }}
+                           <p>
+                            <i class="bi bi-tag-fill"></i>  <span>{{ car.category }}</span>, <br>
+                            <i class="bi bi-geo-alt-fill"></i> {{  car.location }}
                            </p>
 
                            <div class="list">
-                               <div class="list__item">Annee: <span> {{ car.year }} </span></div>
-                               <div class="list__item">Etat: <span> {{ car.rate }}/5 </span></div>
-                               <div class="list__item">Couleur: <span> {{ car.color }} </span></div>
-                           </div>
-
-                           <p class="price">
-                               {{ format(car.price)}} XOF
-                           </p>
-
-                           <button  class="btn btn-primary" @click='getCar(car.id)'>
-                               Voir
-                           </button>
+                            <div class="list__item">Moteur: <br>
+                                <i class="bi bi-gear-wide-connected"></i>
+                                  <span> {{ car.engine }} </span>
+                            </div>
+                               <div class="list__item"> Climatisation: <br>
+                                <i class="fas fa-snowflake"></i>
+                                <span> {{ car.air_conditionning }} </span></div>
+                               <div class="list__item">Année: <br>
+                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                <span> {{ car.year }} </span></div>
+                            </div>
                        </div>
                    </div>
                </div>
            </div>
        </div>
-
    </section>
-   -->
-
+   <!--end results-->
 
    <!--to sell-->
    <section class='section bg-light pt-2' v-if='showToSell'>
@@ -378,7 +386,6 @@
        showToSell: false,
        showSearch: false,
        showFilters: false,
-      /// showSearchResults: true,
        showFiltered: false,
        footerCars: [],
        searchText: '',
@@ -397,9 +404,9 @@ computed: {
   });
 },
   searchItems() {
-                  return this.details.filter(detail => {
-                   return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
-               })
+    return this.details.filter(detail => {
+                    return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
+                })
            }
        },
 methods: {
@@ -409,20 +416,22 @@ methods: {
            this.showToSell = false;
            this.showFilters = false;
            this.showSearch = true;
+           this.showFiltered = false;
+           this.showResults = true;
    },
    getRange(){
     this.showAllCars = false;
         this.showToRent = false;
         this.showToSell = false;
+        this.showResults = false;
         this.showFiltered = true;
-
    },
    closeSearch(){
        this.showFilters = true;
        this.showSearch = false;
        this.showAllCars = true;
        this.showResults = false;
-       this.searchItems.length = 0;
+       this.showFiltered = false;
    },
 
    getToSell(){
@@ -433,6 +442,7 @@ methods: {
            this.showToSell = true;
            this.showFilters = true;
        this.showSearch = false;
+       this.showFiltered = false;
        this.showResults = false;
 
    },
@@ -445,6 +455,8 @@ methods: {
            this.showToSell = false;
            this.showFilters = true;
            this.showSearch = false;
+           this.showFiltered = false;
+           this.showResults = false;
    },
    getToRent(){
        axios.get('/carsToRentApi').then(response =>
@@ -452,6 +464,8 @@ methods: {
            this.showAllCars = false;
            this.showToRent = true;
            this.showToSell = false;
+           this.showFiltered = false;
+           this.showResults = false;
    },
    getCar(id){
        window.location.replace('/adView/' +id);
