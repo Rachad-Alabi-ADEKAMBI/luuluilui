@@ -370,7 +370,6 @@ methods: {
     },
     getCar(id){
         window.location.replace('/adView/'+id);
-     //  window.location.replace('https://127.0.0.1:8001/ad/'+id);
     },
     reduceString(str) {
     if (str.length > 20) {
@@ -385,7 +384,7 @@ methods: {
     return res;
 },
     getImgUrl(pic) {
-    return "https://luuluilui.fr/public/img/" + pic;
+    return "/img/" + pic;
 },
 }
 }

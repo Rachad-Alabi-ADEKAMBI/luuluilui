@@ -56,9 +56,6 @@
             <div class="container" id='app'>
 
                 @yield('content')
-                <div class="" id='FooterV'>
-
-                </div>
             </div>
 
 

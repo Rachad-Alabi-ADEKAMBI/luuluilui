@@ -1,7 +1,7 @@
 <container class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
-            <img src="https:luuluilui.com//assets/img/logo.jpg" alt="" class="logo" width='80' height='40'>
+            <img src="{{ asset('img/logo.png') }}" alt="" class="logo" width='80' height='40'>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
