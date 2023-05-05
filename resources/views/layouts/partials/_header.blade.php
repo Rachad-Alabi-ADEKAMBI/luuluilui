@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ads">Annonces</a>
+                    <a class="nav-link" href="/marketplace">Annonces</a>
                 </li>
 
                 <li class="nav-item">

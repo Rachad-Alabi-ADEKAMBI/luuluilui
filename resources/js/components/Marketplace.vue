@@ -14,7 +14,7 @@
                 <option value="Natitingou">Natitingou</option>
             </select>
 
-            <input type="range" v-model="rangeValue" min="0" max="80000000" class="mr-2 ml-2">
+            <input type="range" v-model="rangeValue" min="0" max="80000000" class="mr-2 ml-2" @click="getRange()">
 
             <button class="btn btn-primary"  @click='getAllCars()'>
                 Tout voir
@@ -32,16 +32,21 @@
 
         <div class="mx-auto text-center search-field pt-3" v-if="showSearch">
                 <input type="text" placeholder="Nom ou modèle" v-model="searchText">
-            <i class="bi bi-x search-icon close-search fw-bold" @click="getAllCars()"></i>
+            <i class="bi bi-x" @click="getAllCars()"></i>
         </div>
 
    <!--filtered-->
-   <section class='section bg-light pt-2' v-if='showFiltered'>
+   <section v-if='showFiltered' class="mt-4 pt-2"  >
        <h2 class="subtitle">
-           TRI
+           RESULTAS DU TRI
        </h2>
 
-       <div class="row">
+       <p class="text text-center">
+        Tri pour <span> {{ format(rangeValue) }} XOF  </span>
+       </p>
+
+       <div class="container mt-3 ">
+           <div class="row">
                <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in filteredItems' :key='car.id'>
                 <div class="item mx-auto" @click='getCar(car.id)'>
                        <div class="item__top mb-0">
@@ -93,14 +98,15 @@
                    </div>
                </div>
            </div>
+       </div>
    </section>
+   <!-- end filtered-->
 
    <section v-if="searchItems.length  == 0">
        <p class="text text-center mt-3"  >
                    Aucun résultat
                </p>
    </section>
-
    <!--
    <section class='section bg-light pt-2' v-if="searchItems.length > 0 && showResults">
        <h2 class="subtitle">
@@ -284,6 +290,7 @@
            </div>
        </div>
    </section>
+   <!--end to rent-->
 
    <!--all-->
    <section class='section bg-light pt-2' v-if='showAllCars'>
@@ -347,6 +354,7 @@
        </div>
 
    </section>
+   <!-- end all-->
 </div>
 </template>
 
@@ -384,10 +392,10 @@ mounted: function() {
 },
 computed: {
     filteredItems() {
-            return this.cars
-              .filter((car) => car.price >= this.rangeValue)
-              .sort((a, b) => a.price - b.price);
-          },
+  return this.details.filter(detail => {
+    return detail.price >= this.rangeValue;
+  });
+},
   searchItems() {
                   return this.details.filter(detail => {
                    return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
@@ -402,8 +410,13 @@ methods: {
            this.showFilters = false;
            this.showSearch = true;
    },
+   getRange(){
+    this.showAllCars = false;
+        this.showToRent = false;
+        this.showToSell = false;
+        this.showFiltered = true;
 
-
+   },
    closeSearch(){
        this.showFilters = true;
        this.showSearch = false;
@@ -441,8 +454,7 @@ methods: {
            this.showToSell = false;
    },
    getCar(id){
-       window.location.replace('/adView/'+id);
-    //  window.location.replace('https://127.0.0.1:8001/ad/'+id);
+       window.location.replace('/adView/' +id);
    },
    reduceString(str) {
     return str
@@ -453,11 +465,9 @@ methods: {
    return res;
 },
    getImgUrl(pic) {
-  // return "https://parc.fr/public/img/ads/" + pic;
-  return "https://127.0.0.1/parc/public/img/ads/" + pic;
+  return "/img/ads/" + pic;
     },getSampleImg(){
-       // return "https://127.0.0.1/parc/public/img/ads/" + pic;
-       return "https://127.0.0.1/parc/public/img/ads/pic.jpg";
+       return "/img/ads/pic.jpg";
     }
 }
 }
