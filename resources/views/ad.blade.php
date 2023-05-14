@@ -9,7 +9,7 @@
 
 <div class="">
     <div class="main">
-        <div class="container mt-2 bg-light">
+        <div class="container mt-2 bg-light pt-5">
 
             <div class="row">
                 <div class="car">
@@ -90,7 +90,7 @@
                             <div class="col">
                                 <p class="text text-left">
                                     <span> {{ number_format($data->price, '0', '', ' ' ) }} XOF</span> <br>
-                                    <span> {{$data->category  }}</span> <br>
+                                    <span> {{$data->category  }}</span>,
                                     <span> {{ $data->location }} </span>
                                 </p>
                             </div>
@@ -98,8 +98,7 @@
                     </div>
 
                     <div class="car__infos">
-
-                        <div class="row ">
+                        <div class="row pb-5">
                             <div class="col-sm-12 col-md-10 details">
                                 <div class="up">
                                     <div class="detail">
@@ -147,7 +146,7 @@
 
                                         <div class="detail__info">
                                             Etat: <br>
-                                            <i class="fas fa-signal"></i><span>{{ $data->state }}</span>
+                                            <i class="fas fa-signal"></i><span>{{ $data->state }} / 5</span>
                                         </div>
                                     </div>
 
@@ -166,21 +165,23 @@
 
                                 <div class="bottom">
                                     Message du vendeur: <br>
-                                    <span>{{ $data->description  }}</span>
+                                    <p class="text text-grey fw-bold">
+                                        {{ $data->description  }}
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-2 seller">
                                 <div class="card mx-auto">
                                     <div class="card__top">
-                                        <img src="http://127.0.0.1/parc/public/img/users/pdg.jpeg" class="images_item">
+                                        <img src="/img/users/pdg.jpeg" class="images_item">
 
                                         <div class="card__top__infos">
                                             <i class="fas fa-user"></i> {{  $data->first_name }}
                                             {{  $data->last_name }}<br>
                                             <i class="fas fa-list"></i> {{  $data->ads }} annonces
                                             <br>
-                                            <i class="bi bi-phone"></i> <i class="bi bi-whatsapp"></i>
+                                            <i class="bi bi-phone"></i>
                                             {{  $data->phone_number }} <br>
                                         </div>
                                     </div>

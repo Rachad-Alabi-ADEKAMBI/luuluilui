@@ -278,9 +278,7 @@ i{
     min-height: 400px;
     margin: 0 auto;
     display: block;
-    background-image:  linear-gradient(to bottom, rgba(168, 31, 49, 0.52), rgba(45, 35, 46, 0.73)),
-    url('http://luuluilui.fr/public/img/agustin-segura-eDXRq-2LfNM-unsplash.jpg');
-
+    background-image: linear-gradient(to bottom, rgba(168, 31, 49, 0.52), rgba(45, 35, 46, 0.73)), url('/img/agustin-segura-eDXRq-2LfNM-unsplash.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -325,6 +323,8 @@ i{
     @include flex();
 
 
+   &__item{
+    margin: 5px;
     button{
         background-color: $red;
         margin: 10px;
@@ -333,6 +333,7 @@ i{
     button:hover{
         background-color: black;
     }
+   }
 
 }
 
@@ -539,8 +540,6 @@ section{
 
 }
 
-
-
 .black{
     height: auto;
     min-height: 200px;
@@ -680,7 +679,7 @@ section{
                     border: 2px $grey solid;
                     height: 70px;
                     width: 140px;
-                    margin: 2px;
+                    margin: 10px 2px 5px 2px;
                     border-radius: 5px;
                     padding: 2px;
                     text-align: center;
@@ -993,6 +992,13 @@ section{
     padding-top: 60px;
    }
 
+   .buttons{
+    flex-direction: column;
+
+    &__item{
+        margin: 5px auto;
+    }
+   }
 
    .grey{
     height: auto;
@@ -1023,10 +1029,11 @@ section{
             }
         }
 
-        .image{
+        &__image{
             img{
                 width: 310px;
-                height: 270px;
+                height: 200px;
+                margin-bottom: 10px;
             }
         }
 

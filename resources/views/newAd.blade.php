@@ -77,8 +77,8 @@
                             <label for="inputEmail4">Boîte: <span>*</span></label>
                             <select type="text" class="form-control" name="box" id="inputEmail4">
                                 <option value="">Type de boîte de vitesse</option>
-                                <option value="Automatique">Automatique</option>
-                                <option value="Manuelle">Manuelle</option>
+                                <option value="Automatique">Auto</option>
+                                <option value="Manuelle">Manuel</option>
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>

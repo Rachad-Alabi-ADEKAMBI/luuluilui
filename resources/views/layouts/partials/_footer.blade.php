@@ -13,16 +13,16 @@
 
         <div class="box col-sm-12 col-md-4">
             <h4>
-                LES PLUS CONSULTEES
+                NOS ANNONCES
             </h4>
 
             <div class="cars">
                 <div class="car">
-                    <img src="https://luuluilui.fr/public/img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt="" width="250"
+                    <img src="img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt="acheter vehicule au benin" width="250"
                         height="150"> <br>
 
-                    <img src="https://luuluilui.fr/public/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="" width="250"
-                        height="90" class="mt-2">
+                    <img src="img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="louer voiture au benin" width="250" height="90"
+                        class="mt-2">
 
                 </div>
             </div>
@@ -32,6 +32,10 @@
             <h4>
                 LIENS
             </h4>
+
+            <a href="/contact" class="text text-white">
+                Contact
+            </a> <br>
 
             <a href="/#stars" class="text text-white">
                 En vedette

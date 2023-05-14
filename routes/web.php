@@ -63,6 +63,8 @@ Route::post('/upload', [HomeController::class, 'upload']);
 
 Route::get('/mail', [MailController::class, 'sendMail']);
 
+Route::get('/contactMail', [MailController::class, 'contactMail']);
+
 Route::get('/watermark', [ImageController::class, 'imageWaterMark']);
 
 Route::get('/deleteView/{id}', [HomeController::class, 'deleteView']);

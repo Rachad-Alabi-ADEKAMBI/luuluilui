@@ -1,21 +1,26 @@
 <template>
     <div class="main" >
         <div class='buttons mt-3' v-if="showFilters">
-            <select name="location" class="" id="" >
-                <option value="all">Toutes les villes</option>
-                <option value="Cotonou">Cotonou</option>
-                <option value="Abomey-Calavi">Abomey-Calavi</option>
-                <option value="Porto-Novo">Porto-Novo</option>
-                <option value="Parakou">Parakou</option>
-                <option value="Bohicon">Bohicon</option>
-                <option value="Ouidah">Ouidah</option>
-                <option value="Abomey">Abomey</option>
-                <option value="Malanville">Malanville</option>
-                <option value="Natitingou">Natitingou</option>
-            </select>
+            <div class="buttons__item">
+    <select id="" @click="getByLocation()" v-model="location">
+        <option value="" disabled selected>Veuillez sélectionner</option>
+        <option value="Cotonou">Cotonou</option>
+        <option value="Abomey-Calavi">Abomey-Calavi</option>
+        <option value="Porto-Novo">Porto-Novo</option>
+        <option value="Parakou">Parakou</option>
+        <option value="Bohicon">Bohicon</option>
+        <option value="Ouidah">Ouidah</option>
+        <option value="Abomey">Abomey</option>
+        <option value="Malanville">Malanville</option>
+        <option value="Natitingou">Natitingou</option>
+    </select>
+</div>
 
-            <input type="range" v-model="rangeValue" min="0" max="80000000" class="mr-2 ml-2" @click="getRange()">
 
+            <input type="range" v-model="rangeValue" min="0"
+            max="80000000" class="buttons__item" @click="getRange()">
+
+           <div class="buttons__item">
             <button class="btn btn-primary"  @click='getAllCars()'>
                 Tout voir
             </button>
@@ -26,14 +31,21 @@
             <button @click='getToRent()' class="btn btn-primary">
                 A louer
             </button>
+           </div>
 
-                <i class="bi bi-search mt-4 search-icon" @click="displaySearch()"></i>
+            <div class="buttons__item">
+                <i class="bi bi-search search-icon" @click="displaySearch()"></i>
+            </div>
         </div>
+
+        <hr>
 
         <div class="mx-auto text-center search-field pt-3" v-if="showSearch">
                 <input type="text" placeholder="Nom ou modèle" v-model="searchText">
             <i class="bi bi-x" @click="getAllCars()"></i>
         </div>
+
+
 
    <!--filtered-->
    <section v-if='showFiltered' class="mt-4 pt-2"  >
@@ -102,7 +114,7 @@
    </section>
    <!-- end filtered-->
 
-   <!--show resukts -->
+   <!--show results -->
    <section class="mt-4 pt-2" v-if="showResults" >
        <h2 class="subtitle">
            RESULTAS DE LA RECHERCHE
@@ -363,6 +375,78 @@
 
    </section>
    <!-- end all-->
+
+      <!--show by location -->
+      <section class="mt-4 pt-2" v-if="showByLocation" >
+       <h2 class="subtitle">
+           ANNONCES PAR VILLES
+       </h2>
+
+       <p class="text text-center">
+        Resultas pour:  <span> {{ location  }}  </span>
+       </p>
+
+
+       <p class="text text-center" v-if="itemsByLocation.length  == 0">
+        Aucun résultat
+       </p>
+
+       <div class="container mt-3 " v-if="itemsByLocation.length  > 0">
+           <div class="row">
+               <div class="col-md-12 col-lg-4 mx-auto text-center" v-for='car in itemsByLocation' :key='car.id'>
+                <div class="item mx-auto" @click='getCar(car.id)'>
+                       <div class="item__top mb-0">
+                           <img :src="getImgUrl(car.pic1)" class='' alt="">
+                           <div class="info"> {{ format(car.price)}} XOF </div>
+                           <div class="bar">
+                               <p>{{  car.category }}</p>
+                           </div>
+                       </div>
+
+                       <div class="item__middle">
+                        <img :src="car.pic2 != null ? getImgUrl(car.pic2) : getSampleImg()"
+                                class=""
+                                alt="vehicule à louer au Bénin">
+
+                                <img :src="car.pic3 != null ? getImgUrl(car.pic3) : getSampleImg()"
+                                class=""
+                                alt="vehicule à vendre au Bénin">
+
+                                <img :src="car.pic4 !== null ? getImgUrl(car.pic4) : getSampleImg()"
+                                class=""
+                                alt="parc automobile benin">
+
+                       </div>
+
+                       <div class="item__bottom">
+                           <h3>
+                               {{ car.name }}
+                           </h3>
+
+                           <p>
+                            <i class="bi bi-tag-fill"></i>  <span>{{ car.category }}</span>, <br>
+                            <i class="bi bi-geo-alt-fill"></i> {{  car.location }}
+                           </p>
+
+                           <div class="list">
+                            <div class="list__item">Moteur: <br>
+                                <i class="bi bi-gear-wide-connected"></i>
+                                  <span> {{ car.engine }} </span>
+                            </div>
+                               <div class="list__item"> Climatisation: <br>
+                                <i class="fas fa-snowflake"></i>
+                                <span> {{ car.air_conditionning }} </span></div>
+                               <div class="list__item">Année: <br>
+                                <i class="bi bi-calendar-fill fw-bold"></i>
+                                <span> {{ car.year }} </span></div>
+                            </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+   <!--end location-->
 </div>
 </template>
 
@@ -387,10 +471,12 @@
        showSearch: false,
        showFilters: false,
        showFiltered: false,
+       showByLocation: false,
        footerCars: [],
        searchText: '',
        rangeValue: '',
-       showResults: false
+       showResults: false,
+       location: ''
 
    }
 },
@@ -407,6 +493,11 @@ computed: {
     return this.details.filter(detail => {
                     return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
                 })
+           },
+           itemsByLocation() {
+    return this.details.filter(detail => {
+                    return detail.location.toLowerCase().includes(this.location.toLowerCase())
+                })
            }
        },
 methods: {
@@ -418,6 +509,7 @@ methods: {
            this.showSearch = true;
            this.showFiltered = false;
            this.showResults = true;
+           this.showByLocation = false;
    },
    getRange(){
     this.showAllCars = false;
@@ -425,6 +517,7 @@ methods: {
         this.showToSell = false;
         this.showResults = false;
         this.showFiltered = true;
+        this.showByLocation = false;
    },
    closeSearch(){
        this.showFilters = true;
@@ -444,6 +537,7 @@ methods: {
        this.showSearch = false;
        this.showFiltered = false;
        this.showResults = false;
+       this.showByLocation = false;
 
    },
    getAllCars(){
@@ -457,6 +551,7 @@ methods: {
            this.showSearch = false;
            this.showFiltered = false;
            this.showResults = false;
+           this.showByLocation = false;
    },
    getToRent(){
        axios.get('/carsToRentApi').then(response =>
@@ -466,6 +561,15 @@ methods: {
            this.showToSell = false;
            this.showFiltered = false;
            this.showResults = false;
+           this.showByLocation = false;
+   },
+   getByLocation(){
+           this.showAllCars = false;
+           this.showToRent = false;
+           this.showToSell = false;
+           this.showFiltered = false;
+           this.showResults = false;
+           this.showByLocation = true;
    },
    getCar(id){
        window.location.replace('/adView/' +id);
