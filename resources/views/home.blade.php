@@ -1,7 +1,7 @@
 @extends ('./layouts/app')
 
 
-@section('title', 'Luuluilui')
+@section('title', 'Luuluilui - Annonces gratuites de vente et location de véhicules')
 
 @section ('content')
 
@@ -111,7 +111,7 @@
         <!--about-->
         <section class="section mt-5 p-3">
             <h2 class="title">
-                PARC AUTO BENIN
+                LUULUILUI
             </h2>
 
             <div class="row mt-3 intro">
@@ -167,8 +167,7 @@
                                 </span>
 
                                 <p class='text'>
-                                    Achetez le coeur
-                                    tranquille
+                                    Faites vos affaires tranquillement
                                 </p>
                             </div>
                         </div>

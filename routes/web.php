@@ -73,7 +73,7 @@ Route::get('/delete/{id}', [HomeController::class, 'delete']);
 
 Route::get('/editView/{id}', [HomeController::class, 'editView']);
 
-Route::get('/edit/{id}', [HomeController::class, 'edit']);
+Route::post('/edit/{id}', [HomeController::class, 'edit']);
 
 Route::get('/search', [HomeController::class, 'search']);
 

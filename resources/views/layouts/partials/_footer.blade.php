@@ -18,11 +18,15 @@
 
             <div class="cars">
                 <div class="car">
-                    <img src="img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt="acheter vehicule au benin" width="250"
-                        height="150"> <br>
+                    <a href="/marketplace">
+                        <img src="img/blake-meyer-CRNbHjNaljo-unsplash.jpg" alt="acheter vehicule au benin" width="250"
+                            height="150">
+                    </a> <br>
 
-                    <img src="img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="louer voiture au benin" width="250" height="90"
-                        class="mt-2">
+                    <a href="/marketplace">
+                        <img src="img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="louer voiture au benin" width="250"
+                            height="90" class="mt-2">
+                    </a>
 
                 </div>
             </div>
@@ -57,10 +61,10 @@
 
     <hr class="text text-white">
     <div class="footer__bottom">
-        <p>Luuluilui2023</p>
+        <p>©Luuluilui2023</p>
         <p>
             <a href="adekambirachad.com">
-                Codeurcreatif
+                <i class="fas fa-heart"></i> Codeurcreatif
             </a>
         </p>
 

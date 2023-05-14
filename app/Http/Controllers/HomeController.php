@@ -133,14 +133,36 @@ class HomeController extends Controller
     {
         $ad = Ad::find($id);
 
-        $ad->name = $request->name;
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'state' => 'required|string|max:255',
+            'kilometers' => 'required|numeric',
+            'engine' => 'required|string|max:255',
+            'places' => 'required|numeric',
+            'places' => 'required|numeric',
+            'box' => 'required|string|max:255',
+            'body' => 'required|string|max:255',
+            'air_conditionning' => 'nullable|string|max:255',
+            'handlebar' => 'nullable|string|max:255',
+        ]);
+
+        $ad->name = $validatedData['name'];
+        $ad->price = $validatedData['price'];
+        $ad->state = $validatedData['state'];
+        $ad->kilometers = $validatedData['kilometers'];
+        $ad->engine = $validatedData['engine'];
+        $ad->places = $validatedData['places'];
+        $ad->box = $validatedData['box'];
+        $ad->body = $validatedData['body'];
+        $ad->air_conditionning = $validatedData['air_conditionning'];
+        $ad->handlebar = $validatedData['handlebar'];
 
         $ad->save();
 
-        return redirect('/dashboard')->with(
-            'success',
-            'Annonce modifiée avec succès !'
-        );
+        return redirect('/dashboard')
+            ->with('success', 'Annonce modifiée avec succès !')
+            ->withErrors(['success' => 'Annonce modifiée avec succès !']);
     }
 
     public function myAds()

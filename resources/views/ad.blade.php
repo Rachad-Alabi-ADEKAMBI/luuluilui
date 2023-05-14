@@ -115,7 +115,7 @@
 
                                     <div class="detail">
                                         <div class="detail__info">
-                                            Boîte de vitesses: <br>
+                                            Boîte de vitesse: <br>
                                             <i class="fas fa-sitemap"></i> <span>{{$data->box}}</span>
                                         </div>
 
@@ -146,7 +146,7 @@
 
                                         <div class="detail__info">
                                             Etat: <br>
-                                            <i class="fas fa-signal"></i><span>{{ $data->state }} / 5</span>
+                                            <i class="fas fa-signal"></i><span>{{ $data->state }}</span>
                                         </div>
                                     </div>
 

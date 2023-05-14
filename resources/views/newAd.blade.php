@@ -25,19 +25,18 @@
                         <div class="form-group col-md-12 col-lg-6">
                             <label for="inputEmail4">Nom <span>*</span> </label>
                             <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Nom"
-                                required value="caorsso">
+                                required>
                         </div>
 
                         <div class="form-group col-md-12 col-lg-3">
                             <label for="inputEmail4">Marque <span>*</span></label>
                             <input type="text" class="form-control" name="brand_name" required id="inputEmail4"
-                                placeholder="Modèle" value="artic">
+                                placeholder="Modèle">
                         </div>
 
                         <div class="form-group col-md-12 col-lg-3">
                             <label for="inputEmail4">Prix <span>*</span></label>
-                            <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix"
-                                value="12000">
+                            <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix">
                         </div>
                     </div>
 
@@ -45,7 +44,7 @@
                         <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Année: <span>*</span></label>
                             <input type="number" class="form-control" name="year" id="inputEmail4" placeholder="Nom"
-                                required value="1992">
+                                required>
                         </div>
 
                         <div class="form-group col-md-12 col-lg-4">
@@ -60,8 +59,8 @@
 
                         <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Couleur: <span>*</span></label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur"
-                                value="perfect" name="color" required>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Couleur" name="color"
+                                required>
                         </div>
                     </div>
 
@@ -69,7 +68,7 @@
                         <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Moteur: <span>*</span> </label>
                             <input type="text" class="form-control" name="engine" id="inputEmail4" placeholder="Moteur"
-                                required value="honda">
+                                required>
                         </div>
 
 
@@ -77,8 +76,8 @@
                             <label for="inputEmail4">Boîte: <span>*</span></label>
                             <select type="text" class="form-control" name="box" id="inputEmail4">
                                 <option value="">Type de boîte de vitesse</option>
-                                <option value="Automatique">Auto</option>
-                                <option value="Manuelle">Manuel</option>
+                                <option value="Auto">Auto</option>
+                                <option value="Manuel">Manuel</option>
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>
@@ -98,13 +97,13 @@
                         <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Kilométrage: <span>*</span> </label>
                             <input type="number" class="form-control" name="kilometers" id="inputEmail4"
-                                placeholder="Kilométrage au compteur" required value="">
+                                placeholder="Kilométrage au compteur" required>
                         </div>
 
                         <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Carosserie: <span>*</span></label>
                             <input type="text" class="form-control" name="body" required id="inputEmail4"
-                                placeholder="Berline, Semi-berline..." value="">
+                                placeholder="Berline, Semi-berline...">
                         </div>
 
                         <div class="form-group col-md-12 col-lg-4">
@@ -122,7 +121,7 @@
                         <div class="form-group col-md-12 col-lg-4">
                             <label for="inputEmail4">Places: <span>*</span> </label>
                             <input type="number" class="form-control" name="places" id="inputEmail4"
-                                placeholder="Nombre de places" required value="">
+                                placeholder="Nombre de places" required>
                         </div>
 
                         <div class="form-group col-md-12 col-lg-4">
@@ -155,8 +154,8 @@
                     <div class="row mt-3">
                         <div class="col-sm-6 col-sm-12">
                             <label for="">Description: <span>*</span></label>
-                            <textarea name="description" id="" cols="58" required rows="5" class="text-black fw-normal"
-                                value="greenie"></textarea>
+                            <textarea name="description" id="" cols="58" required rows="5"
+                                class="text-black fw-normal"></textarea>
                         </div>
                     </div> <br>
 
