@@ -24,7 +24,8 @@
         <!--show ads-->
         <div class="row mt-3"  v-if="showMyAds">
             <h1 class="title">
-                Mes annonces <i class="bi bi-search"  @click="displaySearch()" v-if="details.length > 0"></i>
+                Mes annonces  <span v-if="ads_number > 0">({{ ads_number }})</span> <i class="bi bi-search"  @click="displaySearch()" v-if="details.length > 0"></i>
+
             </h1>
 
 
@@ -41,7 +42,7 @@
                         <table class="table">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Nom</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Prix</th>
@@ -49,14 +50,14 @@
                             </thead>
                             <tbody>
                                 <tr v-for="ad in details" :key="ad.id">
-                                    <td data-label=''>
-                                        {{ ad.id }}
+                                    <td data-label='Id'>
+                                        {{ formatTheDate(ad.created_at) }}
                                     </td>
                                     <td data-label='Nom'>
                                         {{ ad.name }}
                                     </td>
 
-                                    <td data-label='Id' scope="row">
+                                    <td data-label='Image' scope="row">
                                         <img :src='getImgUrl(ad.pic1)' class="table-img" width="90" height="40">
                                     </td>
                                     <td data-label='Prix'>
@@ -143,8 +144,11 @@
 export default {
     name: 'User',
     props: {
-
-    },
+    ads_number: {
+      type: Number,
+      required: true
+    }
+  },
     data() {
         return {
             showMyAds: false,
@@ -217,6 +221,20 @@ export default {
         getImgUrl(pic) {
             return "img/ads/" + pic ;
         },
+        formatTheDate(theDate) {
+                const date = new Date(theDate);
+                const options = {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                };
+                return date.toLocaleDateString('fr-FR', options);
+        },
     }
 }
 </script>
+<style>
+   .title span{
+    font-size: 0.8em;
+   }
+</style>

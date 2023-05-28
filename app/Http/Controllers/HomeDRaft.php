@@ -71,8 +71,8 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $userId = auth()->id();
         $data = Ad::all();
+        $userId = auth()->id();
         $user = User::find($userId);
 
         return view('dashboard', compact('data', 'user'));
@@ -85,14 +85,6 @@ class HomeController extends Controller
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: application/json');
         return json_encode($data, JSON_UNESCAPED_UNICODE);
-    }
-
-    public function editUserView()
-    {
-        $userId = auth()->id();
-        $data = User::find($userId);
-
-        return view('/profile/show', compact('data'));
     }
 
     public function adView($id)
@@ -114,8 +106,6 @@ class HomeController extends Controller
         }
         */
         return view('ad', compact('data'), compact('others'));
-
-        //  return view('ad', compact('data'));
     }
 
     public function deleteView($id)
@@ -155,18 +145,38 @@ class HomeController extends Controller
     public function edit($id, Request $request)
     {
         $ad = Ad::find($id);
-        $ad->name = $request->input('name');
-        $ad->price = $request->input('price');
-        $ad->state = $request->input('state');
-        $ad->kilometers = $request->input('kilometers');
-        $ad->engine = $request->input('engine');
-        $ad->state = $request->input('state');
-        $ad->fuel = $request->input('fuel');
-        $ad->places = $request->input('places');
-        $ad->box = $request->input('box');
-        $ad->body = $request->input('body');
-        $ad->air_conditionning = $request->input('air_conditionning');
-        $ad->handlebar = $request->input('handlebar');
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'state' => 'required|string|max:255',
+            'kilometers' => 'required|numeric',
+            'engine' => 'required|string|max:255',
+            'places' => 'required|numeric',
+            'places' => 'required|numeric',
+            'box' => 'required|string|max:255',
+            'body' => 'required|string|max:255',
+            'air_conditionning' => 'nullable|string|max:255',
+            'handlebar' => 'nullable|string|max:255',
+            'category' => 'required|string|max:255',
+
+            'color' => 'required|string|max:255',
+            'brand_name' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
+
+        $ad->name = $validatedData['name'];
+        $ad->price = $validatedData['price'];
+        $ad->state = $validatedData['state'];
+        $ad->kilometers = $validatedData['kilometers'];
+        $ad->engine = $validatedData['engine'];
+        $ad->places = $validatedData['places'];
+        $ad->box = $validatedData['box'];
+        $ad->body = $validatedData['body'];
+        $ad->air_conditionning = $validatedData['air_conditionning'];
+        $ad->handlebar = $validatedData['handlebar'];
+
         $ad->category = $request->input('category');
         $ad->year = $request->input('year');
         $ad->color = $request->input('color');
@@ -174,7 +184,8 @@ class HomeController extends Controller
         $ad->location = $request->input('location');
         $ad->description = $request->input('description');
 
-        $pic1 = $request->file('pic1');
+        /*       $pic1 = $request->file('pic1');
+
         if ($pic1) {
             $imagename = time() . '.' . $pic1->getClientOriginalExtension();
             $pic1->move(public_path('img/ads'), $imagename);
@@ -191,31 +202,13 @@ class HomeController extends Controller
                 $ad->$pic = $imagename;
             }
         }
+        */
 
         $ad->save();
 
         return redirect('/dashboard')
             ->with('success', 'Annonce modifiée avec succès !')
             ->withErrors(['success' => 'Annonce modifiée avec succès !']);
-    }
-
-    public function editUser(Request $request)
-    {
-        $userId = auth()->id();
-        $user = User::find($userId);
-
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->phone_number = $request->input('phone_number');
-
-        $user->save();
-
-        return redirect('/dashboard')
-            ->with('success', 'Profil modifié avec succès !')
-            ->withErrors([
-                'errors' =>
-                    'Une erreur est survenue, merci de réessayer ultérireurement !',
-            ]);
     }
 
     public function myAds()
@@ -263,6 +256,7 @@ class HomeController extends Controller
         $ad->stars = 0;
 
         $pic1 = $request->file('pic1');
+
         if ($pic1) {
             $imagename = time() . '.' . $pic1->getClientOriginalExtension();
             $pic1->move(public_path('img/ads'), $imagename);
@@ -281,11 +275,6 @@ class HomeController extends Controller
         }
 
         $ad->save();
-
-        //update user ads
-        $user = User::find(Auth::user()->id);
-        $user->ads += 1;
-        $user->save();
 
         return redirect('/dashboard')->with(
             'success',

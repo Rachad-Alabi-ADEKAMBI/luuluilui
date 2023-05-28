@@ -121,7 +121,7 @@
 
                 <div class="col-sm-12 col-md-6 animate__animated animate__fadeInRight">
                     <p class="text text-justify p-3">
-                        Luuluilui est un site d'annonces de vente de voitures qui vous permet de trouver
+                        Luuluilui est un site d'annonces de vente et de locations de voitures qui vous permet de trouver
                         facilement
                         et
                         rapidement la voiture de vos rêves. Que vous cherchiez une voiture d'occasion ou une voiture

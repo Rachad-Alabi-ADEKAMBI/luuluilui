@@ -25,7 +25,8 @@
     </section>
 
 
+    <User :ads_number="{{ $user->ads }}"></User>
 
-    <User />
+
 </main>
 @endsection

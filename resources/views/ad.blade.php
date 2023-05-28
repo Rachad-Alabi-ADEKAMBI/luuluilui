@@ -7,7 +7,7 @@
 
 
 
-<div class="">
+<div class="pb-5">
     <div class="main">
         <div class="container mt-2 bg-light pt-5">
 
@@ -35,16 +35,14 @@
                                     <img src="{{ asset('img/ads/'.$data->pic2) }}" alt='acheter voiture au benin'
                                         class="images_item">
                                     @else
-                                    <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
-                                        class="images_item">
+                                    <i class="fas fa-car-side images_item_icon"></i>
                                     @endif
 
                                     @if(!empty($data->pic3))
                                     <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
                                         class="images_item">
                                     @else
-                                    <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
-                                        class="images_item">
+                                    <i class="fas fa-car-side images_item_icon"></i>
                                     @endif
                                 </div>
 
@@ -53,16 +51,14 @@
                                     <img src="{{ asset('img/ads/'.$data->pic4) }}" alt='acheter voiture au benin'
                                         class="images_item">
                                     @else
-                                    <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
-                                        class="images_item">
+                                    <i class="fas fa-car-side images_item_icon"></i>
                                     @endif
 
                                     @if(!empty($data->pic5))
                                     <img src="{{ asset('img/ads/'.$data->pic5) }}" alt='acheter voiture au benin'
                                         class="images_item">
                                     @else
-                                    <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
-                                        class="images_item">
+                                    <i class="fas fa-car-side images_item_icon"></i>
                                     @endif
                                 </div>
 
@@ -71,16 +67,14 @@
                                     <img src="{{ asset('img/ads/'.$data->pic6) }}" alt='acheter voiture au benin'
                                         class="images_item">
                                     @else
-                                    <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
-                                        class="images_item">
+                                    <i class="fas fa-car-side images_item_icon"></i>
                                     @endif
 
                                     @if(!empty($data->pic7))
                                     <img src="{{ asset('img/ads/'.$data->pic7) }}" alt='acheter voiture au benin'
                                         class="images_item">
                                     @else
-                                    <img src="{{ asset('img/ads/pic.jpg') }}" alt='louer voiture au benin'
-                                        class="images_item">
+                                    <i class="fas fa-car-side images_item_icon"></i>
                                     @endif
                                 </div>
                             </div>
@@ -90,8 +84,8 @@
                             <div class="col">
                                 <p class="text text-left">
                                     <span> {{ number_format($data->price, '0', '', ' ' ) }} XOF</span> <br>
-                                    <span> {{$data->category  }}</span>,
-                                    <span> {{ $data->location }} </span>
+                                    <strong>{{$data->category  }},
+                                        {{ $data->location }}</strong>
                                 </p>
                             </div>
                         </div>
@@ -174,7 +168,9 @@
                             <div class="col-sm-12 col-md-2 seller">
                                 <div class="card mx-auto">
                                     <div class="card__top">
-                                        <img src="/img/users/pdg.jpeg" class="images_item">
+                                        <h3 class="subtitle mx-auto">
+                                            Annonceur
+                                        </h3>
 
                                         <div class="card__top__infos">
                                             <i class="fas fa-user"></i> {{  $data->first_name }}
@@ -198,8 +194,81 @@
         </div>
     </div>
 
+    <section class='section bg-light pt-2' id="last">
+        <h2 class="subtitle mt-1    ">
+            LES PLUS VUES
+        </h2>
+
+        <div class="container mt-2">
+            <div class="row">
+                @foreach($others as $data)
+                <div class="col-md-12 col-lg-4">
+                    <a href="{{ url('/adView/'.$data->id) }}">
+                        <div class="item mx-auto">
+                            <div class="item__top mb-0">
+                                <img src="{{ asset('img/ads/'.$data->pic1) }}" class='' alt="">
+                                <div class="info"> {{ number_format($data->price, 0, '',' ')}} XOF </div>
+                                <div class="bar">
+                                    <p>{{  $data->category }}</p>
+                                </div>
+                            </div>
+
+                            <div class="item__middle">
+                                @if(!empty($data->pic2))
+                                <img src="{{ asset('img/ads/'.$data->pic2) }}" alt='acheter voiture au benin'
+                                    class="images_item">
+                                @else
+                                <i class="fas fa-car-side"></i>
+                                @endif
+
+                                @if(!empty($data->pic3))
+                                <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                    class="images_item">
+                                @else
+                                <i class="fas fa-car-side images_item_icon"></i>
+                                @endif
+
+                                @if(!empty($data->pic3))
+                                <img src="{{ asset('img/ads/'.$data->pic3) }}" alt='acheter voiture au benin'
+                                    class="images_item">
+                                @else
+                                <i class="fas fa-car-side images_item_icon"></i>
+                                @endif
+                            </div>
+
+                            <div class="item__bottom">
+                                <h3>
+                                    {{ $data->name }}
+                                </h3>
+
+                                <p>
+                                    <i class="bi bi-tag-fill"></i> <span>{{ $data->category }}</span>, <br>
+                                    <i class="bi bi-geo-alt-fill"></i> {{  $data->location }}
+                                </p>
+
+                                <div class="list">
+                                    <div class="list__item">Moteur: <br>
+                                        <i class="bi bi-gear-wide-connected"></i>
+                                        <span> {{ $data->engine }} </span>
+                                    </div>
+                                    <div class="list__item"> Climatisation: <br>
+                                        <i class="fas fa-snowflake"></i>
+                                        <span> {{ $data->air_conditionning }} </span>
+                                    </div>
+                                    <div class="list__item">Année: <br>
+                                        <i class="bi bi-calendar-fill fw-bold"></i>
+                                        <span> {{ $data->year }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
     </section>
-</div>
 </div>
 
 

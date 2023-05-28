@@ -9,8 +9,8 @@
         POLITIQUE DE CONFIDENTIALITE
     </h1>
 
-    <h2 class="subtitle mt-2">
-        Politique de confidentialité de Luuluilui.fr
+    <h2 class="subtitle mt-3">
+        Préambule
     </h2>
 
     <p>

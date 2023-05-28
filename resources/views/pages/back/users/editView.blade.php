@@ -39,16 +39,18 @@ Modifier annonce
 
                             <div class="form-group col-md-12 col-lg-3">
                                 <label for="inputEmail4">Prix <span>*</span></label>
-                                <input type="text" class="form-control" name="price" id="inputEmail4" placeholder="Prix"
-                                    value="{{ $ad->price }}">
+                                <input type="text" class="form-control"
+                                    onkeyup="if(this.value<0){this.value= this.value * -1}" name="price"
+                                    id="inputEmail4" placeholder="Prix" value="{{ $ad->price }}">
                             </div>
                         </div>
 
                         <div class="row mt-3">
                             <div class="form-group col-md-12 col-lg-4">
                                 <label for="inputEmail4">Année: <span>*</span></label>
-                                <input type="number" class="form-control" name="year" id="inputEmail4" placeholder="Nom"
-                                    value="{{ $ad->year }}">
+                                <input type="number" class="form-control"
+                                    onkeyup="if(this.value<0){this.value= this.value * -1}" name="year" id="inputEmail4"
+                                    placeholder="Nom" value="{{ $ad->year }}">
                             </div>
 
                             <div class="form-group col-md-12 col-lg-4">
@@ -101,8 +103,10 @@ Modifier annonce
                         <div class="row mt-3">
                             <div class="form-group col-md-12 col-lg-4">
                                 <label for="inputEmail4">Kilométrage: <span>*</span> </label>
-                                <input type="number" class="form-control" name="kilometers" id="inputEmail4"
-                                    placeholder="Kilométrage au compteur" value="{{ $ad->kilometers }}">
+                                <input type="number" class="form-control"
+                                    onkeyup="if(this.value<0){this.value= this.value * -1}" name="kilometers"
+                                    id="inputEmail4" placeholder="Kilométrage au compteur"
+                                    value="{{ $ad->kilometers }}">
                             </div>
 
                             <div class="form-group col-md-12 col-lg-4">
@@ -125,7 +129,8 @@ Modifier annonce
                         <div class="row mt-3">
                             <div class="form-group col-md-12 col-lg-4">
                                 <label for="inputEmail4">Places: <span>*</span> </label>
-                                <input type="number" class="form-control" name="places" id="inputEmail4"
+                                <input type="number" class="form-control" name="places"
+                                    onkeyup="if(this.value<0){this.value= this.value * -1}" id="inputEmail4"
                                     placeholder="Nombre de places" value="{{ $ad->places }}">
                             </div>
 

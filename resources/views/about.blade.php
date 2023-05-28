@@ -27,17 +27,17 @@ A propos
                 </div>
 
                 <div class="col-sm-12 col-md-6">
-                    <img src="{{ url('https://luuluilui.fr/public/img/joey-banks-YApiWyp0lqo-unsplash.jpg') }}">
+                    <img src="{{ url('/img/joey-banks-YApiWyp0lqo-unsplash.jpg') }}">
 
                 </div>
             </div>
 
             <div class="row mt-2">
                 <div class="col-sm-12 col-md-6 p-3">
-                    <img src="{{ url('https://luuluilui.fr/public/img/c-b-cAbH8B-14Vo-unsplash.jpg') }}">
+                    <img src="{{ url('/img/c-b-cAbH8B-14Vo-unsplash.jpg') }}">
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <p class="text-left pt-4">
+                    <p class="text-justify pt-4">
                         En tant que vendeur, vous pouvez également bénéficier des avantages offerts par Luuluilui. Vous
                         pouvez publier facilement et rapidement une annonce de vente de votre voiture en fournissant des
                         informations détaillées sur le véhicule, telles que le modèle, l'année, le kilométrage, l'état

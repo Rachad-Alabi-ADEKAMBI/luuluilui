@@ -79,4 +79,8 @@ Route::get('/search', [HomeController::class, 'search']);
 
 Route::get('/update_view/{id}', [HomeController::class, 'update_view']);
 
+Route::get('/editUserView', [HomeController::class, 'editUserView']);
+
+Route::post('/editUser', [HomeController::class, 'editUser']);
+
 Route::post('/update/{id}', [HomeController::class, 'update']);
