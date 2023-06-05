@@ -84,3 +84,7 @@ Route::get('/editUserView', [HomeController::class, 'editUserView']);
 Route::post('/editUser', [HomeController::class, 'editUser']);
 
 Route::post('/update/{id}', [HomeController::class, 'update']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

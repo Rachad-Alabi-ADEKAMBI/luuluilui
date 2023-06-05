@@ -1,92 +1,77 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <a href="/home">
-                <img src="{{ asset('img/logonoir.png') }}" alt="Location de véhicules au Bénin" width="140" height='90'
-                    class="mx-auto">
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <div class="">
-            <h1 class="text-center subtitle" style="font-size: 2.2em; color: #bc111d; font-weight: bold;">
-                Inscription
-            </h1>
-        </div>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Register') }}</div>
 
-        <x-jet-validation-errors class="mb-4" />
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
-            <div>
-                <x-jet-label for="first_name" value="{{ __('Prénoms') }}" />
-                <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name"
-                    :value="old('first_name')" required autofocus autocomplete="first_name" placeholder='John' />
-            </div>
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-            <div class="mt-4">
-                <x-jet-label for="last_name" value="{{ __('Nom') }}" />
-                <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name"
-                    :value="old('last_name')" required autofocus autocomplete="last_name" placeholder='Doe' />
-            </div>
-
-
-
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autocomplete="username" placeholder='johndoe@mail.fr' />
-            </div>
-
-
-            <div class="mt-4">
-                <x-jet-label for="phone_number" value="{{ __('Numéro de téléphone') }}" />
-                <x-jet-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number"
-                    :value="old('phone_number')" required autocomplete="Numéro de téléphone"
-                    placeholder='+ XXX XXXXXXXX' />
-            </div>
-            <hr>
-
-            <div class="mt-4">
-                <x-jet-label for="username" value='{{ __("Nom d`utilisateur") }}' />
-                <x-jet-input id=" username" class="block mt-1 w-full" type="text" name="username"
-                    :value="old(' username')" required autofocus autocomplete="username" placeholder='johnDoe1' />
-            </div>
-
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Mot de passe') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirmez le mot de passe') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                    name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="terms">
-                    <div class="flex items-center">
-                        <x-jet-checkbox name="terms" id="terms" required />
-
-                        <div class="ml-2">Oui j'accepte <a target="_blank" href="/cgu"
-                                class="underline text-sm text-gray-600 hover:text-gray-900">les CGU</a>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                </x-jet-label>
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Vous avez déjà un compte ? cliquez ici') }}
-                </a>
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                <x-jet-button class="ml-4">
-                    {{ __('Inscription') }}
-                </x-jet-button>
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+        </div>
+    </div>
+</div>
+@endsection
